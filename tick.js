@@ -2,11 +2,12 @@ function tick() {
     time = new Date();
     for(var i = 0; e.blocks.length > i; i++) {
         var myBlock = e.blocks[i];
+        var myContent = myBlock.getElementsByTagName("content")[0];
 
-        myBlock.innerHTML = returnValue(myBlock.getAttribute("type"));
+        myContent.innerHTML = returnValue(myBlock.getAttribute("type"));
     }
 
-    if(config.debug) {
+    if(config.debug) { // If debug mode is enabled
         tickDebug();
     }
 }

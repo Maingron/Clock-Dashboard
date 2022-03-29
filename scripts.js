@@ -24,6 +24,7 @@ function spawnBlock(attributes) {
         myNewElement.setAttribute(Object.keys(attributes)[i], attributes[Object.keys(attributes)[i]])
     }
     myNewElement.classList.add("block");
+    myNewElement.innerHTML = "<content></content>";
     e.blockContainer.append(myNewElement);
 }
 

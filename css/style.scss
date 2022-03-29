@@ -6,10 +6,12 @@ $themecolor: #ffff00;
 @import "mode-edit.scss";
 
 html {
+    font-size: 24px;
     body {
         background: $body-background;
         color: $font-color;
         font-family: $font-family;
+        font-size: 3rem;
         .block {
             position: absolute;
             display: inline-block;
@@ -24,5 +26,15 @@ html {
         button {
 
         }
+
+        template {
+            display: none;
+        }
     }
+}
+
+
+#debug {
+    font-size: 1rem;
+    position: absolute;
 }

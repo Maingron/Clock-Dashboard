@@ -2,6 +2,46 @@ html {
     body.mode-edit {
         .block {
             outline: 2px solid $themecolor;
+            padding: 0;
+            margin: 0;
+            .headbar {
+                display: inline;
+                position: absolute;
+                width: 100%;
+                top: -1rem;
+                height: 1rem;
+                outline: 2px solid $themecolor;
+                background-color: $themecolor;
+                .move {
+                    position: relative;
+                    top: 0;
+                    left: 0;
+                    width: calc(100% - 2rem - 2px);
+                    height: 1rem;
+                    border: 1px solid red;
+                    cursor: move;
+                    float: left;
+                    box-sizing: border-box;
+                }
+                button {
+                    position: relative;
+                    height: 1rem;
+                    width: 1rem;
+                    border: 0;
+                    border-radius: 0;
+                    display: inline-block;
+                    float: right;
+                    z-index: 8888;
+
+                    &.delete {
+                        background:red;
+                    }
+
+                    &.edit {
+                        background: lime;
+                    }
+                }
+            }
         }
     }
 }

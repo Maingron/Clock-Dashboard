@@ -36,6 +36,7 @@ function initEdit() {
 }
 
 initEdit();
+
 var myMovingBlockOffsetX;
 var myMovingBlockOffsetY;
 

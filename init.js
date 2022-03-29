@@ -97,15 +97,16 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                     "type": "tickcounter"
                 },
                 {
-                    "x": "600px",
-                    "y": "200px",
-                    "type": "tickcounter"
-                },
-                {
                     "x": "700px",
                     "y": "200px",
-                    "type": "tickcounter"
+                    "type": "supposedtickscounter"
+                },
+                {
+                    "x": "800px",
+                    "y": "200px",
+                    "type": "tickpercentage"
                 }
+                
 
             ]
         }

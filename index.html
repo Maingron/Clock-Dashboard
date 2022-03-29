@@ -16,8 +16,6 @@
             <div id="moveoverlay"></div>
             <div id="one_rem"></div>
             <div id="debug">
-                <span id="supposedtickscounter">0</span> = <br>
-                <span id="tickpercentage">0</span>%
                 <div id="mousepos"></div>
             </div>
             <div id="block-container">
@@ -58,6 +56,16 @@
         <template id="tickcounter">
             <render type="js">session.tickcount</render>
         </template>
+
+        <template id="supposedtickscounter">
+            <render type="js">session.supposedtickscount = Math.round(((time.getTime() - session.starttime) / 1000 * config.tps))</render>
+        </template>
+
+        <template id="tickpercentage">
+            <render type="js">Math.round((session.tickcount / session.supposedtickscount) * 10000) / 100</render>
+        </template>
+
+
         <script src="init.js"></script>
         <script src="scripts.js"></script>
         <script src="debug.js"></script>

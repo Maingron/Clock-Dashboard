@@ -7,6 +7,10 @@ function tick() {
         myContent.innerHTML = returnValue(myBlock.getAttribute("type"));
     }
 
+    if(session.mode == "edit") {
+        tickEdit();
+    }
+
     if(config.debug) { // If debug mode is enabled
         tickDebug();
     }

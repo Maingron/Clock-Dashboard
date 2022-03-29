@@ -12,12 +12,19 @@ function init() { // Initialize
 
     var elements = element = e = {
         "blockContainer": document.getElementById("block-container"),
-        "results": document.getElementById("results")
+        "results": document.getElementById("results"),
+        "one_rem": document.getElementById("one_rem"),
+        "qs_root": document.querySelector(":root")
     }
 
     session = {
-        "starttime": time.getTime()
+        "starttime": time.getTime(),
+        "blocknr": 0 // Block with highest id
     }
+
+    e.qs_root.style.setProperty("--one_rem", config.one_rem);
+
+    session.one_rem = e.one_rem.offsetHeight;
 
     if(config.debug) {
         e.debug = document.getElementById("debug");
@@ -40,6 +47,7 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
         config = { // Initial configuration
             "tps": "2",
             "debug": true,
+            "one_rem": "24px",
             "myWatchface": [
                 {
                     "x": "100px",

@@ -25,6 +25,8 @@ function spawnBlock(attributes) {
     }
     myNewElement.classList.add("block");
     myNewElement.innerHTML = "<content></content>";
+    session.blocknr++;
+    myNewElement.id = session.blocknr;
     e.blockContainer.append(myNewElement);
 }
 

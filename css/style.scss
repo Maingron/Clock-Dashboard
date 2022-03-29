@@ -1,20 +1,38 @@
 $body-background: #000000;
 $font-color: #ffffff;
 $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe UI Variable', 'Roboto', 'Tahoma', 'Ubuntu', sans-serif;
-$themecolor: #ffff00;
+
+:root {
+    --themecolor: #ffff00;
+}
 
 @import "mode-edit.scss";
 
 html {
-    font-size: 24px;
+    font-size: var(--one_rem);
     body {
         background: $body-background;
         color: $font-color;
         font-family: $font-family;
         font-size: 3rem;
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        box-sizing: border-box;
         .block {
             position: absolute;
             display: inline-block;
+        }
+
+        #one_rem {
+            height: 1rem;
+            padding: 0;
+            margin: 0;
+            border: 0;
+            position: absolute;
+            box-sizing: border-box;
+            line-height: 0;
+            font-size: 0;
         }
 
         #mode-overlay {
@@ -37,4 +55,18 @@ html {
 #debug {
     font-size: 1rem;
     position: absolute;
+    display: inline;
+    #mousepos {
+        height: 8px;
+        width: 8px;
+        margin-top: -4px;
+        margin-left: -4px;
+        position: absolute;
+        display: inline-block;
+        background: red;
+    }
 }
+
+// * {
+//     outline: 1px solid red;
+// }

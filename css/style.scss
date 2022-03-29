@@ -1,0 +1,27 @@
+$body-background: #000000;
+$font-color: #ffffff;
+$font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI', 'Segoe UI Variable', 'Roboto', 'Tahoma', 'Ubuntu', sans-serif;
+
+html {
+    body {
+        background: $body-background;
+        color: $font-color;
+        font-family: $font-family;
+        .block {
+            border: 1px solid red;
+        }
+
+        #mode-overlay {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        button {
+
+        }
+    }
+}
+
+
+

@@ -1,17 +1,49 @@
-var elements = element = e = {
-    "blockContainer": document.getElementById("block-container"),
-    "results": document.getElementById("results")
+
+
+
+
+spawnBlocksFromConfig();
+
+// function spawnBlocks() {
+//     for(var i = 0; config.myWatchface.length > i; i++) {
+//         e.blockContainer.innerHTML += "[" + "(" + "x:" + config.myWatchface[i].x + " " + "y:" + config.myWatchface[i].y + ")" + config.myWatchface[i].inner + "]";
+//     }
+// }
+
+// spawnBlocks();
+
+function spawnBlocksFromConfig() {
+    for(var i = 0; config.myWatchface.length > i; i++) {
+        spawnBlock(config.myWatchface[i]);
+    }
 }
 
-var config = {
-    "tps": "5"
+function spawnBlock(attributes) {
+    var myNewElement = document.createElement("div");
+    for(var i = 0; Object.keys(attributes).length > i; i++) {
+        myNewElement.setAttribute(Object.keys(attributes)[i], attributes[Object.keys(attributes)[i]])
+    }
+    myNewElement.classList.add("block");
+    e.blockContainer.append(myNewElement);
 }
+
+
+
+function setBlockPositions() {
+    for(var i = 0; e.blocks.length > i; i++) {
+        var myBlock = e.blocks[i];
+        myBlock.style.top = myBlock.getAttribute("y");
+        myBlock.style.left = myBlock.getAttribute("x");
+    }
+}
+
+
 
 e.blockContainer.innerHTML = e.blockContainer.innerHTML.replaceAll("[","<div class='block'>");
 e.blockContainer.innerHTML = e.blockContainer.innerHTML.replaceAll("]","</div>");
 
-
 e.blocks = document.getElementsByClassName("block");
+
 
 for(var i = 0; e.blocks.length > i; i++) {
     if(e.blocks[i].innerHTML.charAt(0) == "(") { // If has attributes
@@ -26,12 +58,17 @@ for(var i = 0; e.blocks.length > i; i++) {
     }
 }
 
-function setBlockPositions() {
-    for(var i = 0; e.blocks.length > i; i++) {
-        var myBlock = e.blocks[i];
-        myBlock.style.top = myBlock.getAttribute("y");
-        myBlock.style.left = myBlock.getAttribute("x");
-    }
-}
+
 
 setBlockPositions();
+
+
+function returnValue(which) {
+    switch (which) {
+        case "seconds":
+            return time.getSeconds();
+
+        default:
+            return "default"
+        }
+}

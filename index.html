@@ -5,7 +5,7 @@
         <title>Clock 3</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-    <body>
+    <body class="mode-edit">
         <header>
             <div id="mode-overlay">
                 <button>Mode</button>
@@ -13,13 +13,15 @@
             </div>
         </header>
         <main>
-            <div id="blocks">
-                [div timezone:-12min refresh:no [minute]-[seconds]]
+            <div id="block-container">
+                [(x:100px y:200px)seconds]
+                <!-- [(refresh:no test:yes bla:bla hello fda color:lime)[(color:lime)minute]-[seconds]] -->
             </div>
-
         </main>
         <footer>
 
         </footer>
+
+        <script src="scripts.js"></script>
     </body>
 </html>

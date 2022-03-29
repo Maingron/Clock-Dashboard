@@ -1,5 +1,8 @@
 session.mode = "edit";
 
+var myMovingBlockOffsetX;
+var myMovingBlockOffsetY;
+
 for(var i = 0; e.blocks.length > i; i++) {
     var myBlock = e.blocks[i];
     myBlock.innerHTML = document.getElementById("headbar").innerHTML + myBlock.innerHTML;
@@ -30,15 +33,14 @@ function tickEdit() {
     e.mousepos.style.left = session.mouseX + "px";
 }
 
+registerTicker(tickEdit);
+
 function initEdit() {
     e.mousepos = document.getElementById("mousepos");
     e.moveoverlay = document.getElementById("moveoverlay");
 }
 
 initEdit();
-
-var myMovingBlockOffsetX;
-var myMovingBlockOffsetY;
 
 document.addEventListener("mousemove", function(event) {
     session.mouseX = event.clientX;

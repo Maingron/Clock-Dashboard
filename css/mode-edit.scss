@@ -12,16 +12,27 @@ html {
             position: absolute;
             display: none;
         }
+
         .block {
             outline: 2px solid var(--themecolor);
             padding: 0;
             margin: 0;
             &.selected {
-                outline: 1px solid red;
+                outline: 2px solid red;
                 .headbar {
                     .move {
                         z-index: 1050;
                     }
+                }
+            }
+            error {
+                display: inline-block;
+                font-size: .8em;
+                max-width: 12rem;
+                &::before {
+                    background:red;
+                    content: "Error:";
+                    margin-right: .4ch;
                 }
             }
             .headbar {
@@ -54,7 +65,7 @@ html {
                     z-index: 100;
 
                     &.delete {
-                        background:red;
+                        background: red;
                     }
 
                     &.edit {

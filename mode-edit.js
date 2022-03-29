@@ -3,6 +3,14 @@ session.mode = "edit";
 for(var i = 0; e.blocks.length > i; i++) {
     var myBlock = e.blocks[i];
     myBlock.innerHTML = document.getElementById("headbar").innerHTML + myBlock.innerHTML;
+    myBlock.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
+        session.mouseDown = true;
+        session.mouseDownOn = event.srcElement;
+        myMovingBlockOffsetX = event.layerX;
+        myMovingBlockOffsetY = event.layerY;
+        moveBlock();
+        event.preventDefault();
+    });
 
     myBlock.addEventListener("mousedown", function() {
         selectBlock(this.id);
@@ -37,15 +45,6 @@ document.addEventListener("mousemove", function(event) {
     moveBlock();
 });
 
-document.addEventListener("mousedown", function(event) {
-    session.mouseDown = true;
-    session.mouseDownOn = event.srcElement;
-    myMovingBlockOffsetX = event.layerX;
-    myMovingBlockOffsetY = event.layerY;
-    moveBlock();
-    event.preventDefault();
-});
-
 document.addEventListener("mouseup", function(event) {
     session.mouseDown = false;
     moveBlock();
@@ -57,7 +56,6 @@ function moveBlock() {
         document.body.classList.add("mousedown");
         if(session.mouseDownOn && session.mouseDownOn.parentElement.parentElement && session.mouseDownOn.parentElement.parentElement.classList.contains("selected")) {
             var myMovingBlock = session.mouseDownOn.parentElement.parentElement;
-            console.log(session.mouseX - myMovingBlockOffsetX);
             config.myWatchface[myMovingBlock.id - 1].x = (session.mouseX - myMovingBlockOffsetX) + "px";
             config.myWatchface[myMovingBlock.id - 1].y = (session.mouseY - myMovingBlockOffsetY + session.one_rem) + "px";
             myMovingBlock.style.left = config.myWatchface[myMovingBlock.id - 1].x;

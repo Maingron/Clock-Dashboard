@@ -16,7 +16,6 @@
             <div id="moveoverlay"></div>
             <div id="one_rem"></div>
             <div id="debug">
-                <span id="tickcounter">0</span> / <br>
                 <span id="supposedtickscounter">0</span> = <br>
                 <span id="tickpercentage">0</span>%
                 <div id="mousepos"></div>
@@ -28,6 +27,10 @@
 
         </footer>
 
+        <script>
+            tickFunctionArray = [];
+        </script>
+
         <template id="headbar">
             <div class="headbar">
                 <div class="move"></div>
@@ -36,12 +39,38 @@
             </div>
         </template>
 
+        <template id="reset">
+            <div class="reset">
+                <button onclick="reset()">Reset()</button>
+            </div>
+        </template>
+
+        <template id="createblock">
+            <div class="createblock">
+                <render type="seconds"></render>
+            </div>
+        </template>
+
+        <template id="seconds">
+            <render type="js">time.getSeconds()</render>
+        </template>
+
+        <template id="tickcounter">
+            <render type="js">session.tickcount</render>
+        </template>
         <script src="init.js"></script>
         <script src="scripts.js"></script>
         <script src="debug.js"></script>
         <script src="tick.js"></script>
-        
         <script src="mode-edit.js"></script>
+
+        
+        <script>
+            function hans() {
+                session.tickcount++;
+            }
+            registerTicker(hans);
+        </script>
 
     </body>
 </html>

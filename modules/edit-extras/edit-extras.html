@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<template id="top-right-menu">
+    <div class="top-right-menu">
+        <render type="mode-button"></render>
+        <render type="settings-button" class="hide display-edit"></render>
+        <render type="saveconfig-button" class="hide display-edit"></render>
+        <render type="reset-button" class="hide display-edit"></render>
+    </div>
+</template>
+
+<template id="mode-button">
+    <button onclick="toggleEditMode()">✏</button>
+</template>
+
+<template id="settings-button">
+    <button>⚙</button>
+</template>
+
+<template id="saveconfig-button">
+    <button onclick="saveConfig()">💾</button>
+</template>
+
+<template id="reset-button">
+    <button onclick="reset()">🧯</button>
+</template>
+
+<template id="createblock">
+    <div class="createblock">
+        <render type="js">buildAvailableBlocksMenu()</render>
+    </div>
+</template>

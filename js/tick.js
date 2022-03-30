@@ -14,10 +14,12 @@ function tick() {
     }
 
     for(myItem_renders of e.renders) {
-        if(myItem_renders.getAttribute("type") == "js") {
-            myItem_renders.innerHTML = returnValue(myItem_renders.innerHTML, true);
-        } else {
-            myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("type"));
+        if(!isChildOfSelectedBlock(myItem_renders)) {
+            if(myItem_renders.getAttribute("type") == "js") {
+                myItem_renders.innerHTML = returnValue(myItem_renders.innerText, true);
+            } else {
+                myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("type"));
+            }
         }
     }
 }

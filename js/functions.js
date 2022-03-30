@@ -111,6 +111,18 @@ function isSelectedBlock(which) {
     return session.selectedBlock == which; // Returns true or false
 }
 
+function isChildOfSelectedBlock(which) {
+    if(which.classList.contains("selected")) {
+        return true;
+    }
+    if(which.parentElement) {
+        if(isChildOfSelectedBlock(which.parentElement)) { // Call function again unless there's no parentElement anymore
+            return true;
+        };
+    }
+    return false;
+}
+
 function selectBlock(which) {
     session.selectedBlock = which;
     for(var i = document.getElementsByClassName("selected").length; i > 0; i--) {

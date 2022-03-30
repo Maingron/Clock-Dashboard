@@ -1,0 +1,9 @@
+.top-right-menu {
+    border: 2px solid orange;
+    border-right: 0;
+}
+
+.top-right-menu button {
+    border:0;
+    border-right: 2px solid orange;
+}

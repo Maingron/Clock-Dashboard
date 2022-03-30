@@ -11,69 +11,60 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "tps": "2",
             "debug": true,
             "edit_mode": true,
-            "one_rem": "2rem",
+            "one_rem": "32px",
             "loadmodules": [
                 "modules/date-display/init.js",
-                "modules/test/init.js"
+                "modules/test/init.js",
+                "modules/edit-extras/init.js"
             ],
             "myWatchface": [
                 {
-                    "x": "-2rem",
-                    "y": "10px",
-                    "type": "mode_button",
-                    "id": 0,
-                    "class": "selected"
+                    "x": "-0",
+                    "y": "0",
+                    "type": "top-right-menu",
+                    "id": 0
                 },
                 {
                     "x": "10px",
                     "y": "500px",
                     "type": "createblock",
-                    "id": 1,
-                    "class": "selected"
+                    "id": 1
                 },
                 {
                     "x": "100px",
                     "y": "200px",
                     "type": "seconds",
-                    "id": 2,
-                    "class": "selected"
+                    "id": 2
                 },
                 {
                     "x": "200px",
                     "y": "300px",
                     "type": "minutes",
-                    "id": 3,
-                    "class": "selected"
-                },
-                {
-                    "x": "400px",
-                    "y": "100px",
-                    "type": "reset",
-                    "id": 4
+                    "id": 3
                 },
                 {
                     "x": "500px",
                     "y": "200px",
                     "type": "tickcounter",
-                    "id": 5
+                    "id": 4
                 },
                 {
                     "x": "700px",
                     "y": "200px",
                     "type": "supposedtickscounter",
-                    "id": 6
+                    "id": 5
                 },
                 {
                     "x": "800px",
                     "y": "200px",
                     "type": "tickpercentage",
-                    "id": 7
+                    "id": 6
                 },
                 {
                     "x": "800px",
                     "y": "600px",
                     "type": "test",
-                    "id": 8
+                    "id": 7
                 }
             ]
         }

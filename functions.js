@@ -20,8 +20,31 @@ function setBlockPosition(which, x, y) {
         x = which.getAttribute("x");
         y = which.getAttribute("y");
     }
-    which.style.top = y;
-    which.style.left = x;
+
+    which.setAttribute("x",x);
+    which.setAttribute("y",y);
+
+    config.myWatchface[which.id].x = x;
+    config.myWatchface[which.id].y = y;
+
+    // Negative value means calculate from right:
+    if(x.charAt(0) == "-") {
+        which.style.left = "";
+        which.style.right = x.replace("-","");
+    } else {
+        which.style.left = x;
+        which.style.right = "";
+    }
+
+    if(y.charAt(0) == "-") {
+        which.style.top = "";
+        which.style.bottom = y.replace("-","");
+    } else {
+        which.style.top = y;
+        which.style.bottom = "";
+    }
+
+    saveConfig();
 }
 
 function registerTicker(which) {
@@ -57,6 +80,21 @@ function toggleEditMode(edittruefalse = !config.edit_mode) {
     config.edit_mode = edittruefalse;
     saveConfig();
     window.location.reload();
+}
+
+function isSelectedBlock(which) {
+    return session.selectedBlock == which; // Returns true or false
+}
+
+function selectBlock(which) {
+    session.selectedBlock = which;
+    for(var i = document.getElementsByClassName("selected").length; i > 0; i--) {
+        document.getElementsByClassName("selected")[i - 1].classList.remove("selected");
+    }
+    if(!which) {
+        return;
+    }
+    which.classList.add("selected");
 }
 
 // Storage functions

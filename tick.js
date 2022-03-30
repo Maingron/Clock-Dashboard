@@ -4,7 +4,7 @@ function tick() {
     for(myItem_blocks of e.blocks) { // Update all visible blocks
         myItem_blocks_content = myItem_blocks.getElementsByTagName("content")[0];
 
-        if(!config.edit_mode || !isSelectedBlock(myItem_blocks)) { // Don't update currently selected block if in Edit mode
+        if(!isSelectedBlock(myItem_blocks)) { // Don't update currently selected block if in Edit mode
             myItem_blocks_content.innerHTML = returnValue(myItem_blocks.getAttribute("type"));
         }
     }

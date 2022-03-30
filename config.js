@@ -11,25 +11,35 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "tps": "2",
             "debug": true,
             "edit_mode": true,
-            "one_rem": "24px",
+            "one_rem": "2rem",
             "myWatchface": [
+                {
+                    "x": "-2rem",
+                    "y": "10px",
+                    "type": "mode_button",
+                    "id": 0,
+                    "class": "selected"
+                },
                 {
                     "x": "10px",
                     "y": "500px",
                     "type": "createblock",
-                    "id": 1
+                    "id": 1,
+                    "class": "selected"
                 },
                 {
                     "x": "100px",
                     "y": "200px",
                     "type": "seconds",
-                    "id": 2
+                    "id": 2,
+                    "class": "selected"
                 },
                 {
                     "x": "200px",
                     "y": "300px",
                     "type": "minutes",
-                    "id": 3
+                    "id": 3,
+                    "class": "selected"
                 },
                 {
                     "x": "400px",

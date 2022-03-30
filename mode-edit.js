@@ -8,12 +8,12 @@ for(myBlock of e.blocks) {
         session.mouseDownOn = event.srcElement;
         myMovingBlockOffsetX = event.layerX;
         myMovingBlockOffsetY = event.layerY;
-        moveBlock();
+        dragBlock();
         event.preventDefault();
     });
 
     myBlock.addEventListener("mousedown", function() {
-        selectBlock(this.id);
+        selectBlock(this);
     });
 }
 

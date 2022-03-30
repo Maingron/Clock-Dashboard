@@ -38,6 +38,9 @@ function init() { // Initialize
         loadScriptFile("js/debug/debug.js");
     }
 
+    for(myItem_loadMods of config.loadmodules) {
+        loadScriptFile(myItem_loadMods);
+    }
 
     e.renders = document.getElementsByTagName("render");
 

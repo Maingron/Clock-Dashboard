@@ -52,6 +52,7 @@ function registerTicker(which) {
 }
 
 function getAvailableBlocks() {
+    session.availableBlocks = [];
     for(var i = 0; e.templates.length > i; i++) {
         session.availableBlocks.push(e.templates[i].id);
     }
@@ -79,6 +80,26 @@ function loadCSSFile(path) {
     document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+path+"\">");
 }
 
+function loadHTMLTemplate(path) {
+    var myNewElement = document.createElement("iframe");
+    myNewElement.src = path;
+    myNewElement.id = "loader";
+    // myNewElement.style.display = "none";
+    myNewElement.setAttribute("onload", "appendHTMLTemplateFromIframe(this)");
+    document.body.append(myNewElement);
+    getAvailableBlocks();
+}
+
+function appendHTMLTemplateFromIframe(which) {
+    for(myItem_iframeTemplate of which.contentWindow.document.getElementsByTagName("template")) {
+        var myNewElement = document.createElement("template");
+        myNewElement.innerHTML = myItem_iframeTemplate.innerHTML;
+        myNewElement.id = myItem_iframeTemplate.id;
+        document.body.append(myNewElement);
+    }
+    which.outerHTML = ""; // Despawns iframe
+    getAvailableBlocks();
+}
 
 function toggleEditMode(edittruefalse = !config.edit_mode) {
     config.edit_mode = edittruefalse;

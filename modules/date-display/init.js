@@ -1,0 +1,1 @@
+loadHTMLTemplate("modules/date-display/mytemplate.html")

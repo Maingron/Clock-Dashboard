@@ -12,6 +12,10 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "debug": true,
             "edit_mode": true,
             "one_rem": "2rem",
+            "loadmodules": [
+                "modules/date-display/init.js",
+                "modules/test/init.js"
+            ],
             "myWatchface": [
                 {
                     "x": "-2rem",
@@ -64,6 +68,12 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                     "y": "200px",
                     "type": "tickpercentage",
                     "id": 7
+                },
+                {
+                    "x": "800px",
+                    "y": "600px",
+                    "type": "test",
+                    "id": 8
                 }
             ]
         }

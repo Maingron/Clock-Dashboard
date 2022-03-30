@@ -52,6 +52,13 @@ function loadScriptFile(path) {
     document.write("<script src=\""+path+"\"></script>");
 }
 
+
+function toggleEditMode(edittruefalse = !config.edit_mode) {
+    config.edit_mode = edittruefalse;
+    saveConfig();
+    window.location.reload();
+}
+
 // Storage functions
 
 function reset() {

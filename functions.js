@@ -1,30 +1,61 @@
-function spawnBlocksFromConfig() {
-    for(var i = 0; config.myWatchface.length > i; i++) {
-        spawnBlock(config.myWatchface[i]);
-    }
-}
-
 function spawnBlock(attributes) {
     var myNewElement = document.createElement("div");
-    for(var i = 0; Object.keys(attributes).length > i; i++) {
-        myNewElement.setAttribute(Object.keys(attributes)[i], attributes[Object.keys(attributes)[i]])
+    for(myItem_attribute of Object.keys(attributes)) {
+        myNewElement.setAttribute(myItem_attribute, attributes[myItem_attribute])
     }
     myNewElement.classList.add("block");
     myNewElement.innerHTML = "<content></content>";
-    session.blocknr++;
-    myNewElement.id = session.blocknr;
+    myNewElement.id = attributes.id;
     e.blockContainer.append(myNewElement);
+    return(myNewElement);
 }
 
-
-function setBlockPositions() {
-    for(var i = 0; e.blocks.length > i; i++) {
-        var myBlock = e.blocks[i];
-        myBlock.style.top = config.myWatchface[i].y;
-        myBlock.style.left = config.myWatchface[i].x;
+function setBlockPosition(which, x, y) {
+    if(typeof(which) == "object") {
+    } else {
+        which = document.getElementById(which);
     }
+
+    if(!x && !y) {
+        x = which.getAttribute("x");
+        y = which.getAttribute("y");
+    }
+    which.style.top = y;
+    which.style.left = x;
 }
 
 function registerTicker(which) {
-    tickFunctionArray.push(which);
+    session.tickFunctionArray.push(which);
+}
+
+function getAvailableBlocks() {
+    for(var i = 0; e.templates.length > i; i++) {
+        session.availableBlocks.push(e.templates[i].id);
+    }
+}
+
+function returnValue(which, isjs = false) {
+    for(var i = 0; session.availableBlocks.length > i; i++) {
+        var myAvailableBlock = session.availableBlocks[i];
+        if(isjs) {
+            return(eval(which));
+        }
+        if(which == myAvailableBlock) {
+            return document.getElementById(myAvailableBlock).innerHTML;
+        }
+    }
+    return "<error>"+ which + " not found in available blocks</error>";
+}
+
+
+function loadScriptFile(path) {
+    document.write("<script src=\""+path+"\"></script>");
+}
+
+// Storage functions
+
+function reset() {
+    config = {};
+    localStorage.clear();
+    window.location.reload();
 }

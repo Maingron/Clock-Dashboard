@@ -1,5 +1,5 @@
 html {
-    body.mode-edit {
+    body.edit_mode {
         &.mousedown {
             #moveoverlay {
                 display: inline-block !important

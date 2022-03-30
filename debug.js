@@ -1,6 +1,5 @@
 function tickDebug() {
+    console.log("yes debug");
+}
 
-}
-if(config.debug) {
-    registerTicker(tickDebug);
-}
+registerTicker(tickDebug);

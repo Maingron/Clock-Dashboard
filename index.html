@@ -5,7 +5,7 @@
         <title>Clock 3</title>
         <link rel="stylesheet" type="text/css" href="css/style.css">
     </head>
-    <body class="mode-edit">
+    <body>
         <header>
             <div id="mode-overlay">
                 <button>Mode</button>
@@ -15,19 +15,9 @@
         <main>
             <div id="moveoverlay"></div>
             <div id="one_rem"></div>
-            <div id="debug">
-                <div id="mousepos"></div>
-            </div>
             <div id="block-container">
             </div>
         </main>
-        <footer>
-
-        </footer>
-
-        <script>
-            tickFunctionArray = [];
-        </script>
 
         <template id="headbar">
             <div class="headbar">
@@ -67,14 +57,12 @@
 
 
         <script src="functions.js"></script>
+        <script src="eventlisteners.js"></script>
         <script src="config.js"></script>
         <script src="init.js"></script>
         <script src="scripts.js"></script>
         <script src="tick.js"></script>
-        <script src="debug.js"></script>
-        <script src="mode-edit.js"></script>
 
-        
         <script>
             function hans() {
                 session.tickcount++;

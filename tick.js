@@ -1,27 +1,23 @@
 function tick() {
-    time = new Date();
-    for(var i = 0; e.blocks.length > i; i++) { // Update all visible blocks
-        var myBlock = e.blocks[i];
-        var myContent = myBlock.getElementsByTagName("content")[0];
+    time = new Date(); // Update time variable for use in templates and renders
 
-        if(myBlock.classList.contains("selected")) {
+    for(myItem_blocks of e.blocks) { // Update all visible blocks
+        myItem_blocks_content = myItem_blocks.getElementsByTagName("content")[0];
 
-        } else {
-            myContent.innerHTML = returnValue(myBlock.getAttribute("type"));
+        if(!config.edit_mode || !isSelectedBlock(myItem_blocks)) { // Don't update currently selected block if in Edit mode
+            myItem_blocks_content.innerHTML = returnValue(myItem_blocks.getAttribute("type"));
         }
-
     }
 
-    for(var i = 0; tickFunctionArray.length > i; i++) {
-        tickFunctionArray[i](); // Run 3rd-party registered functions
+    for(myItem of session.tickFunctionArray) {
+        myItem(); // Run 3rd-party registered functions
     }
 
-    for(var i = 0; e.renders.length > i; i++) {
-        var myRender = e.renders[i];
-        if(myRender.getAttribute("type") == "js") {
-            myRender.innerHTML = returnValue(myRender.innerHTML, true);
+    for(myItem_renders of e.renders) {
+        if(myItem_renders.getAttribute("type") == "js") {
+            myItem_renders.innerHTML = returnValue(myItem_renders.innerHTML, true);
         } else {
-            myRender.innerHTML = returnValue(myRender.getAttribute("type"));
+            myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("type"));
         }
     }
 }

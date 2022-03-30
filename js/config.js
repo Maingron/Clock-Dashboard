@@ -21,50 +21,12 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 {
                     "x": "-0",
                     "y": "0",
-                    "type": "top-right-menu",
-                    "id": 0
+                    "type": "top-right-menu"
                 },
                 {
-                    "x": "10px",
-                    "y": "500px",
-                    "type": "createblock",
-                    "id": 1
-                },
-                {
-                    "x": "100px",
-                    "y": "200px",
-                    "type": "seconds",
-                    "id": 2
-                },
-                {
-                    "x": "200px",
-                    "y": "300px",
-                    "type": "minutes",
-                    "id": 3
-                },
-                {
-                    "x": "500px",
-                    "y": "200px",
-                    "type": "tickcounter",
-                    "id": 4
-                },
-                {
-                    "x": "700px",
-                    "y": "200px",
-                    "type": "supposedtickscounter",
-                    "id": 5
-                },
-                {
-                    "x": "800px",
-                    "y": "200px",
-                    "type": "tickpercentage",
-                    "id": 6
-                },
-                {
-                    "x": "800px",
-                    "y": "600px",
-                    "type": "test",
-                    "id": 7
+                    "x": "-0",
+                    "y": "40%",
+                    "type": "createblock"
                 }
             ]
         }

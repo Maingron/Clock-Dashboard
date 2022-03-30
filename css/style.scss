@@ -16,11 +16,12 @@ html {
             render:not([type="js"]) {
                 font-size: 0;
             }
-            *:not(div) {
+            * {
                 font-size: 2rem;
             }
             div {
                 font-size: 0;
+                line-height: 0;
             }
             error { // Hide blocks with error
                 display: none;
@@ -45,6 +46,10 @@ html {
 
         render {
             font-size: 0;
+        }
+
+        select, option {
+            font-size: .6rem !important;
         }
 
         iframe {

@@ -23,10 +23,3 @@ function tick() {
         }
     }
 }
-
-if(config.tps != 0) { // Set tick interval
-    setInterval(function() {
-        tick();
-    }, 1000 / config.tps);
-}
-tick(); // Initial tick; Happens virtually instantly

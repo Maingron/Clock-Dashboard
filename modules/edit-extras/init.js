@@ -5,7 +5,7 @@ function buildAvailableBlocksMenu() {
     var result = [];
     result += "<select>";
     for(myItem of session.availableBlocks) {
-        result += "\<option\>";
+        result += "\<option value="+myItem+"\>";
         result += myItem;
         result += "\</option\>";
         result += "\n";

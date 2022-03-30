@@ -28,12 +28,6 @@ function init() { // Initialize
 
     e.blocks = [];
 
-    if(config.edit_mode) {
-        loadScriptFile("js/edit/functions-edit.js");
-        loadScriptFile("js/edit/mode-edit.js");
-        loadCSSFile("css/edit/mode-edit.css");
-    }
-
     if(config.debug) {
         loadScriptFile("js/debug/debug.js");
     }
@@ -48,14 +42,20 @@ function init() { // Initialize
     // document.querySelector("body").style.fontSize = vaer
     session.one_rem = e.one_rem.offsetHeight;
 
-    getAvailableBlocks();
-
-    for(myItem of config.myWatchface) {
-        var mySpawnedBlock = spawnBlock(myItem);
-        setBlockPosition(mySpawnedBlock);
-        e.blocks.push(mySpawnedBlock);
+    if(config.edit_mode) {
+        loadScriptFile("js/edit/functions-edit.js");
+        loadScriptFile("js/edit/mode-edit.js");
+        loadCSSFile("css/edit/mode-edit.css");
     }
+
+    initBlocks();
 
     initEventListeners(); // -> eventlisterners.js
 
+    if(config.tps != 0) { // Set tick interval
+        setInterval(function() {
+            tick();
+        }, 1000 / config.tps);
+    }
+    tick(); // Initial tick
 }

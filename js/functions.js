@@ -10,6 +10,29 @@ function spawnBlock(attributes) {
     return(myNewElement);
 }
 
+function createBlock(type) {
+    var myNewBlock = {
+        "type": type,
+        "x": "50%",
+        "y": "50%",
+        "id": config.myWatchface.length
+    }
+    config.myWatchface.push(myNewBlock);
+    saveConfig();
+    initBlocks();
+    initEventListeners_edit();
+    tick();
+}
+
+function deleteBlock(which) {
+    console.log(which);
+    config.myWatchface.splice(which.id,1);
+    saveConfig();
+    initBlocks();
+    initEventListeners_edit();
+    tick();
+}
+
 function setBlockPosition(which, x, y) {
     if(typeof(which) == "object") {
     } else {
@@ -132,6 +155,25 @@ function selectBlock(which) {
         return;
     }
     which.classList.add("selected");
+}
+
+function initBlocks() {
+    // Remove all Blocks
+    if(e.blocks) {
+        for(myItem_Block of e.blocks) {
+            myItem_Block.remove();
+        }
+    }
+
+    e.blocks = [];
+
+    getAvailableBlocks();
+
+    for(var i = 0; config.myWatchface.length > i; i++) {
+        var mySpawnedBlock = spawnBlock(Object.assign(config.myWatchface[i],{"id": i}));
+        setBlockPosition(mySpawnedBlock);
+        e.blocks.push(mySpawnedBlock);
+    }
 }
 
 // Storage functions

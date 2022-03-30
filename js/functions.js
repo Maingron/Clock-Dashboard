@@ -75,6 +75,10 @@ function loadScriptFile(path) {
     document.write("<script src=\""+path+"\"></script>");
 }
 
+function loadCSSFile(path) {
+    document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+path+"\">");
+}
+
 
 function toggleEditMode(edittruefalse = !config.edit_mode) {
     config.edit_mode = edittruefalse;

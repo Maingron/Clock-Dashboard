@@ -61,19 +61,19 @@
             <render type="js">Math.round((session.tickcount / session.supposedtickscount) * 10000) / 100</render>
         </template>
 
-
-        <script src="functions.js"></script>
-        <script src="eventlisteners.js"></script>
-        <script src="config.js"></script>
-        <script src="init.js"></script>
-        <script src="scripts.js"></script>
-        <script src="tick.js"></script>
+        <script src="js/functions.js"></script>
+        <script src="js/config.js"></script>
+        <script src="js/eventlisteners.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/scripts.js"></script>
+        <script src="js/tick.js"></script>
 
         <script>
             function hans() {
                 session.tickcount++;
             }
-            registerTicker(hans);
+        registerTicker(hans);
+
         </script>
 
     </body>

@@ -23,18 +23,19 @@ function init() { // Initialize
         "blocknr": 0, // Block with highest id
         "availableBlocks": [],
         "tickFunctionArray": [],
-        "tickcount": 0
+        "tickcount": 0,
     }
 
     e.blocks = [];
 
     if(config.edit_mode) {
-        loadScriptFile("functions-edit.js");
-        loadScriptFile("mode-edit.js");
+        loadScriptFile("js/edit/functions-edit.js");
+        loadScriptFile("js/edit/mode-edit.js");
+        loadCSSFile("css/edit/mode-edit.css");
     }
 
     if(config.debug) {
-        loadScriptFile("debug.js");
+        loadScriptFile("js/debug/debug.js");
     }
 
 
@@ -53,4 +54,5 @@ function init() { // Initialize
     }
 
     initEventListeners(); // -> eventlisterners.js
+
 }

@@ -15,6 +15,7 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "loadmodules": [
                 "modules/core-debug/module.js",
                 "modules/core-edit/module.js",
+                "modules/core-tps/module.js",
                 "modules/string-functions/module.js",
                 "modules/time-display/module.js",
                 "modules/date-display/init.js",

@@ -14,32 +14,12 @@
             </div>
         </main>
 
-        <template id="tickcounter">
-            <render type="js">session.tickcount</render>
-        </template>
-
-        <template id="supposedtickscounter">
-            <render type="js">session.supposedtickscount = Math.round(((time.getTime() - session.starttime) / 1000 * config.tps))</render>
-        </template>
-
-        <template id="tickpercentage">
-            <render type="js">Math.round((session.tickcount / session.supposedtickscount) * 10000) / 100</render>
-        </template>
-
         <script src="js/functions.js"></script>
         <script src="js/config.js"></script>
         <script src="js/eventlisteners.js"></script>
         <script src="js/tick.js"></script>
         <script src="js/init.js"></script>
         <script src="js/scripts.js"></script>
-
-        <script>
-            function hans() {
-                session.tickcount++;
-            }
-        registerTicker(hans);
-
-        </script>
 
     </body>
 </html>

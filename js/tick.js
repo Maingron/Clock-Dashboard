@@ -22,4 +22,5 @@ function tick() {
             }
         }
     }
+    session.tickcount++;
 }

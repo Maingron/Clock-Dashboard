@@ -29,10 +29,13 @@ function buildAvailableBlocksMenu() {
             result += "\<optgroup style='color:" + myColor + "' label='" + myItem.split("/")[0] + "'>";
         }
 
-        result += "\<option title='" + returnValue(myItem) + "' value="+myItem+"\>";
-        result += myItem.split("/")[1];
-        result += "\</option\>";
-        result += "\n";
+        if(document.getElementById(myItem).getAttribute("internal") != "internal") {
+            result += "\<option title='" + returnValue(myItem) + "' value="+myItem+"\>";
+            result += myItem.split("/")[1];
+            result += "\</option\>";
+            result += "\n";
+        }
+
         var lastItemModule = myItem.split("/")[0];
     }
     result += "</select>";

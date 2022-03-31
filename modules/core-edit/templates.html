@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<template id="headbar">
+<template id="headbar" internal>
     <div class="headbar">
         <div class="move"></div>
         <button class="delete" onclick="deleteBlock(this.parentElement.parentElement)">🗑</button>
@@ -18,23 +18,23 @@
     </div>
 </template>
 
-<template id="mode-button">
+<template id="mode-button" internal>
     <button onclick="toggleEditMode()">✏</button>
 </template>
 
-<template id="settings-button">
+<template id="settings-button" internal>
     <button>⚙</button>
 </template>
 
-<template id="saveconfig-button">
+<template id="saveconfig-button" internal>
     <button onclick="saveConfig()">💾</button>
 </template>
 
-<template id="reset-button">
+<template id="reset-button" internal>
     <button onclick="reset()">🧯</button>
 </template>
 
-<template id="createblock">
+<template id="createblock" internal>
     <div class="createblock">
         <render type="js">buildAvailableBlocksMenu()</render>
         <button onclick="createBlock(this.parentElement.children[0].children[0].value)">set</button>

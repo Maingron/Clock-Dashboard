@@ -108,6 +108,9 @@ function appendHTMLTemplateFromIframe(which, belongsToModule) {
         myNewElement.innerHTML = myItem_iframeTemplate.innerHTML;
         myNewElement.id = belongsToModule + "/" + myItem_iframeTemplate.id;
         myNewElement.setAttribute("module", belongsToModule);
+        if(myItem_iframeTemplate.getAttribute("internal") == "") {
+            myNewElement.setAttribute("internal","internal");
+        }
         document.body.append(myNewElement);
     }
     which.outerHTML = ""; // Despawns iframe

@@ -28,10 +28,6 @@ function init() { // Initialize
 
     e.blocks = [];
 
-    if(config.debug) {
-        loadScriptFile("js/debug/debug.js");
-    }
-
     for(myItem_loadMods of config.loadmodules) {
         loadScriptFile(myItem_loadMods);
     }

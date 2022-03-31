@@ -13,6 +13,7 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "edit_mode": true,
             "one_rem": "32px",
             "loadmodules": [
+                "modules/core-debug/module.js",
                 "modules/string-functions/module.js",
                 "modules/time-display/module.js",
                 "modules/date-display/init.js",

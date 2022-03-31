@@ -95,12 +95,21 @@ function returnValue(which, isjs = false) {
 }
 
 
-function loadScriptFile(path) {
-    document.write("<script src=\""+path+"\"></script>");
+function loadScriptFile(path, onload) {
+    var myNewElement = document.createElement("script");
+    myNewElement.src = path;
+    if(onload) {
+        myNewElement.setAttribute("onload",onload);
+    }
+    document.body.append(myNewElement);
 }
 
 function loadCSSFile(path) {
-    document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+path+"\">");
+    var myNewElement = document.createElement("link");
+    myNewElement.href = path;
+    myNewElement.rel = "stylesheet";
+    myNewElement.type = "text/css";
+    document.head.append(myNewElement);
 }
 
 function loadHTMLTemplate(path) {

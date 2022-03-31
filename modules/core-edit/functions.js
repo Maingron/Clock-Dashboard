@@ -75,7 +75,7 @@ function initEventListeners_edit() {
 
     for(myBlock of e.blocks) {
         if(myBlock.getAttribute("editable") != "false") {
-            myBlock.innerHTML = document.getElementById("headbar").innerHTML + myBlock.innerHTML;
+            myBlock.innerHTML = document.getElementById("core-edit/headbar").innerHTML + myBlock.innerHTML;
             myBlock.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
                 session.mouseDown = true;
                 session.mouseDownOn = event.srcElement;

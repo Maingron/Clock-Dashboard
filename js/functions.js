@@ -97,16 +97,17 @@ function loadHTMLTemplate(path, onload) {
     if(!onload) {
         onload = "";
     }
-    myNewElement.setAttribute("onload", "appendHTMLTemplateFromIframe(this); " + onload);
+    myNewElement.setAttribute("onload", "appendHTMLTemplateFromIframe(this, '" + path.split("/")[1] + "'); " + onload);
     document.body.append(myNewElement);
     getAvailableBlocks();
 }
 
-function appendHTMLTemplateFromIframe(which) {
+function appendHTMLTemplateFromIframe(which, belongsToModule) {
     for(myItem_iframeTemplate of which.contentWindow.document.getElementsByTagName("template")) {
         var myNewElement = document.createElement("template");
         myNewElement.innerHTML = myItem_iframeTemplate.innerHTML;
-        myNewElement.id = myItem_iframeTemplate.id;
+        myNewElement.id = belongsToModule + "/" + myItem_iframeTemplate.id;
+        myNewElement.setAttribute("module", belongsToModule);
         document.body.append(myNewElement);
     }
     which.outerHTML = ""; // Despawns iframe

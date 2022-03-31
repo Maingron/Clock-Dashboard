@@ -25,13 +25,13 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 {
                     "x": "-0",
                     "y": "0",
-                    "type": "top-right-menu",
+                    "type": "core-edit/top-right-menu",
                     "editable": false
                 },
                 {
                     "x": "-0",
                     "y": "2rem",
-                    "type": "createblock",
+                    "type": "core-edit/createblock",
                     "class": "hide display-edit",
                     "editable": false
                 }

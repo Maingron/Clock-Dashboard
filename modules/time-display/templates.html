@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+
+<template id="hour">
+    <render type="js">fillEmptyChars(time.getHours(), 2)</render>
+</template>
+
+<template id="minute">
+    <render type="js">fillEmptyChars(time.getMinutes(), 2)</render>
+</template>
+
+<template id="second">
+    <render type="js">fillEmptyChars(time.getSeconds(), 2)</render>
+</template>
+
+<template id="ms">
+    <render type="js">fillEmptyChars(time.getMilliseconds(), 3)</render>
+</template>
+

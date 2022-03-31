@@ -33,13 +33,12 @@ function init() { // Initialize
         loadScriptFile(myItem_loadMods);
     }
 
-    e.renders = document.getElementsByTagName("render");
-
     e.qs_root.style.setProperty("--one_rem", config.one_rem);
     // document.querySelector("body").style.fontSize = vaer
     session.one_rem = e.one_rem.offsetHeight;
 
     initBlocks();
+
 
     initEventListeners(); // -> eventlisterners.js
 

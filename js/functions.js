@@ -115,6 +115,7 @@ function appendHTMLTemplateFromIframe(which, belongsToModule) {
     }
     which.outerHTML = ""; // Despawns iframe
     getAvailableBlocks();
+    initBlocks();
 }
 
 function isSelectedBlock(which) {
@@ -160,6 +161,29 @@ function initBlocks() {
         var mySpawnedBlock = spawnBlock(Object.assign(config.myWatchface[i],{"id": i}));
         setBlockPosition(mySpawnedBlock);
         e.blocks.push(mySpawnedBlock);
+    }
+
+    for(myItem_blocks of e.blocks) { // Update all visible blocks
+        for(myItem_blocks_render of myItem_blocks.getElementsByTagName("render")) {
+            myItem_blocks_render.setAttribute("render", myItem_blocks_render.innerHTML);
+        }
+        myItem_blocks_content = myItem_blocks.getElementsByTagName("content")[0];
+
+        if(!isSelectedBlock(myItem_blocks)) { // Don't update currently selected block if in Edit mode
+            myItem_blocks_content.innerHTML = returnValue(myItem_blocks.getAttribute("type"));
+        }
+    }
+    if(typeof(initEventListeners_edit) == "function") {
+        initEventListeners_edit();
+    }
+
+    e.renders = document.getElementsByTagName("render");
+
+    for(myItem_renders of e.renders) {
+        console.log(myItem_renders);
+        if(myItem_renders.getAttribute("render") == null) {
+            myItem_renders.setAttribute("render", myItem_renders.innerHTML);
+        }
     }
 }
 

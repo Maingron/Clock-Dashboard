@@ -91,20 +91,29 @@ function initEventListeners_edit() {
 
     for(myBlock of e.blocks) {
         if(myBlock.getAttribute("editable") != "false") {
-            myBlock.innerHTML = document.getElementById("core-edit/headbar").innerHTML + myBlock.innerHTML;
-            myBlock.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
-                session.mouseDown = true;
-                session.mouseDownOn = event.srcElement;
-                myMovingBlockOffsetX = event.layerX;
-                myMovingBlockOffsetY = event.layerY;
-                dragBlock();
-                event.preventDefault();
-            });
+            addEditBar(myBlock);
+            console.warn(myBlock.getElementsByClassName("move")[0]);
         }
 
-    
         myBlock.addEventListener("mousedown", function() {
             selectBlock(this);
         });
     }
+}
+
+function addEditBar(which) {
+    if(which.getElementsByClassName("headbar").length > 0) { // We need this, else we spend the entire day searching for why it's not eventlistening sometimes
+        return;
+    }
+    which.innerHTML = document.getElementById("core-edit/headbar").innerHTML + which.innerHTML;
+    which.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
+        console.log("Hiiiii");
+        session.mouseDown = true;
+        session.mouseDownOn = event.srcElement;
+        myMovingBlockOffsetX = event.layerX;
+        myMovingBlockOffsetY = event.layerY;
+        selectBlock(this);
+        dragBlock(which);
+        event.preventDefault();
+    });
 }

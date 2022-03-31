@@ -38,12 +38,6 @@ function init() { // Initialize
     // document.querySelector("body").style.fontSize = vaer
     session.one_rem = e.one_rem.offsetHeight;
 
-    if(config.edit_mode) {
-        loadScriptFile("js/edit/functions-edit.js");
-        loadScriptFile("js/edit/mode-edit.js");
-        loadCSSFile("css/edit/mode-edit.css");
-    }
-
     initBlocks();
 
     initEventListeners(); // -> eventlisterners.js

@@ -1,4 +1,5 @@
-@import "../vars.scss";
+@import "../../css/vars.scss"; // Import from core
+
 html {
     body.edit_mode {
         &.mousedown {

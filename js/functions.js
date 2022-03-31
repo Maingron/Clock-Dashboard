@@ -10,29 +10,6 @@ function spawnBlock(attributes) {
     return(myNewElement);
 }
 
-function createBlock(type) {
-    var myNewBlock = {
-        "type": type,
-        "x": "50%",
-        "y": "50%",
-        "id": config.myWatchface.length
-    }
-    config.myWatchface.push(myNewBlock);
-    saveConfig();
-    initBlocks();
-    initEventListeners_edit();
-    tick();
-}
-
-function deleteBlock(which) {
-    console.log(which);
-    config.myWatchface.splice(which.id,1);
-    saveConfig();
-    initBlocks();
-    initEventListeners_edit();
-    tick();
-}
-
 function setBlockPosition(which, x, y) {
     if(typeof(which) == "object") {
     } else {
@@ -112,12 +89,15 @@ function loadCSSFile(path) {
     document.head.append(myNewElement);
 }
 
-function loadHTMLTemplate(path) {
+function loadHTMLTemplate(path, onload) {
     var myNewElement = document.createElement("iframe");
     myNewElement.src = path;
     myNewElement.id = "loader";
     // myNewElement.style.display = "none";
-    myNewElement.setAttribute("onload", "appendHTMLTemplateFromIframe(this)");
+    if(!onload) {
+        onload = "";
+    }
+    myNewElement.setAttribute("onload", "appendHTMLTemplateFromIframe(this); " + onload);
     document.body.append(myNewElement);
     getAvailableBlocks();
 }
@@ -131,12 +111,6 @@ function appendHTMLTemplateFromIframe(which) {
     }
     which.outerHTML = ""; // Despawns iframe
     getAvailableBlocks();
-}
-
-function toggleEditMode(edittruefalse = !config.edit_mode) {
-    config.edit_mode = edittruefalse;
-    saveConfig();
-    window.location.reload();
 }
 
 function isSelectedBlock(which) {

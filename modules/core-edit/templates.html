@@ -1,4 +1,14 @@
 <!DOCTYPE html>
+
+<template id="headbar">
+    <div class="headbar">
+        <div class="move"></div>
+        <button class="delete" onclick="deleteBlock(this.parentElement.parentElement)">🗑</button>
+        <button class="edit">E</button>
+    </div>
+</template>
+
+
 <template id="top-right-menu">
     <div class="top-right-menu">
         <render type="mode-button"></render>

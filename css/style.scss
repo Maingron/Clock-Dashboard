@@ -48,8 +48,10 @@ html {
             font-size: 0;
         }
 
-        select, option {
+        select, option, optgroup {
             font-size: .6rem !important;
+            background: #000;
+            color: #fff;
         }
 
         iframe {

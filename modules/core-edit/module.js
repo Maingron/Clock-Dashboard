@@ -1,3 +1,7 @@
+meta["core-edit"] = {
+    "color": "orange"
+}
+
 loadHTMLTemplate("modules/core-edit/templates.html",
     'loadScriptFile("modules/core-edit/functions.js", "initEdit()")');
 

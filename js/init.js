@@ -4,6 +4,7 @@ var config = {};
 var time = new Date(); // We will update this later in tick()
 var session = {};
 var elements = element = e = {};
+var meta = {};
 
 init();
 

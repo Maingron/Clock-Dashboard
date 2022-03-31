@@ -16,11 +16,24 @@ function toggleEditMode(edittruefalse = !config.edit_mode) {
 function buildAvailableBlocksMenu() {
     var result = [];
     result += "<select>";
+    result += "\<optgroup hidden\>";
     for(myItem of session.availableBlocks) {
-        result += "\<option value="+myItem+"\>";
-        result += myItem;
+        var myColor = "";
+
+        if(meta[myItem.split("/")[0]]) {
+            myColor = meta[myItem.split("/")[0]].color;
+        }
+
+        if(myItem.split("/")[0] != lastItemModule) {
+            result += "\</optgroup\>";
+            result += "\<optgroup style='color:" + myColor + "' label='" + myItem.split("/")[0] + "'>";
+        }
+
+        result += "\<option title='" + returnValue(myItem) + "' value="+myItem+"\>";
+        result += myItem.split("/")[1];
         result += "\</option\>";
         result += "\n";
+        var lastItemModule = myItem.split("/")[0];
     }
     result += "</select>";
     return result;

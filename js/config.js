@@ -23,12 +23,15 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 {
                     "x": "-0",
                     "y": "0",
-                    "type": "top-right-menu"
+                    "type": "top-right-menu",
+                    "editable": false
                 },
                 {
                     "x": "-0",
-                    "y": "40%",
-                    "type": "createblock"
+                    "y": "2rem",
+                    "type": "createblock",
+                    "class": "hide display-edit",
+                    "editable": false
                 }
             ]
         }

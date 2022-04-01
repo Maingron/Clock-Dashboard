@@ -1,5 +1,4 @@
 function deleteBlock(which) {
-    console.log(which);
     config.myWatchface.splice(which.id,1);
     saveConfig();
     initBlocks();
@@ -60,6 +59,8 @@ function initEdit() {
     document.body.classList.add("edit_mode");
     e.moveoverlay = document.getElementById("moveoverlay");
     initEventListeners_edit();
+    initEditRegisterJSRenderers();
+
 }
 
 function dragBlock(which) {
@@ -92,7 +93,6 @@ function initEventListeners_edit() {
     for(myBlock of e.blocks) {
         if(myBlock.getAttribute("editable") != "false") {
             addEditBar(myBlock);
-            console.warn(myBlock.getElementsByClassName("move")[0]);
         }
 
         myBlock.addEventListener("mousedown", function() {
@@ -107,7 +107,6 @@ function addEditBar(which) {
     }
     which.innerHTML = document.getElementById("core-edit/headbar").innerHTML + which.innerHTML;
     which.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
-        console.log("Hiiiii");
         session.mouseDown = true;
         session.mouseDownOn = event.srcElement;
         myMovingBlockOffsetX = event.layerX;

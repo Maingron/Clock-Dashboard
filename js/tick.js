@@ -7,14 +7,8 @@ function tick() {
 
     for(myItem_renders of e.renders) {
         if(!isChildOfSelectedBlock(myItem_renders)) {
-            if(myItem_renders.getAttribute("type") == "js") {
-                if(myItem_renders.innerHTML != returnValue(myItem_renders.getAttribute("render"), true)) { // Only update on changed content
-                    myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("render"), true);
-                }
-            } else {
-                if(myItem_renders.innerHTML != returnValue(myItem_renders.getAttribute("type"))) {
-                    myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("type"));
-                }
+            if(myItem_renders.innerHTML != returnValue(myItem_renders.getAttribute("render"))) { // Only update on changed content
+                myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("render"));
             }
         }
     }

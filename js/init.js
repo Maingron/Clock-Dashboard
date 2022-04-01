@@ -27,6 +27,9 @@ function init() { // Initialize
         "tickcount": 0,
     }
 
+    session.jsRenderArray = {};
+
+
     e.blocks = [];
 
     for(myItem_loadMods of config.loadmodules) {

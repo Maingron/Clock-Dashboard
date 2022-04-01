@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 
 <template id="day">
-    <render type="js">fillEmptyChars((time.getDate()), 2)</render>
+    <render>day</render>
 </template>
 
 <template id="month">
-    <render type="js">fillEmptyChars((time.getMonth() + 1), 2)</render>
+    <render>month</render>
 </template>
 
 <template id="year">
-    <render type="js">time.getFullYear()</render>
+    <render>year</render>
 </template>
 
 
 <template id="dayOfWeek">
-    <render type="js">time.getDay()</render>
+    <render>dayOfWeek</render>
 </template>
 
 <template id="dayOfWeekString">
-    <render type="js">getDayOfWeekString(time.getDay())</render>
+    <render>dayOfWeekString</render>
 </template>
 

@@ -51,6 +51,10 @@ function registerTicker(which) {
     session.tickFunctionArray.push(which);
 }
 
+function registerJSRender(name, which) {
+    session.jsRenderArray[name] = which;
+}
+
 function getAvailableBlocks() {
     session.availableBlocks = [];
     for(var i = 0; e.templates.length > i; i++) {
@@ -58,17 +62,26 @@ function getAvailableBlocks() {
     }
 }
 
-function returnValue(which, isjs = false) {
-    for(var i = 0; session.availableBlocks.length > i; i++) {
-        var myAvailableBlock = session.availableBlocks[i];
-        if(isjs) {
-            return(eval(which));
-        }
-        if(which == myAvailableBlock) {
-            return document.getElementById(myAvailableBlock).innerHTML;
+function returnValue(which) {
+    // Todo: More than 1 layer deep
+    if(session.availableBlocks.includes(which)) {
+        return document.getElementById(which).innerHTML;
+    } else {
+        // use a jsRender
+        if(session.jsRenderArray[which]) {
+            return session.jsRenderArray[which]();
         }
     }
-    return "<error>"+ which + " not found in available blocks</error>";
+    // for(var i = 0; session.availableBlocks.length > i; i++) {
+    //     var myAvailableBlock = session.availableBlocks[i];
+    //     if(isjs) {
+    //         return(eval(which));
+    //     }
+    //     if(which == myAvailableBlock) {
+    //         return ;
+    //     }
+    // }
+    // return "<error>"+ which + " not found in available blocks</error>";
 }
 
 
@@ -180,7 +193,6 @@ function initBlocks() {
     e.renders = document.getElementsByTagName("render");
 
     for(myItem_renders of e.renders) {
-        console.log(myItem_renders);
         if(myItem_renders.getAttribute("render") == null) {
             myItem_renders.setAttribute("render", myItem_renders.innerHTML);
         }

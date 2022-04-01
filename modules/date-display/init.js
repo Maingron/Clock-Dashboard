@@ -1,6 +1,30 @@
 loadHTMLTemplate("modules/date-display/mytemplate.html");
 
-function getDayOfWeekString(which) {
+registerJSRender("day", getDay);
+registerJSRender("month", getMonth);
+registerJSRender("year", getYear);
+
+registerJSRender("dayOfWeek", getDayOfWeek);
+registerJSRender("dayOfWeekString", getDayOfWeekString);
+
+function getDay() {
+    return fillEmptyChars((time.getDate()), 2);
+}
+
+function getMonth() {
+    return fillEmptyChars((time.getMonth() + 1), 2);
+}
+
+function getYear() {
+    return time.getFullYear();
+}
+
+function getDayOfWeek() {
+    return time.getDay();
+}
+
+function getDayOfWeekString() {
+    var which = getDayOfWeek();
     switch(which) {
         case 1:
             return "Monday"
@@ -19,5 +43,4 @@ function getDayOfWeekString(which) {
         default:
             return which + " not found. Maybe it's Monday?" // Error if day not found
     }
-
 }

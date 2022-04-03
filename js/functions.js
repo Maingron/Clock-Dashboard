@@ -78,6 +78,9 @@ function returnValue(which) {
         if(session.jsRenderArray[which]) {
             return session.jsRenderArray[which]();
         }
+        if(session.jsRenderArray[which] == undefined) {
+            return ""; // Don't return "undefined" but instead return empty string (Looks much better)
+        }
     }
     // for(var i = 0; session.availableBlocks.length > i; i++) {
     //     var myAvailableBlock = session.availableBlocks[i];

@@ -57,8 +57,9 @@ html {
                     top: 0;
                     left: 0;
                     width: calc(100% - 2rem - 2px);
+                    min-width: 1rem;
                     height: 100%;
-                    background: lime;
+                    outline: 1px solid red;
                     cursor: move;
                     float: left;
                     box-sizing: border-box;

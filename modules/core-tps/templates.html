@@ -11,3 +11,17 @@
 <template id="tickpercentage">
     <render render="tickpercentage">100</render>%
 </template>
+
+<template id="full-tickdisplay">
+    <div style="float:left">
+        <render render="core-tps/tickcounter">0</render>
+        <hr style="border:0; border-top:4px solid #fff">
+        <br>
+        <render render="core-tps/supposedtickscounter">0</render>
+    </div>
+    <div style="float:right">
+        <br>
+        <br>
+        <span>=</span><render render="tickpercentage">100</render><span>%</span>
+    </div>
+</template>

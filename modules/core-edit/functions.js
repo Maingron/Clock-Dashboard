@@ -3,7 +3,9 @@ function deleteBlock(which) {
     saveConfig();
     initBlocks();
     initEventListeners_edit();
-    tick();
+    if(config.tps != 0) {
+        tick();
+    }
 }
 
 function toggleEditMode(edittruefalse = !config.edit_mode) {
@@ -52,7 +54,9 @@ function createBlock(type) {
     saveConfig();
     initBlocks();
     initEventListeners_edit();
-    tick();
+    if(config.tps != 0) {
+        tick();
+    }
 }
 
 function initEdit() {

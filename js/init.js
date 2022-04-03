@@ -49,6 +49,7 @@ function init() { // Initialize
         setInterval(function() {
             tick();
         }, 1000 / config.tps);
+
+        tick(); // Initial tick
     }
-    tick(); // Initial tick
 }

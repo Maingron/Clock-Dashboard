@@ -20,25 +20,25 @@ function getYear() {
 }
 
 function getDayOfWeek() {
-    return time.getDay();
+    return fillEmptyChars(time.getDay(), 2);
 }
 
 function getDayOfWeekString() {
     var which = getDayOfWeek();
     switch(which) {
-        case 1:
+        case "01":
             return "Monday"
-        case 2:
+        case "02":
             return "Tuesday"
-        case 3:
+        case "03":
             return "Wednesday"
-        case 4:
+        case "04":
             return "Thursday"
-        case 5:
+        case "05":
             return "Friday"
-        case 6:
+        case "06":
             return "Saturday"
-        case 0:
+        case "00":
             return "Sunday"
         default:
             return which + " not found. Maybe it's Monday?" // Error if day not found

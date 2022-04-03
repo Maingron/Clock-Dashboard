@@ -7,7 +7,7 @@ function tick() {
 
     for(myItem_renders of e.renders) {
         if(!isChildOfSelectedBlock(myItem_renders)) {
-            if(myItem_renders.innerHTML != returnValue(myItem_renders.getAttribute("render"))) { // Only update on changed content
+            if(myItem_renders.getAttribute("render") && myItem_renders.innerHTML != returnValue(myItem_renders.getAttribute("render"))) { // Only update on changed content
                 myItem_renders.innerHTML = returnValue(myItem_renders.getAttribute("render"));
             }
         }

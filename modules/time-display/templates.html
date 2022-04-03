@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 
 <template id="hours">
-    <render>hours</render>
+    <render render="hours">00</render>
 </template>
 
 <template id="minutes">
-    <render>minutes</render>
+    <render render="minutes">00</render>
 </template>
 
 <template id="seconds">
-    <render>seconds</render>
+    <render render="seconds">00</render>
 </template>
 
 <template id="ms">
-    <render>ms</render>
+    <render render="ms">000</render>
 </template>
 
+<template id="fullclock">
+    <render render="time-display/hours">00</render>
+    <span>:</span>
+    <render render="time-display/minutes">00</render>
+    <span>:</span>
+    <render render="time-display/seconds">00</render>
+    <span>.</span>
+    <sub>
+        <render render="time-display/ms">000</render>
+    </sub>
+</template>

@@ -1,8 +1,9 @@
 function spawnBlock(attributes) {
     var myNewElement = document.createElement("div");
     for(myItem_attribute of Object.keys(attributes)) {
-        myNewElement.setAttribute(myItem_attribute, attributes[myItem_attribute])
+        myNewElement.setAttribute(myItem_attribute, attributes[myItem_attribute]);
     }
+
     myNewElement.classList.add("block");
     myNewElement.innerHTML = "<content></content>";
     myNewElement.id = attributes.id;
@@ -68,6 +69,12 @@ function returnValue(which) {
         return document.getElementById(which).innerHTML;
     } else {
         // use a jsRender
+        if(which.includes("(") && which.includes(")")) {
+            // Todo: Allow more than 1 argument
+            var myArgument = which.split("(")[1].split(")")[0];
+            which = which.split("(")[0];
+            return session.jsRenderArray[which](myArgument);
+        }
         if(session.jsRenderArray[which]) {
             return session.jsRenderArray[which]();
         }
@@ -177,9 +184,7 @@ function initBlocks() {
     }
 
     for(myItem_blocks of e.blocks) { // Update all visible blocks
-        for(myItem_blocks_render of myItem_blocks.getElementsByTagName("render")) {
-            myItem_blocks_render.setAttribute("render", myItem_blocks_render.innerHTML);
-        }
+
         myItem_blocks_content = myItem_blocks.getElementsByTagName("content")[0];
 
         if(!isSelectedBlock(myItem_blocks)) { // Don't update currently selected block if in Edit mode
@@ -191,12 +196,6 @@ function initBlocks() {
     }
 
     e.renders = document.getElementsByTagName("render");
-
-    for(myItem_renders of e.renders) {
-        if(myItem_renders.getAttribute("render") == null) {
-            myItem_renders.setAttribute("render", myItem_renders.innerHTML);
-        }
-    }
 }
 
 // Storage functions

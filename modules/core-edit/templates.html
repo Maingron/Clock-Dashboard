@@ -11,10 +11,10 @@
 
 <template id="top-right-menu">
     <div class="top-right-menu">
-        <render>core-edit/mode-button</render>
-        <render class="hide display-edit">core-edit/settings-button</render>
-        <render class="hide display-edit">core-edit/saveconfig-button</render>
-        <render class="hide display-edit">core-edit/reset-button</render>
+        <render render="core-edit/mode-button"><button></button></render>
+        <render class="hide display-edit" render="core-edit/settings-button"><button></button></render>
+        <render class="hide display-edit" render="core-edit/saveconfig-button"><button></button></render>
+        <render class="hide display-edit" render="core-edit/reset-button"><button></button></render>
     </div>
 </template>
 
@@ -36,7 +36,7 @@
 
 <template id="createblock" internal>
     <div class="createblock">
-        <render>buildAvailableBlocksMenu</render>
+        <render render="buildAvailableBlocksMenu"></render>
         <button onclick="createBlock(this.parentElement.children[0].children[0].value)">set</button>
     </div>
 </template>

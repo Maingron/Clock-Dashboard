@@ -7,14 +7,21 @@
         <fieldset>
             <h3>General Settings</h3>
 
-            <input type="checkbox" id="setting-debug">
-            <label for="setting-debug">Debug mode</label>
+            <fieldset>
+                <h4>Debug Mode</h4>
+                <label for="setting-debug">Enabled: </label>
+                <input type="checkbox" id="setting-debug">
+            </fieldset>
 
-            <input type="number" id="setting-tps" min="1" max="240" onchange="config.tps = this.value; saveConfig()">
-            <label for="setting-tps">TPS</label>
+            <fieldset>
+                <h4>TPS</h4>
+                <input type="number" id="setting-tps" min="1" max="240" onchange="config.tps = this.value; saveConfig()">
+            </fieldset>
 
-            <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
-            <label for="setting-background">Background image</label>
+            <fieldset>
+                <h4>Background</h4>
+                <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
+            </fieldset>
 
         </fieldset>
     </div>

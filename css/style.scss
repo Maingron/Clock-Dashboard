@@ -51,6 +51,12 @@ html {
             color: inherit;
         }
 
+        input[type=checkbox] {
+            height: 1em;
+            width: 1em;
+            border-radius: 2px;
+        }
+
         .hide {
             display: none;
         }

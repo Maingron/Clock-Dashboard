@@ -8,7 +8,7 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
     } else {
         // Generate Config
         config = { // Initial configuration
-            "tps": "2",
+            "tps": "10",
             "debug": true,
             "edit_mode": true,
             "one_rem": "32px",

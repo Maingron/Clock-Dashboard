@@ -23,7 +23,62 @@
                 <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
             </fieldset>
 
+            <fieldset id="setting-fieldset_modules">
+                <h4>Modules</h4>
+                <div style="display:inline-flex;">
+
+                    <div style="float: left;">
+                        <h5>Disabled</h5>
+
+                        <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
+                            <input type="text">
+                            <input type="submit" value="+" style="width:1.5rem">
+                        </form>
+
+                        <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'enable')">
+                            <select size="5" id="setting-disabled_modules">
+                            </select>
+                            <div style="display:flex; float: right;">
+                                <input type="submit" value="➕">
+                                <input type="button" value="🗑️" onclick="settings_enDisModule(this.parentElement.parentElement.children[0].selectedOptions[0].value, 'delete')">
+                            </div>
+                        </form>
+                    </div>
+
+                    <div style="margin: .5rem"></div>
+
+                    <div style="float: right;">
+                        <h5>Enabled</h5>
+                            <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
+                            <input type="text">
+                            <input type="submit" value="+" style="width:1.5rem">
+                        </form>
+
+                        <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'disable')">
+                            <select size="5" id="setting-enabled_modules">
+                                <option>none</option>
+                            </select>
+                            <div style="display:flex; float:left">
+                                <input type="submit" value="➖">
+                                <input type="button" value="🗑️" onclick="settings_enDisModule(this.parentElement.parentElement.children[0].selectedOptions[0].value, 'delete')">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </fieldset>
+
         </fieldset>
+
+        <style>
+            #setting-fieldset_modules select,
+            #setting-fieldset_modules option,
+            #setting-fieldset_modules input {
+                display: block;
+                width: 100%;
+                font-size: .75rem !important;
+                box-sizing: border-box;
+            }
+        </style>
     </div>
 </template>
 

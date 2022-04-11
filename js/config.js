@@ -14,14 +14,16 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "bodyBackground": "#000",
             "one_rem": "32px",
             "loadmodules": [
-                "modules/core-debug/module.js",
                 "modules/core-settings/module.js",
                 "modules/core-edit/module.js",
-                "modules/core-tps/module.js",
                 "modules/string-functions/module.js",
                 "modules/time-display/module.js",
-                "modules/date-display/init.js",
-                "modules/test/init.js"
+                "modules/date-display/init.js"
+            ],
+            "unloadmodules": [
+                "modules/test/init.js",
+                "modules/core-tps/module.js",
+                "modules/core-debug/module.js"
             ],
             "myWatchface": [
                 {

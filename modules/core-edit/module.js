@@ -1,5 +1,6 @@
 meta["core-edit"] = {
-    "color": "orange"
+    "color": "orange",
+    "name": "Edit"
 }
 
 loadHTMLTemplate("modules/core-edit/templates.html",

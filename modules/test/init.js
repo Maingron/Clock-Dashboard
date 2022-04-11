@@ -1,4 +1,5 @@
 meta["test"] = {
-    "color": "#3377ff"
+    "color": "lightblue",
+    "name": "Test"
 }
 loadHTMLTemplate("modules/test/test.html");

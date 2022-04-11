@@ -2,10 +2,11 @@
 
 <template id="settings">
     <render render="core-settings/onload" style="display:none"></render>
-    <div class="settings">
+    <div class="settings" style="max-height: 90vh; overflow: auto;">
         <h2>Settings</h2>
-        <fieldset>
-            <h3>General Settings</h3>
+
+        <details>
+            <summary><h3 style="display:inline-block">General Settings</h3></summary>
 
             <fieldset>
                 <h4>Debug Mode</h4>
@@ -23,16 +24,24 @@
                 <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
             </fieldset>
 
+            <fieldset>
+                <h4>Reset</h4>
+                <render render="core-edit/reset-button"></render>
+            </fieldset>
+        </details>
+
+
+        <details>
+            <summary><h3 style="display:inline-block">Modules</h3></summary>
             <fieldset id="setting-fieldset_modules">
-                <h4>Modules</h4>
                 <div style="display:inline-flex;">
 
                     <div style="float: left;">
-                        <h5>Disabled</h5>
+                        <h4>Disabled</h4>
 
                         <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
                             <input type="text">
-                            <input type="submit" value="+" style="width:1.5rem">
+                            <input type="submit" value="+" style="width:.9rem">
                         </form>
 
                         <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'enable')">
@@ -48,10 +57,10 @@
                     <div style="margin: .5rem"></div>
 
                     <div style="float: right;">
-                        <h5>Enabled</h5>
+                        <h4>Enabled</h4>
                             <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
                             <input type="text">
-                            <input type="submit" value="+" style="width:1.5rem">
+                            <input type="submit" value="+" style="width:.9rem">
                         </form>
 
                         <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'disable')">
@@ -66,8 +75,7 @@
                     </div>
                 </div>
             </fieldset>
-
-        </fieldset>
+        </details>
 
         <style>
             #setting-fieldset_modules select,
@@ -75,7 +83,6 @@
             #setting-fieldset_modules input {
                 display: block;
                 width: 100%;
-                font-size: .75rem !important;
                 box-sizing: border-box;
             }
         </style>

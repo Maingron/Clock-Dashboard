@@ -1,3 +1,7 @@
+meta["date-display"] = {
+    "color": "green",
+    "name": "Date Display"
+}
 loadHTMLTemplate("modules/date-display/mytemplate.html");
 
 registerJSRender("day", getDay);

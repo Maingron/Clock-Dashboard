@@ -1,3 +1,8 @@
+meta["core-tps"] = {
+    "color": "fuchsia",
+    "name": "TPS Display"
+}
+
 loadHTMLTemplate("modules/core-tps/templates.html");
 
 function getTickcount() {

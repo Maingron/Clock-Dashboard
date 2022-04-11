@@ -38,6 +38,11 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                     "type": "core-edit/createblock",
                     "class": "hide display-edit",
                     "editable": false
+                },
+                {
+                    "x": "2rem",
+                    "y": "2rem",
+                    "type": "time-display/fullclock"
                 }
             ]
         }

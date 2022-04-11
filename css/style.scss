@@ -1,7 +1,7 @@
 @import "vars.scss";
 
 html {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #fff;
     color-scheme: dark;
 
@@ -18,6 +18,24 @@ html {
         box-sizing: border-box;
         h1,h2,h3,h4,h5,h6 {
             margin: 0;
+        }
+        h1 {
+            font-size: 1.5em;
+        }
+        h2 {
+            font-size: 1.125em;
+        }
+        h3 {
+            font-size: .8775em;
+        }
+        h4 {
+            font-size: .75em;
+        }
+        h5 {
+            font-size: .6225em;
+        }
+        h6 {
+            font-size: .5em;
         }
 
         .block {
@@ -46,8 +64,8 @@ html {
             }
         }
 
-        input, button, select, option, optgroup {
-            font-size: inherit;
+        input, button, select, option, optgroup, label {
+            font-size: .5rem;
             color: inherit;
         }
 
@@ -59,10 +77,6 @@ html {
 
         .hide {
             display: none;
-        }
-
-        option, optgroup {
-            font-size: .6rem !important;
         }
 
         optgroup {

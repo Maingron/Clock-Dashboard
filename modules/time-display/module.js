@@ -1,3 +1,8 @@
+meta["time-display"] = {
+    "color": "green",
+    "name": "Time Display"
+}
+
 loadHTMLTemplate("modules/time-display/templates.html");
 
 registerJSRender("ms", time_display_ms);

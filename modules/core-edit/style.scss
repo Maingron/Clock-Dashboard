@@ -68,7 +68,6 @@ html {
                     display: inline-block;
                     pointer-events: all;
                     line-height: 1;
-                    font-size: 1rem;
                     z-index: 100;
                     border-radius: revert;
                     overflow: hidden;
@@ -76,17 +75,16 @@ html {
                     background: revert;
                     border-style: solid;
                     border-width: 1px;
-                    
-                    height: 1.25rem;
-                    width: 1.25rem;
+                    height: 1rem;
+                    width: 1rem;
                     padding: 0;
-                    font-size: .75rem;
-                    background: rgba(122,122,122,.5);
+                    font-size: .625rem;
+                    background: rgba(122,122,122,.3);
                     backdrop-filter: blur(2px);
 
                     &.delete {
-                        top: calc(50% - 2.25rem);
-                        right: calc(50% - 2.25rem);
+                        top: calc(50% - 1.5rem);
+                        right: calc(50% - 1.5rem);
                         border-color: red;
                         &:hover {
                             background-color: red;
@@ -94,8 +92,8 @@ html {
                     }
 
                     &.edit {
-                        top: calc(50% - 2.25rem);
-                        left: calc(50% - 2.25rem);
+                        top: calc(50% - 1.5rem);
+                        left: calc(50% - 1.5rem);
                         border-color: orange;
                         &:hover {
                             background-color: orange;
@@ -103,8 +101,8 @@ html {
                     }
 
                     &.details-expand {
-                        top: calc(50% + 1rem);
-                        left: calc(50% - 2.25rem);
+                        top: calc(50% + .5rem);
+                        left: calc(50% - 1.5rem);
                         border-color: white;
                         &:hover {
                             background-color: white;
@@ -113,23 +111,25 @@ html {
 
                     &.min-headbar {
                         min-height: 0;
-                        top: calc(50% - 1.75rem);
-                        left: calc(50% - .625rem);
-                        height: .75rem !important;
+                        top: calc(50% - 1.35rem);
+                        left: calc(50% - .5rem);
+                        height: .6rem !important;
                         border-color: revert;
                         border-bottom: 0;
+                        opacity:.7;
                         &:hover {
                             background-color: white;
+                            opacity: 1;
                         }
                     }
                 }
 
                 .move {
-                    width: 2rem;
-                    height: 2rem;
+                    width: 1.5rem;
+                    height: 1.5rem;
                     cursor: move;
-                    top: calc(50% - 1rem);
-                    left: calc(50% - 1rem);
+                    top: calc(50% - .75rem);
+                    left: calc(50% - .75rem);
                 }
             }
         }

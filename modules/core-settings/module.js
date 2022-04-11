@@ -1,5 +1,6 @@
-meta["settings"] = {
-    "color": "#888888"
+meta["core-settings"] = {
+    "color": "lightgray",
+    "name": "Settings"
 }
 
 
@@ -23,8 +24,19 @@ function setBackgroundImage(which) {
 
 function settings_loadModulesList() {
     var result = "";
+
     for(var i = 0; i < config.loadmodules.length; i++) {
-        result += "<option ondblclick='settings_enDisModule(this.value, \"disable\")' value='"+config.loadmodules[i]+"'>" + config.loadmodules[i] + "</option>";
+        var myColor = "";
+        var myName = config.loadmodules[i];
+        if(config.loadmodules[i].split("/")[1] && meta[config.loadmodules[i].split("/")[1]]) {
+            if(meta[config.loadmodules[i].split("/")[1]].color) {
+                myColor = meta[config.loadmodules[i].split("/")[1]].color;
+            }
+            if(meta[config.loadmodules[i].split("/")[1]].name) {
+                myName = meta[config.loadmodules[i].split("/")[1]].name;
+            }
+        }
+        result += "<option style='color:"+myColor+"' ondblclick='settings_enDisModule(this.value, \"disable\")' title=\"" + config.loadmodules[i] + "\" value='"+config.loadmodules[i]+"'>" + myName + "</option>";
     }
     if(result == "") {
         result = "<option disabled style='opacity:.5'>none</option>";

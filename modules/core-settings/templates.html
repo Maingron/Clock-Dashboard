@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<template id="settings">
+    <render render="core-settings/onload"></render>
+    <div class="settings">
+        <h2>Settings</h2>
+        <fieldset>
+            <h3>General Settings</h3>
+
+            <input type="checkbox" id="setting-debug">
+            <label for="setting-debug">Debug mode</label>
+
+            <input type="number" id="setting-tps" min="1" max="240" onchange="config.tps = this.value; saveConfig()">
+            <label for="setting-tps">TPS</label>
+
+            <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
+            <label for="setting-background">Background image</label>
+
+        </fieldset>
+    </div>
+</template>
+
+<template id="onload" internal>
+    <img src="/img/transparent.png" onload="updateSettings()" alt="" tabindex="-1">
+</template>

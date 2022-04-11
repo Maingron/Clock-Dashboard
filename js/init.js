@@ -11,6 +11,8 @@ init();
 function init() { // Initialize
     loadConfig();
 
+    document.body.style.background = config.bodyBackground;
+
     elements = element = e = {
         "blockContainer": document.getElementById("block-container"),
         "results": document.getElementById("results"),

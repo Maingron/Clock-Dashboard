@@ -31,7 +31,8 @@ function buildAvailableBlocksMenu() {
         }
 
         if(document.getElementById(myItem).getAttribute("internal") != "internal") {
-            result += "\<option title='" + returnValue(myItem) + "' value="+myItem+"\>";
+            result += "\<option value="+myItem+"\>";
+            // console.log(result);
             result += myItem.split("/")[1];
             result += "\</option\>";
             result += "\n";

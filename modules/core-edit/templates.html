@@ -2,9 +2,11 @@
 
 <template id="headbar" internal>
     <div class="headbar">
-        <div class="move"></div>
-        <button class="delete" onclick="deleteBlock(this.parentElement.parentElement)">🗑</button>
-        <button class="edit">E</button>
+        <button class="move"></button>
+        <button class="delete" onclick="deleteBlock(this.parentElement.parentElement)">🗑️</button>
+        <button class="edit">✏️</button>
+        <button class="details-expand" disabled="disabled">➕</button>
+        <button class="min-headbar" onclick="parentElement.classList.toggle('min-headbar')">🔼</button>
     </div>
 </template>
 
@@ -19,11 +21,11 @@
 </template>
 
 <template id="mode-button" internal>
-    <button onclick="toggleEditMode()">✏</button>
+    <button onclick="toggleEditMode()">✏️</button>
 </template>
 
 <template id="settings-button" internal>
-    <button>⚙</button>
+    <button>⚙️</button>
 </template>
 
 <template id="saveconfig-button" internal>
@@ -41,6 +43,6 @@
 <template id="createblock" internal>
     <div class="createblock">
         <render render="buildAvailableBlocksMenu"></render>
-        <button onclick="createBlock(this.parentElement.children[0].children[0].value)">set</button>
+        <input type="submit" value="add" onclick="createBlock(this.parentElement.children[0].children[0].value)">
     </div>
 </template>

@@ -16,15 +16,15 @@ html {
         }
 
         .display-edit {
-            display: unset;
+            display: initial;
         }
 
         .block {
-            outline: 2px solid var(--themecolor);
+            // outline: 2px solid var(--themecolor);
             padding: 0;
             margin: 0;
             &.selected {
-                outline: 2px solid red;
+                // outline: 2px solid red;
                 .headbar {
                     .move {
                         z-index: 1050;
@@ -44,47 +44,92 @@ html {
             .headbar {
                 display: inline;
                 position: absolute;
-                width: calc(100% + 4px);
-                top: calc(-1rem - 2px);
-                left: -2px;
-                height: 1rem;
-                border: 2px solid var(--themecolor);
+                width: 100%;
+                top: 0;
+                left: 0;
+                height: 100%;
                 border-bottom: 0;
-                background-color: var(--themecolor);
+                background-color: rgba(122,122,122,.2);
                 box-sizing: border-box;
-                .move {
-                    position: relative;
-                    top: 0;
-                    left: 0;
-                    width: calc(100% - 2rem - 2px);
-                    min-width: 1rem;
-                    height: 100%;
-                    outline: 1px solid red;
-                    cursor: move;
-                    float: left;
-                    box-sizing: border-box;
+                user-select: none;
+                pointer-events: none;
+                &.min-headbar {
+                    background-color: transparent !important;
+                    button {
+                        display: none;
+                        &.min-headbar {
+                            display: inline-block;
+                        }
+                    }
                 }
+
                 button {
-                    position: relative;
-                    height: calc(1rem - 3px);
-                    width: calc(1rem - 3px);
-                    border: 0;
-                    border-radius: 0;
+                    position: absolute;
                     display: inline-block;
-                    float: right;
-                    z-index: 100;
-                    font-size: .8rem;
-                    padding: 0;
+                    pointer-events: all;
                     line-height: 1;
-                    box-sizing: border-box;
+                    font-size: 1rem;
+                    z-index: 100;
+                    border-radius: revert;
+                    overflow: hidden;
+                    border: revert;
+                    background: revert;
+                    border-style: solid;
+                    border-width: 1px;
+                    
+                    height: 1.25rem;
+                    width: 1.25rem;
+                    padding: 0;
+                    font-size: .75rem;
+                    background: rgba(122,122,122,.5);
+                    backdrop-filter: blur(2px);
 
                     &.delete {
-                        background: red;
+                        top: calc(50% - 2.25rem);
+                        right: calc(50% - 2.25rem);
+                        border-color: red;
+                        &:hover {
+                            background-color: red;
+                        }
                     }
 
                     &.edit {
-                        background: lime;
+                        top: calc(50% - 2.25rem);
+                        left: calc(50% - 2.25rem);
+                        border-color: orange;
+                        &:hover {
+                            background-color: orange;
+                        }
                     }
+
+                    &.details-expand {
+                        top: calc(50% + 1rem);
+                        left: calc(50% - 2.25rem);
+                        border-color: white;
+                        &:hover {
+                            background-color: white;
+                        }
+                    }
+
+                    &.min-headbar {
+                        min-height: 0;
+                        top: calc(50% - 1.75rem);
+                        left: calc(50% - .625rem);
+                        height: .75rem !important;
+                        border-color: revert;
+                        border-bottom: 0;
+                        &:hover {
+                            background-color: white;
+                        }
+                    }
+                }
+
+                .move {
+                    width: 2rem;
+                    height: 2rem;
+                    cursor: move;
+                    top: calc(50% - 1rem);
+                    left: calc(50% - 1rem);
                 }
             }
         }

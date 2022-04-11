@@ -26,6 +26,7 @@ function buildAvailableBlocksMenu() {
         }
 
         if(myItem.split("/")[0] != lastItemModule) {
+            result += "\<option disabled\>\</option\>";
             result += "\</optgroup\>";
             result += "\<optgroup style='color:" + myColor + "' label='" + myItem.split("/")[0] + "'>";
         }
@@ -72,7 +73,7 @@ function dragBlock(which) {
     if(session.mouseDown) {
         document.body.classList.add("mousedown");
         if(session.mouseDownOn && session.mouseDownOn.parentElement.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
-            setBlockPosition(which, (session.mouseX - myMovingBlockOffsetX) + "px", (session.mouseY - myMovingBlockOffsetY + session.one_rem) + "px");
+            setBlockPosition(which, (myMovingBlockOffsetX + (session.mouseX - session.mouseXinitial)) + "px", (myMovingBlockOffsetY + (session.mouseY - session.mouseYinitial)) + "px");
         }
     } else {
         document.body.classList.remove("mousedown");
@@ -113,9 +114,11 @@ function addEditBar(which) {
     which.innerHTML = document.getElementById("core-edit/headbar").innerHTML + which.innerHTML;
     which.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
         session.mouseDown = true;
+        session.mouseXinitial = session.mouseX;
+        session.mouseYinitial = session.mouseY;
         session.mouseDownOn = event.srcElement;
-        myMovingBlockOffsetX = event.layerX;
-        myMovingBlockOffsetY = event.layerY;
+        myMovingBlockOffsetX = session.mouseDownOn.parentElement.parentElement.offsetLeft;
+        myMovingBlockOffsetY = session.mouseDownOn.parentElement.parentElement.offsetTop;
         selectBlock(this);
         dragBlock(which);
         event.preventDefault();

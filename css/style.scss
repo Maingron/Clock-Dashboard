@@ -1,7 +1,10 @@
 @import "vars.scss";
 
 html {
-    font-size: var(--one_rem);
+    font-size: 2rem;
+    color: #fff;
+    color-scheme: dark;
+
     body {
         background: $body-background;
         background-repeat: no-repeat !important;
@@ -13,49 +16,51 @@ html {
         width: 100vw;
         margin: 0;
         box-sizing: border-box;
+        h1,h2,h3,h4,h5,h6 {
+            margin: 0;
+        }
+
         .block {
             position: absolute;
             display: inline-block;
-            // render:not([type="js"]) {
-            //     font-size: 0;
-            // }
-            * {
-                font-size: 2rem;
-            }
-            div {
-                font-size: 0;
-                line-height: 0;
-            }
             error { // Hide blocks with error
                 display: none;
             }
-
-            button {
-                min-height: 1rem;
-                min-width: 1rem;
-                background-color: var(--themecolor);
-                border-radius: 0;
-                box-sizing: border-box;
-                padding: .1rem .2rem;
-                font-size: 1rem;
-                display: inline-block;
-                position: relative;
+            content {
+                display:inline-flex;
             }
+        }
+
+        button {
+            min-height: 1rem;
+            min-width: 1rem;
+            background-color: transparent;
+            border: 0;
+            border-radius: 0;
+            box-sizing: border-box;
+            padding: .1rem .2rem;
+            display: inline-block;
+            position: relative;
+            &:hover {
+                background-color: var(--themecolor);
+            }
+        }
+
+        input, button, select, option, optgroup {
+            font-size: inherit;
+            color: inherit;
         }
 
         .hide {
             display: none;
         }
 
-        render {
-            // outline: 1px solid red;
-            // font-size: 0;
+        option, optgroup {
+            font-size: .6rem !important;
         }
 
-        select, option, optgroup {
-            font-size: .6rem !important;
-            background: #000;
-            color: #fff;
+        optgroup {
+            font-style: normal;
         }
 
         iframe {

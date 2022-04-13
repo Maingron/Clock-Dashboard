@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 
 <template id="custom_text" class="custom-text">
-    <span style="min-width:2rem" contenteditable onkeyup="config.myWatchface[parentElement.parentElement.id].text = this.innerHTML; saveConfig()">Text</span>
-
-    <img src="/img/transparent.png" onload="this.parentElement.children[0].innerHTML = config.myWatchface[parentElement.parentElement.id].text" alt="">
+    <span style="min-width:2rem" onkeyup="config.myWatchface[this.parentElement.parentElement.id].text = this.innerHTML; saveConfig()">Text</span>
+    <img src="/img/transparent.png" onload="this.parentElement.children[0].innerHTML = config.myWatchface[this.parentElement.parentElement.id].text; if(config.edit_mode) {this.parentElement.children[0].setAttribute('contenteditable', 'true')}" alt="">
 </template>
-
-
-<!-- <template id="createblock">
-    <div class="createblock">
-        <render render="buildAvailableBlocksMenu"></render>
-        <button onclick="this.parentElement.parentElement.parentElement.children[0].innerHTML += '<span>f<render render=\'' + (parentElement.children[0].children[0].value) + '\'></render></span>'">+</button>
-    </div>
-</template> -->

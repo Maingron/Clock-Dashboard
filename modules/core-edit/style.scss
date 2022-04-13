@@ -83,7 +83,7 @@ html {
                     backdrop-filter: blur(2px);
 
                     &.delete {
-                        top: calc(50% - 1.5rem);
+                        top: -.75rem;
                         right: calc(50% - 1.5rem);
                         border-color: red;
                         &:hover {
@@ -92,7 +92,7 @@ html {
                     }
 
                     &.edit {
-                        top: calc(50% - 1.5rem);
+                        top: -.75rem;
                         left: calc(50% - 1.5rem);
                         border-color: orange;
                         &:hover {
@@ -101,6 +101,7 @@ html {
                     }
 
                     &.details-expand {
+                        display: none;
                         top: calc(50% + .5rem);
                         left: calc(50% - 1.5rem);
                         border-color: white;
@@ -111,6 +112,7 @@ html {
                     }
 
                     &.min-headbar {
+                        display: none;
                         min-height: 0;
                         top: calc(50% - 1.35rem);
                         left: calc(50% - .5rem);
@@ -126,11 +128,11 @@ html {
                 }
 
                 .move {
-                    width: 1.5rem;
-                    height: 1.5rem;
+                    width: 1rem;
+                    height: 1rem;
                     cursor: move;
-                    top: calc(50% - .75rem);
-                    left: calc(50% - .75rem);
+                    top: -.75rem;
+                    left: calc(50% - .5rem);
                 }
 
 

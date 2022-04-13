@@ -35,30 +35,6 @@ function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
     return which;
 }
 
-function setBlockPosition(which, x, y) {
-    var whichHTML = getBlock(which, false);
-    var whichJS = getBlock(which, true);
-
-    if(!x && !y) {
-        x = getBlockSetting(which, "x");
-        y = getBlockSetting(which, "y");
-    }
-
-    setBlockSetting(which, "x", x);
-    setBlockSetting(which, "y", y);
-
-
-}
-
-function setBlockSize(which, w, h) {
-    if(!w && !h) {
-        w = getBlockSetting(which, "w");
-        h = getBlockSetting(which, "h");
-    }
-
-    setBlockSetting(which, "w", w);
-    setBlockSetting(which, "h", h);
-}
 
 function setBlockSetting(which, property, value) {
     var whichHTML = getBlock(which, false);

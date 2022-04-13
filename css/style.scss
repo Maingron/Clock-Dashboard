@@ -38,6 +38,12 @@ html {
             font-size: .5em;
         }
 
+        .d-{
+            &block {
+                display: block;
+            }
+        }
+
         .block {
             position: absolute;
             display: inline-block;
@@ -46,6 +52,15 @@ html {
             }
             content {
                 display:inline-flex;
+            }
+            iframe {
+                border: 0;
+                height: 100% !important;
+                width: 100% !important;
+                position: relative;
+                display: inline-block;
+                top: 0;
+                left: 0;
             }
         }
 
@@ -64,7 +79,7 @@ html {
             }
         }
 
-        input, button, select, option, optgroup, label {
+        input, button, select, option, optgroup, label, div>span {
             font-size: .5rem;
             color: inherit;
         }

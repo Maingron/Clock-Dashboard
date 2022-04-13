@@ -60,7 +60,6 @@ function settings_loadUnloadmodulesList() {
 
 function settings_enDisModule(which, enDisDel, refresh=true) {
     // enable, disable, delete
-    console.log(which);
     if(enDisDel == "enable" || enDisDel == "disable") { // Delete entry beforehand to avoid duplication
         settings_enDisModule(which, "delete", false);
     }

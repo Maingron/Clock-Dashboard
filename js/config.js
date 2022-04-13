@@ -30,12 +30,16 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 {
                     "x": "-0",
                     "y": "0",
+                    "w": "auto",
+                    "h": "auto",
                     "type": "core-edit/top-right-menu",
                     "editable": false
                 },
                 {
                     "x": "-0",
                     "y": "2rem",
+                    "w": "auto",
+                    "h": "auto",
                     "type": "core-edit/createblock",
                     "class": "hide display-edit",
                     "editable": false
@@ -43,6 +47,8 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 {
                     "x": "2rem",
                     "y": "2rem",
+                    "w": "auto",
+                    "h": "auto",
                     "type": "time-display/fullclock"
                 }
             ]

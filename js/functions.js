@@ -2,6 +2,13 @@ function spawnBlock(attributes) {
     var myNewElement = document.createElement("div");
     for(myItem_attribute of Object.keys(attributes)) {
         myNewElement.setAttribute(myItem_attribute, attributes[myItem_attribute]);
+
+        // Remove these attributes to avoid confusion:
+        // TODO: Improve
+        myNewElement.removeAttribute("x");
+        myNewElement.removeAttribute("y");
+        myNewElement.removeAttribute("w");
+        myNewElement.removeAttribute("h");
     }
 
     myNewElement.classList.add("block");
@@ -11,41 +18,109 @@ function spawnBlock(attributes) {
     return(myNewElement);
 }
 
-function setBlockPosition(which, x, y) {
-    if(typeof(which) == "object") {
-    } else {
-        which = document.getElementById(which);
+function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
+    if(htmlorconfig == false) { // HTML<>
+        if(typeof(which) == "object") {
+        } else {
+            which = document.getElementById(which);
+        }
+    } else if(htmlorconfig == true) { // config.myWatch[which]{}
+        if(typeof(which) == "object") {
+            which = which.getAttribute("id");
+        } else { // Assume id
+        }
+        which = config.myWatchface[which];
     }
+
+    return which;
+}
+
+function setBlockPosition(which, x, y) {
+    var whichHTML = getBlock(which, false);
+    var whichJS = getBlock(which, true);
 
     if(!x && !y) {
-        x = which.getAttribute("x");
-        y = which.getAttribute("y");
+        x = getBlockSetting(which, "x");
+        y = getBlockSetting(which, "y");
     }
 
-    which.setAttribute("x",x);
-    which.setAttribute("y",y);
+    setBlockSetting(which, "x", x);
+    setBlockSetting(which, "y", y);
 
-    config.myWatchface[which.id].x = x;
-    config.myWatchface[which.id].y = y;
 
-    // Negative value means calculate from right:
-    if(x.charAt(0) == "-") {
-        which.style.left = "";
-        which.style.right = x.replace("-","");
-    } else {
-        which.style.left = x;
-        which.style.right = "";
+}
+
+function setBlockSize(which, w, h) {
+    if(!w && !h) {
+        w = getBlockSetting(which, "w");
+        h = getBlockSetting(which, "h");
     }
 
-    if(y.charAt(0) == "-") {
-        which.style.top = "";
-        which.style.bottom = y.replace("-","");
-    } else {
-        which.style.top = y;
-        which.style.bottom = "";
-    }
+    setBlockSetting(which, "w", w);
+    setBlockSetting(which, "h", h);
+}
+
+function setBlockSetting(which, property, value) {
+    var whichHTML = getBlock(which, false);
+    var whichJS = getBlock(which, true);
+
+    // Update config entry
+    whichJS[property] = value;
 
     saveConfig();
+
+    renderBlockSetting(which, property);
+}
+
+function getBlockSetting(which, property) {
+    var whichJS = getBlock(which, true);
+    if(whichJS[property]) {
+        return whichJS[property];
+    }
+}
+
+function renderBlockSetting(which, property) {
+    var whichHTML = getBlock(which, false);
+    var whichJS = getBlock(which, true);
+
+    var value = getBlockSetting(which, property);
+
+    var styleAttributes = {
+        "h": "height",
+        "w": "width",
+        "y": "top",
+        "x": "left",
+        "f-c": "color",
+        "f-s": "font-size"
+    };
+
+    if(Object.keys(styleAttributes).includes(property)) { // If it's a CSS thing
+        if(property == "x" || property == "y") {
+            // Negative value means calculate from right:
+            if(property == "x") {
+                if(value.charAt(0) == "-") {
+                    whichHTML.style.left = "";
+                    whichHTML.style.right = value.replace("-","");
+                } else {
+                    whichHTML.style.left = value;
+                    whichHTML.style.right = "";
+                }
+            } else if(property == "y") {
+                if(value.charAt(0) == "-") {
+                    whichHTML.style.top = "";
+                    whichHTML.style.bottom = value.replace("-","");
+                } else {
+                    whichHTML.style.top = value;
+                    whichHTML.style.bottom = "";
+                }
+            }
+        } else {
+            whichHTML.style[styleAttributes[property]] = value; // Update on screen
+        }
+        
+    } else {
+        whichHTML[property] = value; // Update on screen
+    }
 }
 
 function registerTicker(which) {
@@ -182,7 +257,12 @@ function initBlocks() {
 
     for(var i = 0; config.myWatchface.length > i; i++) {
         var mySpawnedBlock = spawnBlock(Object.assign(config.myWatchface[i],{"id": i}));
-        setBlockPosition(mySpawnedBlock);
+        renderBlockSetting(mySpawnedBlock, "x");
+        renderBlockSetting(mySpawnedBlock, "y");
+        renderBlockSetting(mySpawnedBlock, "w");
+        renderBlockSetting(mySpawnedBlock, "h");
+        renderBlockSetting(mySpawnedBlock, "f-c");
+        renderBlockSetting(mySpawnedBlock, "f-s");
         e.blocks.push(mySpawnedBlock);
     }
 

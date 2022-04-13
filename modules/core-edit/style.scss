@@ -107,6 +107,7 @@ html {
                         &:hover {
                             background-color: white;
                         }
+                        right: 100% !important;
                     }
 
                     &.min-headbar {
@@ -130,6 +131,38 @@ html {
                     cursor: move;
                     top: calc(50% - .75rem);
                     left: calc(50% - .75rem);
+                }
+
+
+                .headbar-edit-expand-container {
+                    height: auto;
+                    width: 300px;
+                    right: 100%;
+                    max-width: 30vw;
+                    background: rgba(122,122,122,.3);
+                    position: absolute;
+                    display: inline-block;
+                    pointer-events: all;
+                    padding: .2rem;
+                    z-index: 10000;
+                    color: #fff;
+                    font-size: 1rem;
+                    &,* {
+                        box-sizing: border-box;
+                    }
+                    input {
+                        width: 30%;
+                    }
+                    input[type=range] {
+                        width: 100%;
+                        margin: 0;
+                    }
+                    hr {
+                        margin: .2rem;
+                    }
+                    h1,h2,h3,h4,h5,h6 {
+                        margin-bottom: .2rem;
+                    }
                 }
             }
         }

@@ -4,12 +4,41 @@
     <div class="headbar">
         <button class="move"></button>
         <button class="delete" onclick="deleteBlock(this.parentElement.parentElement)">🗑️</button>
-        <button class="edit">✏️</button>
+        <button class="edit" onclick="this.parentElement.parentElement.getElementsByClassName('edit-expand')[0].classList.toggle('hide');">✏️</button>
         <button class="details-expand" disabled="disabled">➕</button>
+
+        <div class="edit-expand hide">
+            <render render="core-edit/headbar-edit-expand"></render>
+        </div>
+
         <button class="min-headbar" onclick="parentElement.classList.toggle('min-headbar')">🔼</button>
     </div>
 </template>
 
+<template id="headbar-edit-expand">
+    <div class="headbar-edit-expand-container">
+        <h3>Block Settings</h3>
+        <hr>
+        <h4 class="d-block">Positioning</h4>
+        <span>h</span>
+        <input class="hb-h" issetting="h" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <span>w</span>
+        <input class="hb-w" issetting="w" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <br>
+        <span>x</span>
+        <input class="hb-x" issetting="x" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <span>y</span>
+        <input class="hb-y" issetting="y" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <hr>
+        <h4 class="d-block">Text</h4>
+        <span class="d-block">Color:</span>
+        <input class="hb-f-c" issetting="f-c" type="color" onchange="headbar_saveEditExpandSettings(this)">
+        <br>
+        <input class="hb-f-s" issetting="f-s" type="range" min=".25" max="4" step=".05" onchange="headbar_saveEditExpandSettings(this, '', 'rem')">
+
+    </div>
+    <img src="/img/transparent.png" onload="headbar_updateEditExpandSettings(this)" alt="">
+</template>
 
 <template id="top-right-menu">
     <div class="top-right-menu">

@@ -5,7 +5,10 @@ meta["core-settings"] = {
 
 
 function updateSettings() {
-    document.getElementById("setting-debug").setAttribute("checked","checked");
+    // TODO document.getElementById("setting-debug").setAttribute("checked","checked");
+    if(config.allowinternalblockscreation) {
+        document.getElementById("setting-internalblocks").setAttribute("checked", "checked");
+    }
     document.getElementById("setting-tps").setAttribute("value", config.tps);
     document.getElementById("setting-enabled_modules").innerHTML = settings_loadModulesList();
     document.getElementById("setting-disabled_modules").innerHTML = settings_loadUnloadmodulesList();

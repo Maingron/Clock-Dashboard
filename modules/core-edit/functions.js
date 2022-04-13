@@ -31,9 +31,11 @@ function buildAvailableBlocksMenu() {
             result += "\<optgroup style='color:" + myColor + "' label='" + myItem.split("/")[0] + "'>";
         }
 
-        if(document.getElementById(myItem).getAttribute("internal") != "internal") {
+        if(document.getElementById(myItem).getAttribute("internal") != "internal" || config.allowinternalblockscreation) {
             result += "\<option value="+myItem+"\>";
-            // console.log(result);
+            if(document.getElementById(myItem).getAttribute("internal") == "internal") {
+                result += "[in] ";
+            }
             result += myItem.split("/")[1];
             result += "\</option\>";
             result += "\n";

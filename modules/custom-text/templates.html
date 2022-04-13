@@ -7,6 +7,11 @@
 
 <template id="custom_iframe" class="custom-iframe">
     <span style="min-width:2rem" onkeyup="config.myWatchface[this.parentElement.parentElement.id].text = this.innerHTML; saveConfig()">Text</span>
-    <iframe style="height:200px; width:200px;"></iframe>
+    <iframe src="about:blank"></iframe>
     <img src="/img/transparent.png" onload="this.parentElement.children[1].src = config.myWatchface[this.parentElement.parentElement.id].text; this.parentElement.children[0].innerHTML = config.myWatchface[this.parentElement.parentElement.id].text; if(config.edit_mode) {this.parentElement.children[0].setAttribute('contenteditable', 'true')}" alt="">
+    <style>
+        .block[type="custom-text/custom_iframe"] content {
+            display: inline !important;
+        }
+    </style>
 </template>

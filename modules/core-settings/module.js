@@ -9,9 +9,10 @@ function updateSettings() {
     if(config.allowinternalblockscreation) {
         document.getElementById("setting-internalblocks").setAttribute("checked", "checked");
     }
-    document.getElementById("setting-tps").setAttribute("value", config.tps);
+    document.getElementById("setting-tps").setAttribute("value", getConfigEntry("tps"));
     document.getElementById("setting-enabled_modules").innerHTML = settings_loadModulesList();
     document.getElementById("setting-disabled_modules").innerHTML = settings_loadUnloadmodulesList();
+    
 }
 
 function setBackgroundImage(which) {
@@ -19,8 +20,8 @@ function setBackgroundImage(which) {
     myReader.readAsDataURL(which.files[0]);
 
     myReader.onload = function() {
-        config.bodyBackground = "url("+myReader.result+")";
-        document.body.style.backgroundImage = "url("+myReader.result + ")";
+        setConfigEntry("bodyBackground", "url("+myReader.result+")");
+        document.body.style.backgroundImage = getConfigEntry("bodyBackground");
         saveConfig();
     }
 }
@@ -88,3 +89,12 @@ function settings_enDisModule(which, enDisDel, refresh=true) {
 
 
 loadHTMLTemplate("modules/core-settings/templates.html");
+
+function setConfigEntry(which, value) {
+    config[which] = value;
+    saveConfig();
+}
+
+function getConfigEntry(which) {
+    return config[which];
+}

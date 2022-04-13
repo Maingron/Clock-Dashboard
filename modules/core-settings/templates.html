@@ -17,12 +17,12 @@
             <fieldset>
                 <h4>Allow internal Blocks creation</h4>
                 <label for="setting-internalblocks">Enabled: </label>
-                <input type="checkbox" id="setting-internalblocks" onchange="config.allowinternalblockscreation = !config.allowinternalblockscreation; saveConfig()">
+                <input type="checkbox" id="setting-internalblocks" onchange="setConfigEntry('allowinternalblockscreation', !getConfigEntry('allowinternalblockscreation'))">
             </fieldset>
 
             <fieldset>
                 <h4>TPS</h4>
-                <input type="number" id="setting-tps" min="1" max="240" onchange="config.tps = this.value; saveConfig()">
+                <input type="number" id="setting-tps" min="1" max="240" onchange="setConfigEntry('tps', this.value)">
             </fieldset>
 
             <fieldset>

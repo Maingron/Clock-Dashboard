@@ -3,15 +3,16 @@ meta["core-edit"] = {
     "name": "Edit"
 }
 
+loadScriptFile("modules/core-edit/templates-functions.js");
+
 loadHTMLTemplate("modules/core-edit/templates.html",
     'loadScriptFile("modules/core-edit/functions.js", "initEdit()")');
 
 
-var myMovingBlockOffsetX;
-var myMovingBlockOffsetY;
-
-
 if(config.edit_mode) {
+    var myMovingBlockOffsetX;
+    var myMovingBlockOffsetY;
+
     loadCSSFile("modules/core-edit/style.css");
 }
 

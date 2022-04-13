@@ -35,7 +35,6 @@ function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
     return which;
 }
 
-
 function setBlockSetting(which, property, value) {
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);
@@ -133,15 +132,6 @@ function returnValue(which) {
             return ""; // Don't return "undefined" but instead return empty string (Looks much better)
         }
     }
-    // for(var i = 0; session.availableBlocks.length > i; i++) {
-    //     var myAvailableBlock = session.availableBlocks[i];
-    //     if(isjs) {
-    //         return(eval(which));
-    //     }
-    //     if(which == myAvailableBlock) {
-    //         return ;
-    //     }
-    // }
     // return "<error>"+ which + " not found in available blocks</error>";
 }
 

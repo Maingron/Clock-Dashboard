@@ -14,10 +14,9 @@ function getSupposedTickcount() {
 }
 
 function getTickcountPercentage() {
-    return Math.round((session.tickcount / getSupposedTickcount()) * 10000) / 100
+    return Math.round((session.tickcount / getSupposedTickcount()) * 10000) / 100;
 }
 
 registerJSRender("tickcounter", getTickcount);
 registerJSRender("supposedtickscounter", getSupposedTickcount);
 registerJSRender("tickpercentage", getTickcountPercentage);
-

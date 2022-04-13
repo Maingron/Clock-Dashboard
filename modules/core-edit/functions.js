@@ -58,8 +58,8 @@ function initEventListeners_edit() {
     }
 
     document.addEventListener("mousemove", function(event) {
-        session.mouseX = event.clientX;
-        session.mouseY = event.clientY;
+        session.mouseX = Math.round(event.clientX / config.gridX) * config.gridX;
+        session.mouseY = Math.round(event.clientY / config.gridY) * config.gridY;
         dragBlock(session.selectedBlock);
     });
     

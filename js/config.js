@@ -13,6 +13,8 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "edit_mode": true,
             "bodyBackground": "#000",
             "one_rem": "32px",
+            "gridX": "10",
+            "gridY": "10",
             "loadmodules": [
                 "modules/core-settings/module.js",
                 "modules/core-edit/module.js",

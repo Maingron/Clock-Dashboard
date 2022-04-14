@@ -94,7 +94,9 @@ function renderBlockSetting(which, property) {
         }
         
     } else {
-        whichHTML[property] = value; // Update on screen
+        // Update on screen
+        whichHTML[property] = value;
+        whichHTML.setAttribute(property, value); // Update on screen
     }
 }
 
@@ -141,6 +143,23 @@ function returnValue(which) {
         }
     }
     // return "<error>"+ which + " not found in available blocks</error>";
+}
+
+function getTemplateSettings(which) {
+    which = getBlock(which);
+    var result = "";
+    var inputString = which.innerHTML;
+
+    if(inputString.includes("<settings") && inputString.includes("</settings>")) {
+        // result = "<settings";
+        result += inputString.split("<settings>")[1];
+        result = result.split("</settings>")[0];
+        // result += "</settings>";
+    } else {
+        result = "";
+    }
+
+    return result;
 }
 
 
@@ -237,6 +256,7 @@ function initBlocks() {
         renderBlockSetting(mySpawnedBlock, "h");
         renderBlockSetting(mySpawnedBlock, "f-c");
         renderBlockSetting(mySpawnedBlock, "f-s");
+
         e.blocks.push(mySpawnedBlock);
     }
 

@@ -99,7 +99,6 @@ function addEditBar(which) {
 
 function headbar_updateEditExpandSettings(which) {
     var which = getBlock(which.parentElement.parentElement.parentElement.parentElement.id); // TODO: Not a very good solution, but it works for now
-    console.log(which.getElementsByClassName("hb-x"));
     which.getElementsByClassName("hb-x")[0].value = getBlockSetting(which, "x");
     which.getElementsByClassName("hb-y")[0].value = getBlockSetting(which, "y");
     which.getElementsByClassName("hb-w")[0].value = getBlockSetting(which, "w");
@@ -108,6 +107,8 @@ function headbar_updateEditExpandSettings(which) {
     which.getElementsByClassName("hb-f-s")[0].value = parseFloat(getBlockSetting(which, "f-s"));
     which.getElementsByClassName("hb-f-s")[0].setAttribute("step", getConfigEntry("gridX") / 1000);
     which.getElementsByClassName("hb-f-s")[0].setAttribute("min", getConfigEntry("gridX") / 1000);
+
+    which.getElementsByClassName("hb-custom")[0].innerHTML = getTemplateSettings(which); // Custom settings defined in each templates <settings> section (optional)
 }
 
 function headbar_saveEditExpandSettings(which, prepend = "", append = "") {

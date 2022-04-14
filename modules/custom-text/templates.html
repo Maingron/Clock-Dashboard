@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 
 <template id="custom_text" class="custom-text">
-    <span style="min-width:2rem" onkeyup="config.myWatchface[this.parentElement.parentElement.id].text = this.innerHTML; saveConfig()">Text</span>
-    <img src="/img/transparent.png" onload="this.parentElement.children[0].innerHTML = config.myWatchface[this.parentElement.parentElement.id].text; if(config.edit_mode) {this.parentElement.children[0].setAttribute('contenteditable', 'true')}" alt="">
+    <span style="min-width:1rem">Text</span>
+    <img src="/img/transparent.png" onload="this.previousElementSibling.innerHTML = getBlockSetting(getBlockByChild(this), 'text');" alt="">
+    <settings>
+        <span>Text:</span>
+        <input type="text" onchange="setBlockSetting(getBlockByChild(this), 'text', this.value); getBlockByChild(this).getElementsByTagName('content')[0].getElementsByTagName('span')[0].innerHTML = this.value;">
+    </settings>
 </template>
 
 <template id="custom_iframe" class="custom-iframe">
-    <span style="min-width:2rem" onkeyup="config.myWatchface[this.parentElement.parentElement.id].text = this.innerHTML; saveConfig()">Text</span>
-    <iframe src="about:blank"></iframe>
-    <img src="/img/transparent.png" onload="this.parentElement.children[1].src = config.myWatchface[this.parentElement.parentElement.id].text; this.parentElement.children[0].innerHTML = config.myWatchface[this.parentElement.parentElement.id].text; if(config.edit_mode) {this.parentElement.children[0].setAttribute('contenteditable', 'true')}" alt="">
+    <iframe src="about:blank" alt="" title="" async></iframe>
+    <img src="/img/transparent.png" onload="this.previousElementSibling.src = getBlockSetting(getBlockByChild(this), 'src')" alt="">
+    <settings>
+        <span>Src:</span>
+        <input type="url" onchange="setBlockSetting(getBlockByChild(this), 'src', this.value); getBlockByChild(this).getElementsByTagName('iframe')[0].src = this.value;">
+        <img src="/img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="">
+    </settings>
     <style>
         .block[type="custom-text/custom_iframe"] content {
             display: inline !important;
+            font-size: 0 !important;
+            line-height: 0 !important;
         }
     </style>
 </template>

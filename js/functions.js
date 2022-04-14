@@ -106,6 +106,14 @@ function registerJSRender(name, which) {
     session.jsRenderArray[name] = which;
 }
 
+function getBlockByChild(which, htmlorconfig) {
+    if(which.id && typeof(+which.id) == "number" && !isNaN(+which.id)) {
+        return getBlock(which, htmlorconfig);
+    } else {
+        return getBlockByChild(which.parentElement, htmlorconfig);
+    }
+}
+
 function getAvailableBlocks() {
     session.availableBlocks = [];
     for(var i = 0; e.templates.length > i; i++) {

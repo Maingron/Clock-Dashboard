@@ -17,8 +17,8 @@ function toggleEditMode(edittruefalse = !config.edit_mode) {
 function createNewBlock(type) {
     var myNewBlock = {
         "type": type,
-        "x": "50%",
-        "y": "50%",
+        "x": (config.gridX * (Math.floor((document.body.offsetWidth / config.gridX) / 2))) + "px",
+        "y": (config.gridY * (Math.floor((document.body.offsetHeight / config.gridY) / 2))) + "px",
         "w": "auto",
         "h": "auto",
         "id": config.myWatchface.length

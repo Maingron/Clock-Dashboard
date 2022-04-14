@@ -13,8 +13,8 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "edit_mode": true,
             "bodyBackground": "#000",
             "one_rem": "32px",
-            "gridX": "10",
-            "gridY": "10",
+            "gridX": "20",
+            "gridY": "20",
             "loadmodules": [
                 "modules/core-settings/module.js",
                 "modules/core-edit/module.js",
@@ -39,7 +39,7 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 },
                 {
                     "x": "-0",
-                    "y": "2rem",
+                    "y": "60px",
                     "w": "auto",
                     "h": "auto",
                     "type": "core-edit/createblock",
@@ -47,8 +47,8 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                     "editable": false
                 },
                 {
-                    "x": "2rem",
-                    "y": "2rem",
+                    "x": "60px",
+                    "y": "60px",
                     "w": "auto",
                     "h": "auto",
                     "type": "time-display/fullclock"

@@ -105,8 +105,9 @@ function headbar_updateEditExpandSettings(which) {
     which.getElementsByClassName("hb-h")[0].value = getBlockSetting(which, "h");
     which.getElementsByClassName("hb-f-c")[0].value = getBlockSetting(which, "f-c");
     which.getElementsByClassName("hb-f-s")[0].value = parseFloat(getBlockSetting(which, "f-s"));
-    which.getElementsByClassName("hb-f-s")[0].setAttribute("step", getConfigEntry("gridX") / 1000);
-    which.getElementsByClassName("hb-f-s")[0].setAttribute("min", getConfigEntry("gridX") / 1000);
+    which.getElementsByClassName("hb-f-s")[0].setAttribute("step", .25);
+    which.getElementsByClassName("hb-f-s")[0].setAttribute("min", .25);
+    which.getElementsByClassName("hb-f-s")[0].setAttribute("title", getBlockSetting(which, "f-s"));
 
     which.getElementsByClassName("hb-custom")[0].innerHTML = getTemplateSettings(which); // Custom settings defined in each templates <settings> section (optional)
 }

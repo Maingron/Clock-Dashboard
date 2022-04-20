@@ -8,13 +8,13 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
     } else {
         // Generate Config
         config = { // Initial configuration
-            "tps": "10",
+            "tps": "20",
             "debug": true,
             "edit_mode": true,
             "bodyBackground": "#000",
             "one_rem": "32px",
-            "gridX": "20",
-            "gridY": "20",
+            "gridX": "50",
+            "gridY": "50",
             "loadmodules": [
                 "modules/core-settings/module.js",
                 "modules/core-edit/module.js",

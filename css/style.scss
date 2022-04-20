@@ -45,6 +45,8 @@ html {
         }
 
         .block {
+            line-height: 1;
+            // font-size: 3em;
             position: absolute;
             display: inline-block;
             error { // Hide blocks with error
@@ -118,8 +120,8 @@ html {
         }
 
         iframe {
-            height: 1rem;
-            width: 1rem;
+            height: 1em;
+            width: 1em;
             display: inline;
         }
 

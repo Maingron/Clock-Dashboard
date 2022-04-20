@@ -73,18 +73,19 @@ html {
                     overflow: hidden;
                     border: revert;
                     background: revert;
-                    border-style: solid;
-                    border-width: 1px;
-                    height: 1rem;
-                    width: 1rem;
+                    border: var(--button-border);
+                    backdrop-filter: var(--button-backdrop-filter);
+                    min-height: unset;
+                    min-width: unset;
+                    height: .875rem;
+                    width: .875rem;
                     padding: 0;
-                    font-size: .625rem;
-                    background: rgba(122,122,122,.3);
-                    backdrop-filter: blur(2px);
+                    font-size: .5rem;
+                    background: var(--button-bg);
 
                     &.delete {
-                        top: -.75rem;
-                        right: calc(50% - 1.5rem);
+                        top: -.625rem;
+                        right: calc(50% - 1.3125rem);
                         border-color: red;
                         &:hover {
                             background-color: red;
@@ -92,8 +93,8 @@ html {
                     }
 
                     &.edit {
-                        top: -.75rem;
-                        left: calc(50% - 1.5rem);
+                        top: -.625rem;
+                        left: calc(50% - 1.3125rem);
                         border-color: orange;
                         &:hover {
                             background-color: orange;
@@ -128,18 +129,19 @@ html {
                 }
 
                 .move {
-                    width: 1rem;
-                    height: 1rem;
+                    height: .875rem;
+                    width: .875rem;
                     cursor: move;
-                    top: -.75rem;
-                    left: calc(50% - .5rem);
+                    top: -.625rem;
+                    left: calc(50% - .4375rem);
                 }
 
 
                 .headbar-edit-expand-container {
                     height: auto;
                     width: 300px;
-                    right: 100%;
+                    left: 0;
+                    top: 100%;
                     max-width: 30vw;
                     background: rgba(122,122,122,.3);
                     position: absolute;

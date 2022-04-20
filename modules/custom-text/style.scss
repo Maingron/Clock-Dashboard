@@ -58,9 +58,10 @@
         img {
             width: 100%;
             height: auto;
-            background: rgba(122,122,122,.3);
-            border: 1px solid rgba(122,122,122,.6);
-            border-radius: var(--border-radius);
+            background: var(--button-bg);
+            backdrop-filter: var(--button-backdrop-filter);
+            border: var(--button-border);
+            border-radius: var(--button-border-radius);
             display: block;
             margin-bottom: .2em;
             padding: .1rem;

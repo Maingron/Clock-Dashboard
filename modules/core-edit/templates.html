@@ -35,7 +35,7 @@
         <span class="d-block">Color:</span>
         <input class="hb-f-c" issetting="f-c" type="color" onchange="headbar_saveEditExpandSettings(this)">
         <br>
-        <input class="hb-f-s" issetting="f-s" type="range" max="4" onchange="headbar_saveEditExpandSettings(this, '', 'rem')">
+        <input class="hb-f-s" issetting="f-s" type="range" max="6" onchange="headbar_saveEditExpandSettings(this, '', 'em'); this.setAttribute('title', this.value + 'em')" onmousemove="headbar_saveEditExpandSettings(this, '', 'em'); this.setAttribute('title', this.value + 'em')">
 
     </div>
     <img src="/img/transparent.png" onload="headbar_updateEditExpandSettings(this)" alt="">

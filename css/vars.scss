@@ -5,4 +5,11 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
 :root {
     --themecolor: #ffff00;
     --border-radius: 4px;
+    --button-bg: rgba(127,127,127,.6);
+    --button-border-color: rgba(127,127,127,1);
+    --button-border-width: 1px;
+    --button-border-style: solid;
+    --button-border-radius: var(--border-radius);
+    --button-border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
+    --button-backdrop-filter: blur(2px);
 }

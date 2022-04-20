@@ -66,6 +66,23 @@ function initEventListeners_edit() {
         session.mouseY = gridifyValue(event.clientY);
         dragBlock(session.selectedBlock);
     });
+
+    document.addEventListener("touchmove", function(event) {
+        session.mouseX = gridifyValue(event.changedTouches[0].clientX);
+        session.mouseY = gridifyValue(event.changedTouches[0].clientY);
+        dragBlock(session.selectedBlock);
+    });
+
+    document.addEventListener("touchstart", function(event) {
+        session.mouseX = gridifyValue(event.changedTouches[0].clientX);
+        session.mouseY = gridifyValue(event.changedTouches[0].clientY);
+        dragBlock(session.selectedBlock);
+    });
+
+    document.addEventListener("touchend", function(event) {
+        session.mouseDown = false;
+        dragBlock(session.selectedBlock);
+    });
     
     document.addEventListener("mouseup", function(event) {
         session.mouseDown = false;
@@ -76,6 +93,10 @@ function initEventListeners_edit() {
         if(myBlock.getAttribute("editable") != "false") {
             addEditBar(myBlock);
         }
+
+        myBlock.addEventListener("touchstart", function() {
+            selectBlock(this);
+        });
 
         myBlock.addEventListener("mousedown", function() {
             selectBlock(this);
@@ -89,6 +110,22 @@ function addEditBar(which) {
     }
     which.innerHTML = document.getElementById("core-edit/headbar").innerHTML + which.innerHTML;
     which.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
+        session.mouseDown = true;
+        session.mouseXinitial = gridifyValue(session.mouseX);
+        session.mouseYinitial = gridifyValue(session.mouseY);
+        session.mouseDownOn = event.srcElement;
+        myMovingBlockOffsetX = session.mouseDownOn.parentElement.parentElement.offsetLeft;
+        myMovingBlockOffsetY = session.mouseDownOn.parentElement.parentElement.offsetTop;
+        selectBlock(this);
+        dragBlock(which);
+        event.preventDefault();
+    });
+
+    which.getElementsByClassName("move")[0].addEventListener("touchstart", function(event) {
+        if(session.mouseDown != true) {
+            session.mouseX = gridifyValue(event.changedTouches[0].clientX);
+            session.mouseY = gridifyValue(event.changedTouches[0].clientY);
+        }
         session.mouseDown = true;
         session.mouseXinitial = gridifyValue(session.mouseX);
         session.mouseYinitial = gridifyValue(session.mouseY);

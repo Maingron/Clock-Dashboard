@@ -93,6 +93,12 @@ html {
         .hide {
             display: none;
         }
+        
+        .invisible {
+            opacity: 0;
+            visibility: 1;
+            user-select: none;
+        }
 
         img {
             &[src="/img/transparent.png"] {
@@ -103,6 +109,7 @@ html {
                 padding: 0 !important;
                 margin: 0 !important;
                 z-index: -9999;
+                visibility: hidden;
             }
         }
 

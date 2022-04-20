@@ -94,6 +94,18 @@ html {
             display: none;
         }
 
+        img {
+            &[src="/img/transparent.png"] {
+                height: 0 !important;
+                width: 0 !important;
+                display: inline !important;
+                position: absolute !important;
+                padding: 0 !important;
+                margin: 0 !important;
+                z-index: -9999;
+            }
+        }
+
         optgroup {
             font-style: normal;
         }

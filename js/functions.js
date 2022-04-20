@@ -49,7 +49,7 @@ function setBlockSetting(which, property, value) {
 
 function getBlockSetting(which, property) {
     var whichJS = getBlock(which, true);
-    if(whichJS[property]) {
+    if(whichJS && whichJS[property]) {
         return whichJS[property];
     }
 }
@@ -109,6 +109,9 @@ function registerJSRender(name, which) {
 }
 
 function getBlockByChild(which, htmlorconfig) {
+    if(!which) {
+        return;
+    }
     if(which.id && typeof(+which.id) == "number" && !isNaN(+which.id)) {
         return getBlock(which, htmlorconfig);
     } else {

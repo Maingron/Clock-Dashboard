@@ -18,7 +18,7 @@ function createNewBlock(type) {
     var myNewBlock = {
         "type": type,
         "x": (config.gridX * (Math.floor((document.body.offsetWidth / config.gridX) / 2))) + "px",
-        "y": (config.gridY * (Math.floor((document.body.offsetHeight / config.gridY) / 2))) + "px",
+        "y": (config.gridX * (Math.floor((document.body.offsetHeight / config.gridX) / 2))) + "px",
         "w": "auto",
         "h": "auto",
         "id": config.myWatchface.length
@@ -44,12 +44,16 @@ function dragBlock(which) {
     if(session.mouseDown) {
         document.body.classList.add("mousedown");
         if(session.mouseDownOn && session.mouseDownOn.parentElement.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
-            setBlockSetting(which, "x", (myMovingBlockOffsetX + (session.mouseX - session.mouseXinitial)) + "px");
-            setBlockSetting(which, "y", (myMovingBlockOffsetY + (session.mouseY - session.mouseYinitial)) + "px");
+            setBlockSetting(which, "x", (gridifyValue(myMovingBlockOffsetX + (session.mouseX - session.mouseXinitial))) + "px");
+            setBlockSetting(which, "y", (gridifyValue(myMovingBlockOffsetY + (session.mouseY - session.mouseYinitial))) + "px");
         }
     } else {
         document.body.classList.remove("mousedown");
     }
+}
+
+function gridifyValue(value) {
+    return Math.round(value / config.gridX) * config.gridX;
 }
 
 function initEventListeners_edit() {
@@ -58,8 +62,8 @@ function initEventListeners_edit() {
     }
 
     document.addEventListener("mousemove", function(event) {
-        session.mouseX = Math.round(event.clientX / config.gridX) * config.gridX;
-        session.mouseY = Math.round(event.clientY / config.gridY) * config.gridY;
+        session.mouseX = gridifyValue(event.clientX);
+        session.mouseY = gridifyValue(event.clientY);
         dragBlock(session.selectedBlock);
     });
     
@@ -86,8 +90,8 @@ function addEditBar(which) {
     which.innerHTML = document.getElementById("core-edit/headbar").innerHTML + which.innerHTML;
     which.getElementsByClassName("move")[0].addEventListener("mousedown", function(event) {
         session.mouseDown = true;
-        session.mouseXinitial = session.mouseX;
-        session.mouseYinitial = session.mouseY;
+        session.mouseXinitial = gridifyValue(session.mouseX);
+        session.mouseYinitial = gridifyValue(session.mouseY);
         session.mouseDownOn = event.srcElement;
         myMovingBlockOffsetX = session.mouseDownOn.parentElement.parentElement.offsetLeft;
         myMovingBlockOffsetY = session.mouseDownOn.parentElement.parentElement.offsetTop;

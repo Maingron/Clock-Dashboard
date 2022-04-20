@@ -11,7 +11,6 @@ function updateSettings() {
     }
     document.getElementById("setting-tps").setAttribute("value", getConfigEntry("tps"));
     document.getElementById("setting-gridx").setAttribute("value", getConfigEntry("gridX"));
-    document.getElementById("setting-gridy").setAttribute("value", getConfigEntry("gridY"));
     document.getElementById("setting-enabled_modules").innerHTML = settings_loadModulesList();
     document.getElementById("setting-disabled_modules").innerHTML = settings_loadUnloadmodulesList();
     

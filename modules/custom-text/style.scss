@@ -19,3 +19,52 @@
         line-height: 0 !important;
     }
 }
+
+.block[type="custom-text/custom_linkbutton"] {
+    // width: 100px; // Needed for initial size
+    
+    content {
+        padding: .2rem !important;
+        display: block;
+
+        a {
+            display: inline;
+            text-decoration: none;
+            margin: 0;
+            padding: 0;
+            &:hover {
+                filter: brightness(1.4);
+                img {
+                    border-color: rgba(122,122,122,.9);
+                }
+            }
+        }
+        
+        span {
+            text-align: center;
+            font-size: .5em;
+            text-align: center;
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+        }
+
+        &, * {
+            box-sizing: border-box;
+        }
+
+        img {
+            width: 100%;
+            height: auto;
+            background: rgba(122,122,122,.3);
+            border: 1px solid rgba(122,122,122,.6);
+            border-radius: var(--border-radius);
+            display: block;
+            margin-bottom: .2em;
+            padding: .1rem;
+            image-rendering: pixelated;
+        }
+    }
+}

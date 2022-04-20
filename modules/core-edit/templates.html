@@ -3,8 +3,8 @@
 <template id="headbar" internal>
     <div class="headbar">
         <button class="move"></button>
-        <button class="delete" onclick="deleteBlock(this.parentElement.parentElement)">🗑️</button>
-        <button class="edit" onclick="this.parentElement.parentElement.getElementsByClassName('edit-expand')[0].classList.toggle('hide');">✏️</button>
+        <button class="delete" onclick="deleteBlock(getBlockByChild(this))">🗑️</button>
+        <button class="edit" onclick="getBlockByChild(this).getElementsByClassName('edit-expand')[0].classList.toggle('hide');">✏️</button>
         <button class="details-expand" disabled="disabled">➕</button>
 
         <div class="edit-expand hide">

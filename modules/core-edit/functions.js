@@ -98,7 +98,7 @@ function addEditBar(which) {
 }
 
 function headbar_updateEditExpandSettings(which) {
-    var which = getBlock(which.parentElement.parentElement.parentElement.parentElement.id); // TODO: Not a very good solution, but it works for now
+    which = getBlockByChild(which);
     which.getElementsByClassName("hb-x")[0].value = getBlockSetting(which, "x");
     which.getElementsByClassName("hb-y")[0].value = getBlockSetting(which, "y");
     which.getElementsByClassName("hb-w")[0].value = getBlockSetting(which, "w");

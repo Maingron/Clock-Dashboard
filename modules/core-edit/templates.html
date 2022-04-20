@@ -22,20 +22,20 @@
         <hr>
         <h4 class="d-block">Positioning</h4>
         <span>h</span>
-        <input class="hb-h" issetting="h" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <input class="hb-h" issetting="h" type="text" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <span>w</span>
-        <input class="hb-w" issetting="w" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <input class="hb-w" issetting="w" type="text" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <br>
         <span>x</span>
-        <input class="hb-x" issetting="x" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <input class="hb-x" issetting="x" type="text" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <span>y</span>
-        <input class="hb-y" issetting="y" type="text" onchange="headbar_saveEditExpandSettings(this)">
+        <input class="hb-y" issetting="y" type="text" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <hr>
         <h4 class="d-block">Text</h4>
-        <span class="d-block">Color:</span>
+        <span>Color:</span>
         <input class="hb-f-c" issetting="f-c" type="color" onchange="headbar_saveEditExpandSettings(this)">
         <br>
-        <input class="hb-f-s" issetting="f-s" type="range" max="6" onchange="headbar_saveEditExpandSettings(this, '', 'em'); this.setAttribute('title', this.value + 'em')" onmousemove="headbar_saveEditExpandSettings(this, '', 'em'); this.setAttribute('title', this.value + 'em')">
+        <input class="hb-f-s" issetting="f-s" type="range" max="6" onchange="headbar_saveEditExpandSettings(this, '', 'em'); this.setAttribute('title', this.value + 'em')">
 
     </div>
     <img src="/img/transparent.png" onload="headbar_updateEditExpandSettings(this)" alt="">
@@ -71,8 +71,8 @@
 </template>
 
 <template id="createblock" internal>
-    <div class="createblock">
-        <render render="buildAvailableBlocksMenu"></render>
-        <input type="submit" value="add" onclick="createNewBlock(this.parentElement.children[0].children[0].value)">
+    <div class="createblock d-inline">
+<render render="buildAvailableBlocksMenu"></render>
+<input type="submit" value="&nbsp;+&nbsp;" onclick="createNewBlock(this.parentElement.children[0].children[0].value)">
     </div>
 </template>

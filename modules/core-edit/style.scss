@@ -137,12 +137,12 @@ html {
                 }
 
 
-                .headbar-edit-expand-container {
+                .headbar-edit-expand-container { // Settings of each block
                     height: auto;
                     width: 300px;
                     left: 0;
                     top: 100%;
-                    max-width: 30vw;
+                    max-width: 80vw;
                     background: rgba(127,127,127,.4);
                     position: absolute;
                     display: inline-block;
@@ -154,15 +154,14 @@ html {
                     &,* {
                         box-sizing: border-box;
                     }
-                    input {
-                        width: 30%;
-                    }
                     input[type=range] {
                         width: 100%;
                         margin: 0;
                     }
                     hr {
                         margin: .2rem;
+                        display: block;
+                        clear: both;
                     }
                     h1,h2,h3,h4,h5,h6 {
                         margin-bottom: .2rem;
@@ -170,5 +169,22 @@ html {
                 }
             }
         }
+    }
+}
+
+.block[type="core-edit/createblock"] {
+    font-size: 0;
+    input, select {
+        border-radius: var(--button-border-radius);
+        border: var(--button-border);
+        overflow: hidden;
+    }
+    select {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    input {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
     }
 }

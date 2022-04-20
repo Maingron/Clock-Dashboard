@@ -52,12 +52,12 @@
                     <div style="float: left;">
                         <h4>Disabled</h4>
 
-                        <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
+                        <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
                             <input type="text">
                             <input type="submit" value="+" style="width:.9rem">
                         </form>
 
-                        <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'enable')">
+                        <form action="" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'enable')">
                             <select size="5" id="setting-disabled_modules">
                             </select>
                             <div style="display:flex; float: right;">
@@ -71,12 +71,12 @@
 
                     <div style="float: right;">
                         <h4>Enabled</h4>
-                            <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
+                            <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
                             <input type="text">
                             <input type="submit" value="+" style="width:.9rem">
                         </form>
 
-                        <form action="js:return false" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'disable')">
+                        <form action="" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'disable')">
                             <select size="5" id="setting-enabled_modules">
                                 <option>none</option>
                             </select>

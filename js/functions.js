@@ -223,7 +223,7 @@ function isChildOfSelectedBlock(which) {
     if(which.parentElement) {
         if(isChildOfSelectedBlock(which.parentElement)) { // Call function again unless there's no parentElement anymore
             return true;
-        };
+        }
     }
     return false;
 }

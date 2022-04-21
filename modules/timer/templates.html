@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 
-<template id="timer" class="timer">
-    <span class="timer-time"></span>
-    <button onclick="setTimerStart(this, time.getTime())">Start</button>
-    <button onclick="setTimerStop(this, time.getTime())">Stop</button>
-    <button onclick="resetTimer(this)">Reset</button>
+<template id="sw" class="sw">
+    <span class="sw-time"></span>
+    <button onclick="setSWStart(this, time.getTime())">Start</button>
+    <button onclick="setSWStop(this, time.getTime())">Stop</button>
+    <button onclick="resetSW(this)">Reset</button>
 
     <settings>
         <span>Show Milliseconds</span>

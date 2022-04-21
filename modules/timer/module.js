@@ -1,44 +1,44 @@
 loadHTMLTemplate("modules/timer/templates.html");
 
-function getTimerStart(which) {
-    var myStart = getBlockSetting(which, "timerstart");
+function getSWStart(which) {
+    var myStart = getBlockSetting(which, "swstart");
     return myStart;
 }
 
-function getTimerStop(which) {
-    var myStop = getBlockSetting(which, "timerstop");
+function getSWStop(which) {
+    var myStop = getBlockSetting(which, "swstop");
 
     if(myStop == undefined || isNaN(myStop) || !myStop) { // If we don't have a stop timestamp
         // This temporarily sets the stop timestamp to the current time.
-        // We want this because we want to see the elapsed time without needing to stop the timer
+        // We want this because we want to see the elapsed time without needing to stop the stopwatch
         myStop = time.getTime();
     }
 
     return myStop;
 }
 
-function setTimerStart(which, when) {
+function setSWStart(which, when) {
     which = getBlockByChild(which);
-    setBlockSetting(which, "timerstart", when);
+    setBlockSetting(which, "swstart", when);
 }
 
-function setTimerStop(which, when = time.getTime()) {
+function setSWStop(which, when = time.getTime()) {
     // Stops the timer
     // which = timer / child of timer
     // when = stop time; Default: Right now
     which = getBlockByChild(which);
-    setBlockSetting(which, "timerstop", when);
+    setBlockSetting(which, "swstop", when);
 }
 
-function getTimerTime(which, raw = false) {
-    // Returns the elapsed timer time
+function getSWTime(which, raw = false) {
+    // Returns the elapsed stopwatch time
     // Returns either timestamp or new Date()
     which = getBlockByChild(which);
 
-    var myTimerStart = getTimerStart(which);
-    var myTimerStop = getTimerStop(which);
+    var mySWStart = getSWStart(which);
+    var mySWStop = getSWStop(which);
 
-    var result = myTimerStop - myTimerStart;
+    var result = mySWStop - mySWStart;
     if(isNaN(result)) {
         result = 0;
     }
@@ -48,36 +48,36 @@ function getTimerTime(which, raw = false) {
     return result;
 }
 
-function resetTimer(which) {
-    // Resets the timer
+function resetSW(which) {
+    // Resets the stopwatch
     which = getBlockByChild(which);
-    removeBlockSetting(which, "timerstart", true);
-    removeBlockSetting(which, "timerstop", true);
+    removeBlockSetting(which, "swstart", true);
+    removeBlockSetting(which, "swstop", true);
 }
 
-function renderTimers() {
-    var myTimers = document.getElementsByClassName("timer-time");
+function renderSWs() {
+    var mySWs = document.getElementsByClassName("sw-time");
 
-    for(myTimer of myTimers) {
-        var myHours = getTimerTime(myTimer).getHours() - 1;
+    for(mySW of mySWs) {
+        var myHours = getSWTime(mySW).getHours() - 1;
         myHours = fillEmptyChars(myHours, 2, "0", "prepend");
 
-        var myMinutes = getTimerTime(myTimer).getMinutes();
+        var myMinutes = getSWTime(mySW).getMinutes();
         myMinutes = fillEmptyChars(myMinutes, 2, "0", "prepend");
 
-        var mySeconds = getTimerTime(myTimer).getSeconds();
+        var mySeconds = getSWTime(mySW).getSeconds();
         mySeconds = fillEmptyChars(mySeconds, 2, "0", "prepend");
 
         var myFullTime = myHours + ":" + myMinutes + ":" + mySeconds;
         
-        if(getBlockSetting(getBlockByChild(myTimer), "showMS") == true) {
-            var myMS = getTimerTime(myTimer).getMilliseconds();
+        if(getBlockSetting(getBlockByChild(mySW), "showMS") == true) {
+            var myMS = getSWTime(mySW).getMilliseconds();
             myMS = fillEmptyChars(myMS, 3, "0", "prepend");
             myFullTime += "." + myMS;
         }
 
-        myTimer.innerHTML = myFullTime;
+        mySW.innerHTML = myFullTime;
     }
 }
 
-registerTicker(renderTimers);
+registerTicker(renderSWs);

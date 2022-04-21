@@ -20,7 +20,8 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 "modules/string-functions/module.js",
                 "modules/time-display/module.js",
                 "modules/date-display/init.js",
-                "modules/custom-text/module.js"
+                "modules/custom-text/module.js",
+                "modules/timer/module.js"
             ],
             "unloadmodules": [
                 "modules/test/init.js",

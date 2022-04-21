@@ -54,6 +54,20 @@ function getBlockSetting(which, property) {
     }
 }
 
+function removeBlockSetting(which, property) {
+    // Deletes a specific setting of a block
+    var whichHTML = getBlock(which, false);
+    var whichJS = getBlock(which, true);
+    if(whichJS && whichJS[property]) {
+        delete whichJS[property];
+        whichHTML.removeAttribute(property);
+    }
+
+    saveConfig();
+
+    renderBlockSetting(which, property);
+}
+
 function renderBlockSetting(which, property) {
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);

@@ -11,11 +11,19 @@ function updateSettings() {
     if(config.allowinternalblockscreation) {
         document.getElementById("setting-internalblocks").setAttribute("checked", "checked");
     }
+    if(config.debug) {
+        document.getElementById("setting-debug").setAttribute("checked", "checked");
+    }
     document.getElementById("setting-tps").setAttribute("value", getConfigEntry("tps"));
     document.getElementById("setting-gridx").setAttribute("value", getConfigEntry("gridX"));
     document.getElementById("setting-enabled_modules").innerHTML = settings_loadModulesList();
     document.getElementById("setting-disabled_modules").innerHTML = settings_loadUnloadmodulesList();
     document.getElementById("setting-themecolor").setAttribute("value", getConfigEntry("themecolor"));
+
+    if(getConfigEntry("bodyBackgroundImageEnable") == true) {
+        document.getElementById("setting-bodyBackgroundImageEnable").setAttribute("checked", "checked");
+    }
+    document.getElementById("setting-bodyBackgroundColor").setAttribute("value", getConfigEntry("bodyBackground"));
 
 }
 
@@ -24,9 +32,35 @@ function setBackgroundImage(which) {
     myReader.readAsDataURL(which.files[0]);
 
     myReader.onload = function() {
-        setConfigEntry("bodyBackground", "url("+myReader.result+")");
-        document.body.style.backgroundImage = getConfigEntry("bodyBackground");
+        setConfigEntry("bodyBackgroundImage", "url("+myReader.result+")");
+        document.body.style.backgroundImage = getConfigEntry("bodyBackgroundImage");
+        if(getConfigEntry('bodyBackgroundImageEnable') == false) {
+            document.getElementById("setting-bodyBackgroundImageEnable").setAttribute("checked", "checked");
+            settings_toggleBackgroundImage();
+        }
         saveConfig();
+    }
+}
+
+
+function settings_importConfig(which) {
+    var myReader = new FileReader();
+    myReader.readAsText(which.files[0]);
+    document.body.style.display = "none";
+
+    myReader.onload = function() {
+        config = JSON.parse(myReader.result);
+        saveConfig();
+        window.location.reload();
+    }
+}
+
+function settings_toggleBackgroundImage() {
+    setConfigEntry('bodyBackgroundImageEnable', !getConfigEntry('bodyBackgroundImageEnable'));
+    if(getConfigEntry("bodyBackgroundImageEnable") == true) {
+        document.body.style.backgroundImage = config.bodyBackgroundImage;
+    } else {
+        document.body.style.backgroundImage = "unset";
     }
 }
 

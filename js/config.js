@@ -11,7 +11,9 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "tps": "20",
             "debug": true,
             "edit_mode": true,
-            "bodyBackground": "#000",
+            "bodyBackground": "#000000",
+            "bodyBackgroundImage": "url()",
+            "bodyBackgroundImageEnable": false,
             "one_rem": "32px",
             "gridX": "50",
             "themecolor": "#777777",
@@ -22,7 +24,8 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 "modules/time-display/module.js",
                 "modules/date-display/init.js",
                 "modules/custom-text/module.js",
-                "modules/timer/module.js"
+                "modules/timer/module.js",
+                "modules/notes/module.js"
             ],
             "unloadmodules": [
                 "modules/test/init.js",
@@ -48,9 +51,9 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                     "editable": false
                 },
                 {
-                    "x": "-0",
+                    "x": "0",
                     "y": "120px",
-                    "w": "40vw",
+                    "w": "100%",
                     "h": "calc(100vh - 120px)",
                     "type": "core-settings/settings",
                     "class": "hide",

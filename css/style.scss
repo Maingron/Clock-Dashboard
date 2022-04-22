@@ -6,7 +6,8 @@ html {
     color-scheme: dark;
 
     body {
-        background: $body-background;
+        background-color: var(--body-background);
+        background-image: var(--body-backgroundImage);
         background-repeat: no-repeat !important;
         background-position: center !important; // Important so we can still use "background" but override the style
         background-size: cover !important;

@@ -4,7 +4,11 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
 
 :root {
     --body-background: #000000;
-    // --themecolor: #ffff00;
+    --background-semi-transparent: rgba(127,127,127,.2);
+    --background-semi-transparent-black: rgba(0,0,0,.3);
+    --background-semi-transparent-white: rgba(255,255,255,.3);
+    --background-semi-transparent-backdrop-filter: blur(8px);
+    --body-backgroundImage: url();
     --border-radius: 4px;
     --button-bg: rgba(127,127,127,.6);
     --button-border-color: rgba(127,127,127,1);
@@ -13,4 +17,23 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
     --button-border-radius: var(--border-radius);
     --button-border: var(--button-border-width) var(--button-border-style) var(--button-border-color);
     --button-backdrop-filter: blur(2px);
+    --input-border-width: 1px;
+    --input-border-style: solid;
+    --input-border-color: rgba(0,0,0,1);
+    --input-border-radius: var(--border-radius);
+    --input-border: var(--input-border-width) var(--input-border-style) var(--input-border-color);
+}
+
+@supports(not(backdrop-filter: blur(4px))) {
+    :root {
+        --background-semi-transparent: rgba(127,127,127,.4);
+        --background-semi-transparent-black: rgba(0,0,0,.4);
+    }
+}
+
+body.dark { // Darkmode; Instead of @media(prefers-color-scheme: dark)
+}
+
+body.light { // Lightmode; Instead of @media(prefers-color-scheme: light)
+
 }

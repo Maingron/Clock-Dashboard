@@ -1,11 +1,47 @@
 .block[type="core-settings/settings"] {
     overflow: hidden;
     outline: 1px solid var(--themecolor);
+    background: var(--background-semi-transparent-black);
+    backdrop-filter: var(--background-semi-transparent-backdrop-filter);
+
+
     content {
         width: 100%;
         display: inline;
+        &>div {
+            padding: 1.5em !important;
+            box-sizing: border-box;
+        }
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    #setting-fieldset_modules {
+        select, option, input {
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+    }
+
+    fieldset {
+        background: var(--background-semi-transparent);
+    }
+
+    input[type="file"] {
+        border: var(--input-border);
+        border-radius: var(--input-border-radius);
+        padding: .1rem;
+    }
+
+    #setting-configExport {
+        border: var(--input-border);
+        border-radius: var(--input-border-radius);
+        background: var(--background-semi-transparent-white);
+    }
+
+    #settings-fs-storage-management {
+        transition: .2s;
+        &:hover {
+            background: rgba(255,55,55,.5);
+        }
     }
 }

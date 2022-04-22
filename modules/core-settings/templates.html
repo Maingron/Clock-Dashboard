@@ -4,47 +4,50 @@
     <render render="core-settings/onload" style="display:none"></render>
     <div class="settings" style="max-height: 90vh; overflow: auto;">
         <h2>Settings</h2>
+        <br>
 
-        <details open>
-            <summary><h3 style="display:inline-block">General Settings</h3></summary>
+        <fieldset>
+            <legend>General Settings</legend>
 
             <fieldset>
-                <h4>Grid Size</h4>
+                <legend>Grid Size</legend>
                 <label for="setting-gridx">Grid Size: </label>
-                <input type="number" id="setting-gridx" onchange="setConfigEntry('gridX', this.value)"><label> px</label>
+                <input type="number" id="setting-gridx" size="5" onchange="setConfigEntry('gridX', this.value)"><label> px</label>
                 <br>
             </fieldset>
 
             <fieldset>
-                <h4>TPS</h4>
-                <input type="number" id="setting-tps" min="1" max="240" onchange="setConfigEntry('tps', this.value)">
+                <legend>Speed</legend>
+                <label for="setting-tps">Ticks per Second: </label>
+                <input type="number" id="setting-tps" min="1" max="240" size="4" onchange="setConfigEntry('tps', this.value)"><label> tps</label>
             </fieldset>
             
             <fieldset>
-                <h4>Background</h4>
-                <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
+                <legend>Background</legend>
+                <fieldset>
+                    <legend>Background Image</legend>
+                    <label for="setting-bodyBackgroundImageEnable">Enable background Image:</label>
+                    <input type="checkbox" id="setting-bodyBackgroundImageEnable" onchange="settings_toggleBackgroundImage()">
+                    <br>
+                    
+                    <label for="setting-bodyBackgroundImage">Background Image:</label>
+                    <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-bodyBackgroundImage">
+                </fieldset>
+                <fieldset>
+                    <legend>Background Color</legend>
+                    <label for="setting-bodyBackgroundColor">Background Color:</label>
+                    <input type="color" id="setting-bodyBackgroundColor" onchange="setConfigEntry('bodyBackground', this.value); document.documentElement.style.setProperty('--body-background', this.value)">
+                </fieldset>
             </fieldset>
 
             <fieldset>
-                <h4>Theme color</h4>
+                <legend>Theme color</legend>
+                <label for="setting-themecolor">Theme Color:</label>
                 <input type="color" id="setting-themecolor" onchange="setConfigEntry('themecolor', this.value); document.documentElement.style.setProperty('--themecolor', this.value)">
             </fieldset>
 
-            <!-- <fieldset>
-                <h4>Debug Mode</h4>
-                <label for="setting-debug">Enabled: </label>
-                <input type="checkbox" id="setting-debug">
-            </fieldset> -->
-
             <fieldset>
-                <h4>Allow internal Blocks creation</h4>
-                <label for="setting-internalblocks">Enabled: </label>
-                <input type="checkbox" id="setting-internalblocks" onchange="setConfigEntry('allowinternalblockscreation', !getConfigEntry('allowinternalblockscreation'))">
-            </fieldset>
-
-
-            <fieldset>
-                <h4>Darkmode</h4>
+                <legend>Dark Mode</legend>
                 <input type="radio" value="auto" name="setting-radio-darkmode" id="setting-darkmode-auto">
                 <label for="setting-darkmode-auto">Auto</label>
                 
@@ -56,67 +59,74 @@
             </fieldset>
 
             <fieldset>
-                <h4>Reset</h4>
-                <render render="core-edit/reset-button"></render>
+                <legend>Developer / Debug options</legend>
+                <label for="setting-internalblocks">Allow creation of <b>internal blocks</b>:</label>
+                <input type="checkbox" id="setting-internalblocks" onchange="setConfigEntry('allowinternalblockscreation', !getConfigEntry('allowinternalblockscreation'))">
+                <br>
+                
+                <label for="setting-debug">Enable <b>Debug</b> mode:</label>
+                <input type="checkbox" id="setting-debug" onchange="setConfigEntry('debug', !getConfigEntry('debug'))">
             </fieldset>
-        </details>
+        </fieldset>
 
 
-        <details open>
-            <summary><h3 style="display:inline-block">Modules</h3></summary>
-            <fieldset id="setting-fieldset_modules">
-                <div style="display:inline-flex;">
+        <fieldset id="setting-fieldset_modules">
+            <legend>Modules</legend>
 
-                    <div style="float: left;">
-                        <h4>Disabled</h4>
+            <div style="display:inline-flex;">
+                <div style="float: left;">
+                    <h4>Disabled</h4>
 
-                        <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
-                            <input type="text">
-                            <input type="submit" value="+" style="width:.9rem">
-                        </form>
+                    <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
+                        <input type="text">
+                        <input type="submit" value="+" style="width:.9rem">
+                    </form>
 
-                        <form action="" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'enable')">
-                            <select size="5" id="setting-disabled_modules">
-                            </select>
-                            <div style="display:flex; float: right;">
-                                <input type="submit" value="➕">
-                                <input type="button" value="🗑️" onclick="settings_enDisModule(this.parentElement.parentElement.children[0].selectedOptions[0].value, 'delete')">
-                            </div>
-                        </form>
-                    </div>
-
-                    <div style="margin: .5rem"></div>
-
-                    <div style="float: right;">
-                        <h4>Enabled</h4>
-                            <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
-                            <input type="text">
-                            <input type="submit" value="+" style="width:.9rem">
-                        </form>
-
-                        <form action="" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'disable')">
-                            <select size="5" id="setting-enabled_modules">
-                                <option>none</option>
-                            </select>
-                            <div style="display:flex; float:left">
-                                <input type="submit" value="➖">
-                                <input type="button" value="🗑️" onclick="settings_enDisModule(this.parentElement.parentElement.children[0].selectedOptions[0].value, 'delete')">
-                            </div>
-                        </form>
-                    </div>
+                    <form action="" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'enable')">
+                        <select size="5" id="setting-disabled_modules">
+                        </select>
+                        <div style="display:flex; float: right;">
+                            <input type="submit" value="➕">
+                            <input type="button" value="🗑️" onclick="settings_enDisModule(this.parentElement.parentElement.children[0].selectedOptions[0].value, 'delete')">
+                        </div>
+                    </form>
                 </div>
-            </fieldset>
-        </details>
 
-        <style>
-            #setting-fieldset_modules select,
-            #setting-fieldset_modules option,
-            #setting-fieldset_modules input {
-                display: block;
-                width: 100%;
-                box-sizing: border-box;
-            }
-        </style>
+                <div style="margin: .5rem"></div>
+
+                <div style="float: right;">
+                    <h4>Enabled</h4>
+                        <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
+                        <input type="text">
+                        <input type="submit" value="+" style="width:.9rem">
+                    </form>
+
+                    <form action="" onsubmit="settings_enDisModule(this.children[0].selectedOptions[0].value, 'disable')">
+                        <select size="5" id="setting-enabled_modules">
+                            <option>none</option>
+                        </select>
+                        <div style="display:flex; float:left">
+                            <input type="submit" value="➖">
+                            <input type="button" value="🗑️" onclick="settings_enDisModule(this.parentElement.parentElement.children[0].selectedOptions[0].value, 'delete')">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset id="settings-fs-storage-management">
+            <legend>Storage management</legend>
+            <label>Reset system:</label>
+                <render render="core-edit/reset-button"></render>
+            <br>
+            
+            <label for="setting-configImport">Import Config:</label>
+            <input type="file" onchange="settings_importConfig(this)" id="setting-configImport">
+            <br>
+
+            <label for="setting-configExport">Export Config:</label>
+            <iframe id="setting-configExport" src="about:blank" onmouseenter="this.src='/modules/core-settings/export.html?reload'"></iframe>
+        </fieldset>
     </div>
 </template>
 

@@ -11,8 +11,11 @@ init();
 function init() { // Initialize
     loadConfig();
 
-    document.body.style.background = config.bodyBackground;
+    if(config.bodyBackgroundImageEnable == true) {
+        document.body.style.backgroundImage = config.bodyBackgroundImage;
+    }
 
+    document.documentElement.style.setProperty("--body-background", config.bodyBackground);
     document.documentElement.style.setProperty("--themecolor", config.themecolor);
 
     elements = element = e = {

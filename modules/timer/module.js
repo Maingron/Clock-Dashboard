@@ -59,6 +59,14 @@ function renderSWs() {
     var mySWs = document.getElementsByClassName("sw-time");
 
     for(mySW of mySWs) {
+
+        var myDays = getSWTime(mySW).getDate() - 1;
+        if(myDays == 0) {
+            myDays = "";
+        } else {
+            myDays = myDays + ":";
+        }
+
         var myHours = getSWTime(mySW).getHours() - 1;
         myHours = fillEmptyChars(myHours, 2, "0", "prepend");
 
@@ -68,7 +76,7 @@ function renderSWs() {
         var mySeconds = getSWTime(mySW).getSeconds();
         mySeconds = fillEmptyChars(mySeconds, 2, "0", "prepend");
 
-        var myFullTime = myHours + ":" + myMinutes + ":" + mySeconds;
+        var myFullTime = myDays + myHours + ":" + myMinutes + ":" + mySeconds;
         
         if(getBlockSetting(getBlockByChild(mySW), "showMS") == true) {
             var myMS = getSWTime(mySW).getMilliseconds();

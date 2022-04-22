@@ -11,7 +11,6 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "tps": "20",
             "debug": true,
             "edit_mode": true,
-            "bodyBackground": "#000000",
             "bodyBackgroundImage": "url()",
             "bodyBackgroundImageEnable": false,
             "one_rem": "32px",
@@ -68,6 +67,12 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                 }
             ]
         }
+        if(window.matchMedia('(prefers-color-scheme: dark)').matches) { // if darkmode
+            config.bodyBackground = "#000000";
+        } else {
+            config.bodyBackground = "#dddddd";
+        }
+
         saveConfig(); // Save config after generating it
     }
 }

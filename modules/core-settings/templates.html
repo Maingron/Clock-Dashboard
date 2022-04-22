@@ -48,14 +48,14 @@
 
             <fieldset>
                 <legend>Dark Mode</legend>
-                <input type="radio" value="auto" name="setting-radio-darkmode" id="setting-darkmode-auto">
+                <input type="radio" value="auto" name="setting-radio-darkmode" id="setting-darkmode-auto" checked disabled>
                 <label for="setting-darkmode-auto">Auto</label>
                 
-                <input type="radio" value="light" name="setting-radio-darkmode" id="setting-darkmode-light">
+                <!-- <input type="radio" value="light" name="setting-radio-darkmode" id="setting-darkmode-light">
                 <label for="setting-darkmode-light">Light</label>
 
                 <input type="radio" value="dark" name="setting-radio-darkmode" id="setting-darkmode-dark">
-                <label for="setting-darkmode-dark">Dark</label>
+                <label for="setting-darkmode-dark">Dark</label> -->
             </fieldset>
 
             <fieldset>
@@ -75,8 +75,7 @@
 
             <div style="display:inline-flex;">
                 <div style="float: left;">
-                    <h4>Disabled</h4>
-
+                    <h5 style="padding-bottom:.2em">Disabled</h5>
                     <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'disable')" style="width:100%; display:flex;">
                         <input type="text">
                         <input type="submit" value="+" style="width:.9rem">
@@ -95,8 +94,8 @@
                 <div style="margin: .5rem"></div>
 
                 <div style="float: right;">
-                    <h4>Enabled</h4>
-                        <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
+                    <h5 style="padding-bottom:.2em">Enabled</h5>
+                    <form action="" onsubmit="settings_enDisModule(this.children[0].value, 'enable')" style="width:100%; display:flex;">
                         <input type="text">
                         <input type="submit" value="+" style="width:.9rem">
                     </form>

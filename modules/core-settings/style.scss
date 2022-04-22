@@ -9,7 +9,7 @@
         width: 100%;
         display: inline;
         &>div {
-            padding: 1.5em !important;
+            padding: .5em !important;
             box-sizing: border-box;
         }
     }
@@ -24,6 +24,19 @@
 
     fieldset {
         background: var(--background-semi-transparent);
+        border: var(--input-border);
+        border-radius: var(--input-border-radius);
+        margin-top: .2em;
+        legend {
+            padding: .2em;
+            background: var(--background-semi-transparent);
+            border: var(--input-border);
+            border-radius: var(--input-border-radius);
+            font-size: .6em;
+            border-bottom: 0;
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
     }
 
     input[type="file"] {

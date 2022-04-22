@@ -4,6 +4,12 @@ html {
     font-size: 2.5rem;
     color: #fff;
     color-scheme: dark;
+    &.dark {
+        color-scheme: dark;
+    }
+    &.light {
+        color-scheme: light;
+    }
 
     body {
         background-color: var(--body-background);
@@ -146,5 +152,11 @@ html {
         template, tickregister, settings {
             display: none;
         }
+    }
+}
+
+html.light {
+    body {
+        color: #000;
     }
 }

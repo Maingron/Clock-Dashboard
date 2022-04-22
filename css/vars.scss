@@ -31,9 +31,9 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
     }
 }
 
-body.dark { // Darkmode; Instead of @media(prefers-color-scheme: dark)
+html.dark { // Darkmode; Instead of @media(prefers-color-scheme: dark)
 }
 
-body.light { // Lightmode; Instead of @media(prefers-color-scheme: light)
-
+html.light { // Lightmode; Instead of @media(prefers-color-scheme: light)
+    --background-semi-transparent: rgba(222,222,222,.4);
 }

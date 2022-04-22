@@ -18,23 +18,6 @@ function spawnBlock(attributes) {
     return(myNewElement);
 }
 
-function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
-    if(htmlorconfig == false) { // HTML<>
-        if(typeof(which) == "object") {
-        } else {
-            which = document.getElementById(which);
-        }
-    } else if(htmlorconfig == true) { // config.myWatch[which]{}
-        if(typeof(which) == "object") {
-            which = which.getAttribute("id");
-        } else { // Assume id
-        }
-        which = config.myWatchface[which];
-    }
-
-    return which;
-}
-
 function setBlockSetting(which, property, value) {
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);
@@ -122,6 +105,23 @@ function registerJSRender(name, which) {
     session.jsRenderArray[name] = which;
 }
 
+function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
+    if(htmlorconfig == false) { // HTML<>
+        if(typeof(which) == "object") {
+        } else {
+            which = document.getElementById(which);
+        }
+    } else if(htmlorconfig == true) { // config.myWatch[which]{}
+        if(typeof(which) == "object") {
+            which = which.getAttribute("id");
+        } else { // Assume id
+        }
+        which = config.myWatchface[which];
+    }
+
+    return which;
+}
+
 function getBlockByChild(which, htmlorconfig) {
     if(!which) {
         return;
@@ -131,6 +131,16 @@ function getBlockByChild(which, htmlorconfig) {
     } else {
         return getBlockByChild(which.parentElement, htmlorconfig);
     }
+}
+
+function getBlocksByType(type, htmlorconfig) {
+    var result = [];
+    for(myBlock of document.getElementsByClassName("block")) {
+        if(myBlock.getAttribute("type").includes(type)) {
+            result.push(getBlock(myBlock, htmlorconfig));
+        }
+    }
+    return result;
 }
 
 function getAvailableBlocks() {

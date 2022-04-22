@@ -21,7 +21,9 @@ function createNewBlock(type) {
         "y": (config.gridX * (Math.floor((document.body.offsetHeight / config.gridX) / 2))) + "px",
         "w": "auto",
         "h": "auto",
-        "id": config.myWatchface.length
+        "id": config.myWatchface.length,
+        "f-s": "1em"
+        // "f-c": ""
     }
     config.myWatchface.push(myNewBlock);
     saveConfig();
@@ -185,8 +187,10 @@ function toggleSettings() {
     }
 }
 window.addEventListener("load", function() {
+    getBlocksByType("core-settings/settings")[0].style.opacity = 0;
     toggleSettings();
     window.setTimeout(function() {
+        getBlocksByType("core-settings/settings")[0].style.opacity = 1;
         toggleSettings();
     },config.tps);
 })

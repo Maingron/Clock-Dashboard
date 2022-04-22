@@ -3,7 +3,7 @@ function spawnBlock(attributes) {
     for(myItem_attribute of Object.keys(attributes)) {
         myNewElement.setAttribute(myItem_attribute, attributes[myItem_attribute]);
 
-        // Remove these attributes to avoid confusion:
+        // Remove these attributes from HTML to avoid confusion:
         // TODO: Improve
         myNewElement.removeAttribute("x");
         myNewElement.removeAttribute("y");

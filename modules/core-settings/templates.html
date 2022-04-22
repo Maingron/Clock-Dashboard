@@ -5,7 +5,7 @@
     <div class="settings" style="max-height: 90vh; overflow: auto;">
         <h2>Settings</h2>
 
-        <details>
+        <details open>
             <summary><h3 style="display:inline-block">General Settings</h3></summary>
 
             <fieldset>
@@ -13,6 +13,21 @@
                 <label for="setting-gridx">Grid Size: </label>
                 <input type="number" id="setting-gridx" onchange="setConfigEntry('gridX', this.value)"><label> px</label>
                 <br>
+            </fieldset>
+
+            <fieldset>
+                <h4>TPS</h4>
+                <input type="number" id="setting-tps" min="1" max="240" onchange="setConfigEntry('tps', this.value)">
+            </fieldset>
+            
+            <fieldset>
+                <h4>Background</h4>
+                <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
+            </fieldset>
+
+            <fieldset>
+                <h4>Theme color</h4>
+                <input type="color" id="setting-themecolor" onchange="setConfigEntry('themecolor', this.value); document.documentElement.style.setProperty('--themecolor', this.value)">
             </fieldset>
 
             <!-- <fieldset>
@@ -27,14 +42,17 @@
                 <input type="checkbox" id="setting-internalblocks" onchange="setConfigEntry('allowinternalblockscreation', !getConfigEntry('allowinternalblockscreation'))">
             </fieldset>
 
-            <fieldset>
-                <h4>TPS</h4>
-                <input type="number" id="setting-tps" min="1" max="240" onchange="setConfigEntry('tps', this.value)">
-            </fieldset>
 
             <fieldset>
-                <h4>Background</h4>
-                <input type="file" accept="image/*" onchange="setBackgroundImage(this)" id="setting-background">
+                <h4>Darkmode</h4>
+                <input type="radio" value="auto" name="setting-radio-darkmode" id="setting-darkmode-auto">
+                <label for="setting-darkmode-auto">Auto</label>
+                
+                <input type="radio" value="light" name="setting-radio-darkmode" id="setting-darkmode-light">
+                <label for="setting-darkmode-light">Light</label>
+
+                <input type="radio" value="dark" name="setting-radio-darkmode" id="setting-darkmode-dark">
+                <label for="setting-darkmode-dark">Dark</label>
             </fieldset>
 
             <fieldset>
@@ -44,7 +62,7 @@
         </details>
 
 
-        <details>
+        <details open>
             <summary><h3 style="display:inline-block">Modules</h3></summary>
             <fieldset id="setting-fieldset_modules">
                 <div style="display:inline-flex;">

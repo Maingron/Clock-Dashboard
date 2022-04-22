@@ -13,6 +13,8 @@ function init() { // Initialize
 
     document.body.style.background = config.bodyBackground;
 
+    document.documentElement.style.setProperty("--themecolor", config.themecolor);
+
     elements = element = e = {
         "blockContainer": document.getElementById("block-container"),
         "results": document.getElementById("results"),

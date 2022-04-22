@@ -1,0 +1,11 @@
+.block[type="core-settings/settings"] {
+    overflow: hidden;
+    outline: 1px solid var(--themecolor);
+    content {
+        width: 100%;
+        display: inline;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+    }
+}

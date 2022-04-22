@@ -3,6 +3,8 @@ meta["core-settings"] = {
     "name": "Settings"
 }
 
+loadHTMLTemplate("modules/core-settings/templates.html");
+loadCSSFile("modules/core-settings/style.css");
 
 function updateSettings() {
     // TODO document.getElementById("setting-debug").setAttribute("checked","checked");
@@ -13,7 +15,8 @@ function updateSettings() {
     document.getElementById("setting-gridx").setAttribute("value", getConfigEntry("gridX"));
     document.getElementById("setting-enabled_modules").innerHTML = settings_loadModulesList();
     document.getElementById("setting-disabled_modules").innerHTML = settings_loadUnloadmodulesList();
-    
+    document.getElementById("setting-themecolor").setAttribute("value", getConfigEntry("themecolor"));
+
 }
 
 function setBackgroundImage(which) {
@@ -87,9 +90,6 @@ function settings_enDisModule(which, enDisDel, refresh=true) {
         window.location.reload();
     }
 }
-
-
-loadHTMLTemplate("modules/core-settings/templates.html");
 
 function setConfigEntry(which, value) {
     config[which] = value;

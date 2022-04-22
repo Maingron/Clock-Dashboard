@@ -14,6 +14,7 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
             "bodyBackground": "#000",
             "one_rem": "32px",
             "gridX": "50",
+            "themecolor": "#777777",
             "loadmodules": [
                 "modules/core-settings/module.js",
                 "modules/core-edit/module.js",
@@ -44,6 +45,15 @@ function loadConfig() { // Loads the configuration from localStorage OR generate
                     "h": "auto",
                     "type": "core-edit/createblock",
                     "class": "hide display-edit",
+                    "editable": false
+                },
+                {
+                    "x": "-0",
+                    "y": "120px",
+                    "w": "40vw",
+                    "h": "calc(100vh - 120px)",
+                    "type": "core-settings/settings",
+                    "class": "hide",
                     "editable": false
                 },
                 {

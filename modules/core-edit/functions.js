@@ -166,3 +166,27 @@ function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
 
     saveConfig();
 }
+
+function toggleSettings() {
+    var myBlock = getBlocksByType('core-settings/settings')[0];
+    var currentStatus = getBlockSetting(myBlock, 'visibility');
+    var value;
+    if(currentStatus != true) {
+        value = true;
+    } else {
+        value = "false";
+    }
+    setBlockSetting(myBlock, 'visibility', value);
+
+    if(currentStatus == true && config.edit_mode == true) {
+        myBlock.classList.remove("hide");
+    } else {
+        myBlock.classList.add("hide");
+    }
+}
+window.addEventListener("load", function() {
+    toggleSettings();
+    window.setTimeout(function() {
+        toggleSettings();
+    },config.tps);
+})

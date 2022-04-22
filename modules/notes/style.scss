@@ -1,0 +1,17 @@
+.block[type="notes/sticky-note"] {
+    background: #ffff99;
+    textarea {
+        font-size: inherit;
+        background: #ffff99;
+        padding: .25em;
+        color: #000;
+        border: 0;
+        min-height: 6em;
+        max-width: 8em;
+        resize: none;
+        height: 100%;
+        width: 100%;
+        position: relative;
+        display: inline-block;
+    }
+}

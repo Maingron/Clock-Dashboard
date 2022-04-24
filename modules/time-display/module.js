@@ -10,38 +10,38 @@ registerJSRender("seconds", time_display_seconds);
 registerJSRender("minutes", time_display_minutes);
 registerJSRender("hours", time_display_hours);
 
-function time_display_ms() {
-    /**
-    * Return current millisecond
-    * @returns {number|string} current millisecond
-    */
 
+/**
+* Returns current millisecond
+* @returns {number|string} current millisecond
+*/
+function time_display_ms() {
     return time.getMilliseconds();
 }
 
-function time_display_seconds() {
-    /**
-    * Returns current second
-    * @returns {string} current second
-    */
 
+/**
+* Returns current second
+* @returns {string} current second
+*/
+function time_display_seconds() {
     return fillEmptyChars(time.getSeconds(), 2);
 }
 
-function time_display_minutes() {
-    /**
-    * Returns current minute
-    * @returns {string} current minute
-    */
 
+/**
+* Returns current minute
+* @returns {string} current minute
+*/
+function time_display_minutes() {
     return fillEmptyChars(time.getMinutes(), 2);
 }
 
-function time_display_hours() {
-    /**
-    * Returns hour
-    * @returns {string} current hour
-    */
 
+/**
+* Returns current hour
+* @returns {string} current hour
+*/
+function time_display_hours() {
     return fillEmptyChars(time.getHours(), 2);
 }

@@ -1,9 +1,9 @@
-function deleteBlock(which) {
-    /**
-    * Deletes a block
-    * @param which desired block
-    */
 
+/**
+* Deletes a block
+* @param which desired block
+*/
+function deleteBlock(which) {
     config.myWatchface.splice(which.id,1);
     saveConfig();
     initBlocks();
@@ -13,23 +13,23 @@ function deleteBlock(which) {
     }
 }
 
-function toggleEditMode(edittruefalse = !config.edit_mode) {
-    /**
-    * Toggles the edit mode
-    * @param {boolean} edittruefalse
-    */
 
+/**
+* Toggles the edit mode
+* @param {boolean} edittruefalse
+*/
+function toggleEditMode(edittruefalse = !config.edit_mode) {
     config.edit_mode = edittruefalse;
     saveConfig();
     window.location.reload();
 }
 
-function createNewBlock(type) {
-    /**
-    * Creates a new block
-    * @param type desired type
-    */
 
+/**
+* Creates a new block
+* @param type desired type
+*/
+function createNewBlock(type) {
     var myNewBlock = {
         "type": type,
         "x": (config.gridX * (Math.floor((document.body.offsetWidth / config.gridX) / 2))) + "px",
@@ -49,23 +49,23 @@ function createNewBlock(type) {
     }
 }
 
-function initEdit() {
-    /**
-    * Initializes edit mode
-    */
 
+/**
+* Initializes edit mode
+*/
+function initEdit() {
     document.body.classList.add("edit_mode");
     e.moveoverlay = document.getElementById("moveoverlay");
     initEventListeners_edit();
     initEditRegisterJSRenderers();
 }
 
-function dragBlock(which) {
-    /**
-    * Drags a desired block
-    * @param which desired block
-    */
 
+/**
+* Drags a desired block
+* @param which desired block
+*/
+function dragBlock(which) {
     if(session.mouseDown) {
         document.body.classList.add("mousedown");
         if(session.mouseDownOn && session.mouseDownOn.parentElement.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
@@ -77,21 +77,21 @@ function dragBlock(which) {
     }
 }
 
-function gridifyValue(value) {
-    /**
-    * Rounds a value to be within the grid system
-    * @param {number} value desired value to be converted
-    * @returns {number} gridified value
-    */
 
+/**
+* Rounds a value to be within the grid system
+* @param {number} value desired value to be converted
+* @returns {number} gridified value
+*/
+function gridifyValue(value) {
     return Math.round(value / config.gridX) * config.gridX;
 }
 
-function initEventListeners_edit() {
-    /**
-    * Initializes event listeners of edit mode
-    */
 
+/**
+* Initializes event listeners of edit mode
+*/
+function initEventListeners_edit() {
     if(!config.edit_mode) {
         return;
     }
@@ -139,12 +139,12 @@ function initEventListeners_edit() {
     }
 }
 
-function addEditBar(which) {
-    /**
-    * Adds the edit bar to desired block
-    * @param which desired block
-    */
 
+/**
+* Adds the edit bar to desired block
+* @param which desired block
+*/
+function addEditBar(which) {
     if(which.getElementsByClassName("headbar").length > 0) { // We need this, else we spend the entire day searching for why it's not eventlistening sometimes
         return;
     }
@@ -178,12 +178,12 @@ function addEditBar(which) {
     });
 }
 
-function headbar_updateEditExpandSettings(which) {
-    /**
-    * Updates the settings within the headbar of desired block
-    * @param which desired block
-    */
 
+/**
+* Updates the settings within the headbar of desired block
+* @param which desired block
+*/
+function headbar_updateEditExpandSettings(which) {
     which = getBlockByChild(which);
     which.getElementsByClassName("hb-x")[0].value = getBlockSetting(which, "x");
     which.getElementsByClassName("hb-y")[0].value = getBlockSetting(which, "y");
@@ -198,19 +198,19 @@ function headbar_updateEditExpandSettings(which) {
     which.getElementsByClassName("hb-custom")[0].innerHTML = getTemplateSettings(which); // Custom settings defined in each templates <settings> section (optional)
 }
 
-function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
-    /**
-    * Saves desired setting found within the headbar of desired block. Can prepend and append to the value
-    * @param which desired block
-    * @param prepend prepend this to the value
-    * @param append append this to the value
-    */
 
+/**
+* Saves desired setting found within the headbar of desired block. Can prepend and append to the value
+* @param which desired block
+* @param prepend prepend this to the value
+* @param append append this to the value
+*/
+function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
     var myBlockId = which.parentElement.parentElement.parentElement.parentElement.parentElement.id;
     var myBlock = config.myWatchface[myBlockId];
     var attribute = which.getAttribute("issetting");
     var value = which.value;
-    
+
     // myBlock[mySettingName] = which.value;
 
     setBlockSetting(myBlockId, attribute, (prepend + value + append));
@@ -219,11 +219,11 @@ function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
     saveConfig();
 }
 
-function toggleSettings() {
-    /**
-    * Toggles visibility of the settings block / menu
-    */
 
+/**
+* Toggles visibility of the settings block / menu
+*/
+function toggleSettings() {
     var myBlock = getBlocksByType('core-settings/settings')[0];
     var currentStatus = getBlockSetting(myBlock, 'visibility');
     var value;
@@ -241,11 +241,11 @@ function toggleSettings() {
     }
 }
 
-window.addEventListener("load", function() {
-    /**
-    * Hides the settings menu by default
-    */
 
+/**
+* Hides the settings menu by default
+*/
+window.addEventListener("load", function() {
     getBlocksByType("core-settings/settings")[0].style.opacity = 0;
     toggleSettings();
     window.setTimeout(function() {

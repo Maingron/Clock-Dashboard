@@ -1,23 +1,23 @@
 loadHTMLTemplate("modules/timer/templates.html");
 
-function getSWStart(which) {
-    /**
-    * Returns time of when desired stopwatch started
-    * @param which block of desired stopwatch
-    * @returns {number} time of when desired stopwatch started
-    */
 
+/**
+* Returns time of when desired stopwatch started
+* @param which block of desired stopwatch
+* @returns {number} time of when desired stopwatch started
+*/
+function getSWStart(which) {
     var myStart = getBlockSetting(which, "swstart");
     return myStart;
 }
 
-function getSWStop(which) {
-    /**
-    * Returns time of when desired stopwatch stopped or how late it is right now
-    * @param which block of desired stopwatch
-    * @returns {number} time of when desired stopwatch stopped or how late it is right now
-    */
 
+/**
+* Returns time of when desired stopwatch stopped or how late it is right now
+* @param which block of desired stopwatch
+* @returns {number} time of when desired stopwatch stopped or how late it is right now
+*/
+function getSWStop(which) {
     var myStop = getBlockSetting(which, "swstop");
 
     if(myStop == undefined || isNaN(myStop) || !myStop) { // If we don't have a stop timestamp
@@ -29,36 +29,36 @@ function getSWStop(which) {
     return myStop;
 }
 
-function setSWStart(which, when) {
-    /**
-    * Sets time of when desired stopwatch starts / Starts the stopwatch
-    * @param which block of desired stopwatch
-    * @param when timestamp of desired start
-    */
 
+/**
+* Sets time of when desired stopwatch starts / Starts the stopwatch
+* @param which block of desired stopwatch
+* @param when timestamp of desired start
+*/
+function setSWStart(which, when) {
     which = getBlockByChild(which);
     setBlockSetting(which, "swstart", when);
 }
 
-function setSWStop(which, when = time.getTime()) {
-    /**
-    * Sets time of when desired stopwatch stops / Stops the stopwatch
-    * @param which block of desired stopwatch or a child of it
-    * @param when timestamp of desired stop
-    */
 
+/**
+* Sets time of when desired stopwatch stops / Stops the stopwatch
+* @param which block of desired stopwatch or a child of it
+* @param when timestamp of desired stop
+*/
+function setSWStop(which, when = time.getTime()) {
     which = getBlockByChild(which);
     setBlockSetting(which, "swstop", when);
 }
 
-function getSWTime(which, raw = false) {
-    /**
-    * Returns elapsed time of desired stopwatch
-    * @param which block of desired stopwatch
-    * @param {boolean} raw return raw output?
-    * @returns either timestamp or new Date()
-    */
 
+/**
+* Returns elapsed time of desired stopwatch
+* @param which block of desired stopwatch
+* @param {boolean} raw return raw output?
+* @returns either timestamp or new Date()
+*/
+function getSWTime(which, raw = false) {
     which = getBlockByChild(which);
 
     var mySWStart = getSWStart(which);
@@ -74,23 +74,23 @@ function getSWTime(which, raw = false) {
     return result;
 }
 
+
+/**
+* Resets desired stopwatch
+* ! Resets stopwatch
+* @param which block of desired stopwatch
+*/
 function resetSW(which) {
-    /**
-    * Resets desired stopwatch
-    * ! Resets stopwatch
-    * @param which block of desired stopwatch
-    */
-    
     which = getBlockByChild(which);
     removeBlockSetting(which, "swstart", true);
     removeBlockSetting(which, "swstop", true);
 }
 
+
+/**
+* Renders all stopwatch blocks
+*/
 function renderSWs() {
-    /**
-    * Renders all stopwatch blocks
-    */
-    
     var mySWs = document.getElementsByClassName("sw-time");
 
     for(mySW of mySWs) {

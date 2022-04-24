@@ -5,32 +5,33 @@ meta["core-tps"] = {
 
 loadHTMLTemplate("modules/core-tps/templates.html");
 
-function getTickcount() {
-    /**
-    * Returns ticks elapsed since last reload
-    * @returns {number} elapsed ticks
-    */
 
+/**
+* Returns ticks elapsed since last reload
+* @returns {number} elapsed ticks
+*/
+function getTickcount() {
     return session.tickcount;
 }
 
-function getSupposedTickcount() {
-    /**
-    * Returns expected amount of ticks since last reload
-    * @returns {number} amout of expected (max) ticks
-    */
 
+/**
+* Returns expected amount of ticks since last reload
+* @returns {number} amout of expected (max) ticks
+*/
+function getSupposedTickcount() {
     return Math.round((time.getTime() - session.starttime) / 1000 * config.tps);
 }
 
-function getTickcountPercentage() {
-    /**
-    * Returns percentage of actual/expected ticks
-    * @returns {number} percentage of actual/expected ticks
-    */
 
+/**
+* Returns percentage of actual/expected ticks
+* @returns {number} percentage of actual/expected ticks
+*/
+function getTickcountPercentage() {
     return Math.round((session.tickcount / getSupposedTickcount()) * 10000) / 100;
 }
+
 
 registerJSRender("tickcounter", getTickcount);
 registerJSRender("supposedtickscounter", getSupposedTickcount);

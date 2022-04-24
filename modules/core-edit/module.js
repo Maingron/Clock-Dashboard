@@ -16,10 +16,10 @@ if(config.edit_mode) {
     loadCSSFile("modules/core-edit/style.css");
 }
 
-function initEditRegisterJSRenderers() {
-    /**
-    *
-    */
 
+/**
+*
+*/
+function initEditRegisterJSRenderers() {
     registerJSRender("buildAvailableBlocksMenu",buildAvailableBlocksMenu);
 }

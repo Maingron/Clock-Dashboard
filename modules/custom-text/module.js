@@ -3,5 +3,6 @@ meta["custom-text"] = {
     "name": "Custom Text"
 }
 
+
 loadHTMLTemplate("modules/custom-text/templates.html");
 loadCSSFile("modules/custom-text/style.css");

@@ -12,43 +12,43 @@ registerJSRender("year", getYear);
 registerJSRender("dayOfWeek", getDayOfWeek);
 registerJSRender("dayOfWeekString", getDayOfWeekString);
 
-function getDay() {
-    /**
-    * @returns {number} Day of current month
-    */
 
+/**
+* @returns {number} Day of current month
+*/
+function getDay() {
     return fillEmptyChars((time.getDate()), 2);
 }
 
-function getMonth() {
-    /**
-    * @returns {number} Month of current year
-    */
 
+/**
+* @returns {number} Month of current year
+*/
+function getMonth() {
     return fillEmptyChars((time.getMonth() + 1), 2);
 }
 
-function getYear() {
-    /**
-    * @returns {number} Amount of years since death of Jesus
-    */
 
+/**
+* @returns {number} Amount of years since death of Jesus
+*/
+function getYear() {
     return time.getFullYear();
 }
 
-function getDayOfWeek() {
-    /**
-    * @returns {number} Day of current Week
-    */
 
+/**
+* @returns {number} Day of current Week
+*/
+function getDayOfWeek() {
     return fillEmptyChars(time.getDay(), 2);
 }
 
-function getDayOfWeekString() {
-    /**
-    * @returns {string} Name of current weekday
-    */
 
+/**
+* @returns {string} Name of current weekday
+*/
+function getDayOfWeekString() {
     var which = getDayOfWeek();
     switch(which) {
         case "01":

@@ -17,5 +17,9 @@ if(config.edit_mode) {
 }
 
 function initEditRegisterJSRenderers() {
+    /**
+    *
+    */
+
     registerJSRender("buildAvailableBlocksMenu",buildAvailableBlocksMenu);
 }

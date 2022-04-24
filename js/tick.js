@@ -1,4 +1,8 @@
 function tick() {
+    /**
+    * Makes the clock tick. Runs once per tick.
+    */
+
     time = new Date(); // Update time variable for use in templates and renders
 
     for(myItem of session.tickFunctionArray) {

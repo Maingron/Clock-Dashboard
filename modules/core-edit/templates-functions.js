@@ -1,4 +1,9 @@
 function buildAvailableBlocksMenu() {
+    /**
+    * Returns a menu with available blocks / templates
+    * @returns {string} menu with available blocks
+    */
+
     var result = [];
     result += "<select>";
     result += "\<optgroup hidden\>";

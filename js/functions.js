@@ -1,4 +1,10 @@
 function spawnBlock(attributes) {
+    /**
+    * Spawns an already existing block
+    * @param {object} attributes attributes of the block
+    * @returns New Block
+    */
+
     var myNewElement = document.createElement("div");
     for(myItem_attribute of Object.keys(attributes)) {
         myNewElement.setAttribute(myItem_attribute, attributes[myItem_attribute]);
@@ -19,6 +25,13 @@ function spawnBlock(attributes) {
 }
 
 function setBlockSetting(which, property, value) {
+    /**
+    * Sets the a setting of a block
+    * @param which desired block
+    * @param {string} property desired property / setting
+    * @param value desired value
+    */
+
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);
 
@@ -31,6 +44,13 @@ function setBlockSetting(which, property, value) {
 }
 
 function getBlockSetting(which, property) {
+    /**
+    * returns a setting of a block
+    * @param which desired block
+    * @param {string} property desired property / setting
+    * @returns value of desired property
+    */
+
     var whichJS = getBlock(which, true);
     if(whichJS && whichJS[property]) {
         return whichJS[property];
@@ -38,7 +58,12 @@ function getBlockSetting(which, property) {
 }
 
 function removeBlockSetting(which, property) {
-    // Deletes a specific setting of a block
+    /**
+    * Deletes a setting of a block
+    * @param which desired block
+    * @param property desired property / setting
+    */
+
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);
     if(whichJS && whichJS[property]) {
@@ -52,6 +77,12 @@ function removeBlockSetting(which, property) {
 }
 
 function renderBlockSetting(which, property) {
+    /**
+    * Renders a setting of a block on screen
+    * @param which desired block
+    * @param property desired property / setting
+    */
+
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);
 
@@ -98,14 +129,31 @@ function renderBlockSetting(which, property) {
 }
 
 function registerTicker(which) {
+    /**
+    * registers a function to run once every tick
+    * @param {function} which desired function in this format: nameOfFunction
+    */
+
     session.tickFunctionArray.push(which);
 }
 
 function registerJSRender(name, which) {
+    /**
+    * registers a JavaScript function as render (Similar to <render> types in HTML templates)
+    * @param {string} name name the desired render
+    * @param {function} which desired function in this format: nameOfFunction
+    */
     session.jsRenderArray[name] = which;
 }
 
-function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
+function getBlock(which, htmlorconfig = false) {
+    /**
+    * Returns a block
+    * @param which desired block
+    * @param {boolean} htmlorconfig return HTML element or config object of desired block? false = html, true = js
+    * @returns desired block
+    */
+
     if(htmlorconfig == false) { // HTML<>
         if(typeof(which) == "object") {
         } else {
@@ -123,6 +171,13 @@ function getBlock(which, htmlorconfig = false) { // Returns our HTML Block
 }
 
 function getBlockByChild(which, htmlorconfig) {
+    /**
+    * Returns a block by using a child element
+    * @param which a child of desired block
+    * @param htmlorconfig return HTML element or config object of desired block? false = html, true = js
+    * @returns desired block
+    */
+
     if(!which) {
         return;
     }
@@ -134,6 +189,13 @@ function getBlockByChild(which, htmlorconfig) {
 }
 
 function getBlocksByType(type, htmlorconfig) {
+    /**
+    * Returns all blocks of desired type
+    * @param {string} type desired block type
+    * @param {boolean} htmlorconfig return HTML element or config object of desired block? false = html, true = js
+    * @returns {array} blocks of desired type
+    */
+
     var result = [];
     for(myBlock of document.getElementsByClassName("block")) {
         if(myBlock.getAttribute("type").includes(type)) {
@@ -151,6 +213,12 @@ function getAvailableBlocks() {
 }
 
 function returnValue(which) {
+    /**
+    * Returns the calculated value of a block
+    * @param which
+    * @returns calculated value
+    */
+
     // Todo: More than 1 layer deep
     if(session.availableBlocks.includes(which)) {
         return document.getElementById(which).innerHTML;
@@ -173,6 +241,12 @@ function returnValue(which) {
 }
 
 function getTemplateSettings(which) {
+    /**
+    * Returns settings of desired template
+    * @param which desired template
+    * @returns {String} innerHTML of <settings> of desired template
+    */
+
     which = getBlock(which);
     var result = "";
     var inputString = which.innerHTML;
@@ -191,6 +265,12 @@ function getTemplateSettings(which) {
 
 
 function loadScriptFile(path, onload) {
+    /**
+    * Registers a .js Script file to be loaded
+    * @param {string} path path of desired Script file
+    * @param onload gets executed once script file has been loaded
+    */
+
     var myNewElement = document.createElement("script");
     myNewElement.src = path;
     if(onload) {
@@ -200,6 +280,11 @@ function loadScriptFile(path, onload) {
 }
 
 function loadCSSFile(path) {
+    /**
+    * Registers a .css file to be loaded
+    * @param {string} path path of desired .css stylesheet file
+    */
+
     var myNewElement = document.createElement("link");
     myNewElement.href = path;
     myNewElement.rel = "stylesheet";
@@ -208,6 +293,13 @@ function loadCSSFile(path) {
 }
 
 function loadHTMLTemplate(path, onload) {
+    /**
+    * Registers a .html file to get its templates loaded
+    * @param {string} path path of desired html template file
+    * @param onload gets executed once the html file has been loaded
+    * @requires appendHTMLTemplateFromIframe
+    */
+
     var myNewElement = document.createElement("iframe");
     myNewElement.src = path;
     myNewElement.id = "loader";
@@ -221,6 +313,13 @@ function loadHTMLTemplate(path, onload) {
 }
 
 function appendHTMLTemplateFromIframe(which, belongsToModule) {
+    /**
+    * Appends a <template> to index.html
+    * Internal function; Required by loadHTMLTemplate
+    * @param which
+    * @param belongsToModule
+    */
+
     for(myItem_iframeTemplate of which.contentWindow.document.getElementsByTagName("template")) {
         var myNewElement = document.createElement("template");
         myNewElement.innerHTML = myItem_iframeTemplate.innerHTML;
@@ -237,10 +336,22 @@ function appendHTMLTemplateFromIframe(which, belongsToModule) {
 }
 
 function isSelectedBlock(which) {
+    /**
+    * Checks if desired block is selected
+    * @param which desired block
+    * @returns {boolean} is it the selected block?
+    */
+
     return session.selectedBlock == which; // Returns true or false
 }
 
 function isChildOfSelectedBlock(which) {
+    /**
+    * Checks if desired element is child of selected block
+    * @param which desired element
+    * @returns {boolean} is it a child of selected block?
+    */
+
     if(which.classList.contains("selected")) {
         return true;
     }
@@ -253,6 +364,11 @@ function isChildOfSelectedBlock(which) {
 }
 
 function selectBlock(which) {
+    /** 
+    * Selects a block
+    * @param which desired block
+    */
+
     session.selectedBlock = which;
     for(var i = document.getElementsByClassName("selected").length; i > 0; i--) {
         document.getElementsByClassName("selected")[i - 1].classList.remove("selected");
@@ -264,6 +380,10 @@ function selectBlock(which) {
 }
 
 function initBlocks() {
+    /**
+    * Initializes all blocks; Might run after initial initialisation
+    */
+
     // Remove all Blocks
     if(e.blocks) {
         for(myItem_Block of e.blocks) {
@@ -305,6 +425,9 @@ function initBlocks() {
 // Storage functions
 
 function reset() {
+    /**
+    * Resets the clock and deletes all data
+    */
     config = {};
     localStorage.clear();
     window.location.reload();

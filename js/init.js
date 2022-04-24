@@ -8,10 +8,14 @@ var meta = {};
 
 init();
 
-function init() { // Initialize
+function init() {
+    /**
+    * Initializes the clock
+    */
     loadConfig();
 
     if(config.bodyBackgroundImageEnable == true) {
+        // Set background image if we have one
         document.body.style.backgroundImage = config.bodyBackgroundImage;
     }
 

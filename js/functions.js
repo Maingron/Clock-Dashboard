@@ -50,10 +50,7 @@ function setBlockSetting(which, property, value) {
 * @returns value of desired property
 */
 function getBlockSetting(which, property) {
-    var whichJS = getBlock(which, true);
-    if(whichJS && whichJS[property]) {
-        return whichJS[property];
-    }
+    return getBlock(which, true)?.[property];
 }
 
 
@@ -65,7 +62,7 @@ function getBlockSetting(which, property) {
 function removeBlockSetting(which, property) {
     var whichHTML = getBlock(which, false);
     var whichJS = getBlock(which, true);
-    if(whichJS && whichJS[property]) {
+    if(whichJS?.[property]) {
         delete whichJS[property];
         whichHTML.removeAttribute(property);
     }
@@ -163,7 +160,7 @@ function getBlock(which, htmlorconfig = false) {
             which = which.getAttribute("id");
         } else { // Assume id
         }
-        which = config.myWatchface[which];
+        which = config?.myWatchface?.[which];
     }
 
     return which;

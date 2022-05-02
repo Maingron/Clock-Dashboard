@@ -96,18 +96,11 @@ function settings_toggleBackgroundImage() {
 function settings_loadModulesList() {
     var result = "";
 
-    for(var i = 0; i < config.loadmodules.length; i++) {
-        var myColor = "";
-        var myName = config.loadmodules[i];
-        if(config.loadmodules[i].split("/")[1] && meta[config.loadmodules[i].split("/")[1]]) {
-            if(meta[config.loadmodules[i].split("/")[1]].color) {
-                myColor = meta[config.loadmodules[i].split("/")[1]].color;
-            }
-            if(meta[config.loadmodules[i].split("/")[1]].name) {
-                myName = meta[config.loadmodules[i].split("/")[1]].name;
-            }
-        }
-        result += "<option style='color:"+myColor+"' ondblclick='settings_enDisModule(this.value, \"disable\")' title=\"" + config.loadmodules[i] + "\" value='"+config.loadmodules[i]+"'>" + myName + "</option>";
+    for(myLoadModules of config.loadmodules) {
+        var myName = meta[myLoadModules.split("/")?.[1]]?.name ?? myLoadModules;
+        var myColor = meta[myLoadModules.split("/")?.[1]]?.color ?? "";
+
+        result += "<option style='color:"+myColor+"' ondblclick='settings_enDisModule(this.value, \"disable\")' title=\"" + myLoadModules + "\" value='"+myLoadModules+"'>" + myName + "</option>";
     }
     if(result == "") {
         result = "<option disabled style='opacity:.5'>none</option>";

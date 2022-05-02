@@ -71,7 +71,7 @@ function initEdit() {
 function dragBlock(which) {
     if(session.mouseDown) {
         document.body.classList.add("mousedown");
-        if(session.mouseDownOn && session.mouseDownOn.parentElement.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
+        if(session.mouseDownOn?.parentElement?.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
             setBlockSetting(which, "x", (gridifyValue(myMovingBlockOffsetX + (session.mouseX - session.mouseXinitial))) + "px");
             setBlockSetting(which, "y", (gridifyValue(myMovingBlockOffsetY + (session.mouseY - session.mouseYinitial))) + "px");
         }

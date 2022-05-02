@@ -10,17 +10,16 @@ function buildAvailableBlocksMenu() {
     var result = [];
     result += "<select>";
     result += "\<optgroup hidden\>";
+    var myColor, myName;
+
     for(myItem of session.availableBlocks) {
-        var myColor = "";
-
-        if(meta[myItem.split("/")[0]]) {
-            myColor = meta[myItem.split("/")[0]].color;
-        }
-
         if(myItem.split("/")[0] != lastItemModule) {
+            myColor = meta[myItem.split("/")?.[0]]?.color ?? "";
+            myName = meta[myItem.split("/")?.[0]]?.name ?? myItem.split("/")[0];
+
             result += "\<option disabled\>\</option\>";
             result += "\</optgroup\>";
-            result += "\<optgroup style='color:" + myColor + "' label='" + myItem.split("/")[0] + "'>";
+            result += "\<optgroup style='color:" + myColor + "' label='" + myName + "'>";
         }
 
         if(document.getElementById(myItem).getAttribute("internal") != "internal" || config.allowinternalblockscreation) {

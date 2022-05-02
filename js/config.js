@@ -1,14 +1,15 @@
+
 /**
-* Saves the configuration to localStorage
-*/
+ * Saves the configuration to localStorage
+ */
 function saveConfig() {
     localStorage.setItem("clockConfig", JSON.stringify(config));
 }
 
 
 /**
-* Loads the configuration from localStorage OR generates it and triggers saveConfig()
-*/
+ * Loads the configuration from localStorage OR generates it and triggers saveConfig()
+ */
 function loadConfig() {
     if(localStorage.getItem("clockConfig")) {
         config = JSON.parse(localStorage.getItem("clockConfig"));

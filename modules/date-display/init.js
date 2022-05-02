@@ -1,3 +1,8 @@
+/**
+ * @module date-display
+ * @package
+ */
+
 meta["date-display"] = {
     "color": "green",
     "name": "Date Display"

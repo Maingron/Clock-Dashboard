@@ -1,3 +1,8 @@
+/**
+ * @module core-tps
+ * @package
+ */
+
 meta["core-tps"] = {
     "color": "fuchsia",
     "name": "TPS Display"

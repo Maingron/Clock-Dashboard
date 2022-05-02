@@ -1,3 +1,8 @@
+/**
+ * @module core-settings
+ * @package
+ */
+
 meta["core-settings"] = {
     "color": "lightgray",
     "name": "Settings"

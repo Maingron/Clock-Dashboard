@@ -1,3 +1,6 @@
+/**
+ * @module core-edit
+ */
 
 /**
 * Deletes a block

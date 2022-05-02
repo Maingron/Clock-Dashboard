@@ -1,3 +1,7 @@
+/**
+ * @module core-debug
+ */
+
 meta["core-debug"] = {
     "color": "fuchsia",
     "name": "Debug"

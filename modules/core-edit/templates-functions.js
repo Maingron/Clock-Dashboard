@@ -1,3 +1,6 @@
+/**
+ * @module core-edit
+ */
 
 /**
 * Returns a menu with available blocks / templates

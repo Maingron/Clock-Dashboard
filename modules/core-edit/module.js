@@ -1,3 +1,7 @@
+/**
+ * @module core-edit
+*/
+
 meta["core-edit"] = {
     "color": "orange",
     "name": "Edit"

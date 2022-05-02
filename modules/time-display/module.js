@@ -1,3 +1,8 @@
+/**
+ * @module time-display
+ * @package
+ */
+
 meta["time-display"] = {
     "color": "green",
     "name": "Time Display"

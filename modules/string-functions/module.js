@@ -1,3 +1,8 @@
+/**
+ * @module string-functions
+ * @public
+ */
+
 meta["string-functions"] = {
     "color": "lightgray",
     "name": "String Functions",

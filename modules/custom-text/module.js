@@ -1,3 +1,8 @@
+/**
+ * @module custom-text
+ * @package
+ */
+
 meta["custom-text"] = {
     "color": "#ffff55",
     "name": "Custom Text"

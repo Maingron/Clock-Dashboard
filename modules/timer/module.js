@@ -1,3 +1,8 @@
+/**
+ * @module timer
+ * @package
+ */
+
 loadHTMLTemplate("modules/timer/templates.html");
 
 

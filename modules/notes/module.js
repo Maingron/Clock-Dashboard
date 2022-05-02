@@ -1,3 +1,8 @@
+/**
+ * @module notes
+ * @package
+ */
+
 meta["notes"] = {
     "color": "#ffff99",
     "name": "Notes"

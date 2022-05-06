@@ -138,6 +138,11 @@ html {
             display: inline;
         }
 
+        hr {
+            border-style: var(--hr-border-style);
+            border-color: var(--hr-border-color);
+        }
+
         #one_rem {
             height: 1rem;
             padding: 0;

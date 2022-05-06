@@ -4,6 +4,7 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
 
 :root {
     --body-background: #000000;
+    --font-color: #ffffff; // Also: It's supposed to just not be the body background color
     --background-semi-transparent: rgba(127,127,127,.2);
     --background-semi-transparent-black: rgba(0,0,0,.3);
     --background-semi-transparent-white: rgba(255,255,255,.3);
@@ -22,6 +23,8 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
     --input-border-color: rgba(0,0,0,1);
     --input-border-radius: var(--border-radius);
     --input-border: var(--input-border-width) var(--input-border-style) var(--input-border-color);
+    --hr-border-color: var(--font-color);
+    --hr-border-style: solid;
 }
 
 @supports(not(backdrop-filter: blur(4px))) {
@@ -36,4 +39,5 @@ html.dark { // Darkmode; Instead of @media(prefers-color-scheme: dark)
 
 html.light { // Lightmode; Instead of @media(prefers-color-scheme: light)
     --background-semi-transparent: rgba(222,222,222,.4);
+    --font-color: #000000;
 }

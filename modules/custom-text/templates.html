@@ -2,7 +2,7 @@
 
 <template id="custom_text" class="custom-text">
     <span style="min-width:1rem">Text</span>
-    <img src="../../img/transparent.png" onload="this.previousElementSibling.innerHTML = getBlockSetting(getBlockByChild(this), 'text');" alt="">
+    <img src="img/transparent.png" onload="this.previousElementSibling.innerHTML = getBlockSetting(getBlockByChild(this), 'text');" alt="">
     <settings>
         <span>Text:</span>
         <input type="text" size="15" onchange="setBlockSetting(getBlockByChild(this), 'text', this.value); getBlockByChild(this).getElementsByTagName('content')[0].getElementsByTagName('span')[0].innerHTML = this.value;">
@@ -11,11 +11,11 @@
 
 <template id="custom_iframe" class="custom-iframe">
     <iframe src="about:blank" alt="" title="" async></iframe>
-    <img src="../../img/transparent.png" onload="this.previousElementSibling.src = getBlockSetting(getBlockByChild(this), 'src')" alt="">
+    <img src="img/transparent.png" onload="this.previousElementSibling.src = getBlockSetting(getBlockByChild(this), 'src')" alt="">
     <settings>
         <span>Src:</span>
         <input type="url" size="15" onchange="setBlockSetting(getBlockByChild(this), 'src', this.value); getBlockByChild(this).getElementsByTagName('iframe')[0].src = this.value;">
-        <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="">
+        <img src="img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="">
     </settings>
     <style>
         .block[type="custom-text/custom_iframe"] content {
@@ -28,13 +28,13 @@
 
 
 <template id="custom_image" class="custom-image">
-    <img src="../../img/transparent.png" alt="" async>
-    <img src="../../img/transparent.png" alt="" onload="this.previousElementSibling.src = getBlockSetting(getBlockByChild(this), 'src')">
+    <img src="img/transparent.png" alt="" async>
+    <img src="img/transparent.png" alt="" onload="this.previousElementSibling.src = getBlockSetting(getBlockByChild(this), 'src')">
 
     <settings>
         <span>Src:</span>
         <input type="url" size="15" onchange="setBlockSetting(getBlockByChild(this), 'src', this.value); getBlockByChild(this).getElementsByTagName('content')[0].getElementsByTagName('img')[0].src = this.value;">
-        <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="">
+        <img src="img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="">
 
     </settings>
 </template>
@@ -42,28 +42,28 @@
 
 <template id="custom_linkbutton" class="custom-linkbutton">
     <a href="#" target="_blank">
-        <img src="../../img/transparent.png" alt="" async>
+        <img src="img/transparent.png" alt="" async>
         <span></span>
     </a>
 
-    <img src="../../img/transparent.png" onload="this.parentElement.getElementsByTagName('a')[0].href = getBlockSetting(getBlockByChild(this), 'href')">
-    <img src="../../img/transparent.png" onload="this.parentElement.getElementsByTagName('img')[0].src = getBlockSetting(getBlockByChild(this), 'src')">
-    <img src="../../img/transparent.png" onload="this.parentElement.getElementsByTagName('span')[0].innerHTML = getBlockSetting(getBlockByChild(this), 'text')">
+    <img src="img/transparent.png" onload="this.parentElement.getElementsByTagName('a')[0].href = getBlockSetting(getBlockByChild(this), 'href')">
+    <img src="img/transparent.png" onload="this.parentElement.getElementsByTagName('img')[0].src = getBlockSetting(getBlockByChild(this), 'src')">
+    <img src="img/transparent.png" onload="this.parentElement.getElementsByTagName('span')[0].innerHTML = getBlockSetting(getBlockByChild(this), 'text')">
 
     <settings>
         <span>a href:</span>
         <input type="url" size="15" onchange="setBlockSetting(getBlockByChild(this), 'href', this.value); getBlockByChild(this).getElementsByTagName('content')[0].getElementsByTagName('a')[0].href = this.value;">
-        <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'href')" alt="" tabindex="-1">
+        <img src="img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'href')" alt="" tabindex="-1">
         <br>
 
 
         <span>img src:</span>
         <input type="url" size="15" onchange="setBlockSetting(getBlockByChild(this), 'src', this.value); getBlockByChild(this).getElementsByTagName('content')[0].getElementsByTagName('img')[0].src = this.value;">
-        <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="" tabindex="-1">
+        <img src="img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'src')" alt="" tabindex="-1">
         <br>
 
         <span>Text:</span>
         <input type="url" size="15" onchange="setBlockSetting(getBlockByChild(this), 'text', this.value); getBlockByChild(this).getElementsByTagName('content')[0].getElementsByTagName('span')[0].innerText = this.value;">
-        <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'text')" alt="" tabindex="-1">
+        <img src="img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'text')" alt="" tabindex="-1">
     </settings>
 </template>

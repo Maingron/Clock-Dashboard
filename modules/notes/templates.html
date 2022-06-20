@@ -2,5 +2,5 @@
 
 <template id="sticky-note">
     <textarea onchange="setBlockSetting(getBlockByChild(this), 'notecontent', this.value)" placeholder="New Note"></textarea>
-    <img src="/img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'notecontent')" alt="" tabindex="-1">
+    <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'notecontent')" alt="" tabindex="-1">
 </template>

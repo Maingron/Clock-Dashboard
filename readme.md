@@ -1,4 +1,6 @@
 ## Info
+[![Maintainability](https://api.codeclimate.com/v1/badges/40350e472c30652b995c/maintainability)](https://codeclimate.com/github/Maingron/Clock-Dashboard/maintainability)
+
 Code will be pushed at around June - July.  
 The project is part of my exams and I want to prevent possible conflicts.
 

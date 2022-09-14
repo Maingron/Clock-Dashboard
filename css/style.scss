@@ -4,6 +4,8 @@ html {
     font-size: 2.5rem;
     color: #fff;
     color-scheme: dark;
+    accent-color: var(--accent-color);
+
     &.dark {
         color-scheme: dark;
     }

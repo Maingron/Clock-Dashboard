@@ -25,6 +25,7 @@ $font-family: -apple-system, system-ui, 'Helvetica Neue', 'Helvetica', 'Segoe UI
     --input-border: var(--input-border-width) var(--input-border-style) var(--input-border-color);
     --hr-border-color: var(--font-color);
     --hr-border-style: solid;
+    --accent-color: var(--themecolor);
 }
 
 @supports(not(backdrop-filter: blur(4px))) {

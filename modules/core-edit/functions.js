@@ -225,10 +225,16 @@ function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
 
 /**
 * Toggles visibility of the settings block / menu
+* @param {boolean} value display: true or false
 */
-function toggleSettings() {
+function toggleSettings(value) {
+    // TODO: Fix this function - visibility is weird
     var myBlock = getBlocksByType('core-settings/settings')[0];
-    var currentStatus = getBlockSetting(myBlock, 'visibility');
+    if(!value) {
+        var currentStatus = getBlockSetting(myBlock, 'visibility');
+    } else {
+        currentStatus = !value;
+    }
     var value;
     if(currentStatus != true) {
         value = true;
@@ -249,10 +255,6 @@ function toggleSettings() {
 * Hides the settings menu by default
 */
 window.addEventListener("load", function() {
-    getBlocksByType("core-settings/settings")[0].style.opacity = 0;
-    toggleSettings();
-    window.setTimeout(function() {
-        getBlocksByType("core-settings/settings")[0].style.opacity = 1;
-        toggleSettings();
-    },config.tps);
+    toggleSettings(!getBlockSetting(getBlocksByType("core-settings/settings")[0],"visibility"));
+    toggleSettings(!getBlockSetting(getBlocksByType("core-settings/settings")[0],"visibility"));
 })

@@ -2,8 +2,7 @@
     overflow: hidden;
     outline: 1px solid var(--themecolor);
     background: var(--background-semi-transparent-black);
-    backdrop-filter: var(--background-semi-transparent-backdrop-filter);
-
+    z-index: 1100;
 
     content {
         width: 100%;
@@ -55,6 +54,20 @@
         transition: .2s;
         &:hover {
             background: rgba(255,55,55,.5);
+        }
+    }
+
+    &:not(.hide)+.block[type="core-settings/settings-out"],
+    &+.block[type="core-settings/settings-out"]:not(.hide) {
+        div {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: transparent;
+            height: 100%;
+            width: 100%;
+            z-index: 1090;
+            backdrop-filter: var(--background-semi-transparent-backdrop-filter);
         }
     }
 }

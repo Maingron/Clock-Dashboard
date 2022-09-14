@@ -59,10 +59,19 @@ function loadConfig() {
                 },
                 {
                     "x": "0",
-                    "y": "120px",
+                    "y": "60px",
                     "w": "100%",
-                    "h": "calc(100vh - 120px)",
+                    "h": "calc(100vh - 60px)",
                     "type": "core-settings/settings",
+                    "class": "hide",
+                    "editable": false
+                },
+                {
+                    "x": "0",
+                    "y": "0",
+                    "w": "100%",
+                    "h": "100vh",
+                    "type": "core-settings/settings-out",
                     "class": "hide",
                     "editable": false
                 },

@@ -148,7 +148,7 @@ html {
                     display: inline-block;
                     pointer-events: all;
                     padding: .2rem;
-                    z-index: 10000;
+                    z-index: 1040;
                     font-size: 1rem;
                     &,* {
                         box-sizing: border-box;
@@ -186,4 +186,9 @@ html {
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
     }
+}
+
+
+.block[type="core-edit/top-right-menu"] {
+    z-index: 2000;
 }

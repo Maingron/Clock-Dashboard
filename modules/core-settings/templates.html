@@ -2,7 +2,7 @@
 
 <template id="settings" internal>
     <render render="core-settings/onload" style="display:none"></render>
-    <div class="settings" style="max-height: 90vh; overflow: auto;">
+    <div class="settings" style="max-height: 100%; overflow: auto;">
         <h2>Settings</h2>
         <br>
 
@@ -128,6 +128,14 @@
         </fieldset>
     </div>
 </template>
+
+
+<template id="settings-out" internal>
+    <div onclick="toggleSettings()"></div>
+
+</template>
+
+
 
 <template id="onload" internal>
     <img src="../../img/transparent.png" onload="updateSettings()" alt="" tabindex="-1">

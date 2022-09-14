@@ -230,6 +230,7 @@ function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
 function toggleSettings(value) {
     // TODO: Fix this function - visibility is weird
     var myBlock = getBlocksByType('core-settings/settings')[0];
+    var myBlock2 = getBlocksByType('core-settings/settings-out')[0];
     if(!value) {
         var currentStatus = getBlockSetting(myBlock, 'visibility');
     } else {
@@ -245,8 +246,10 @@ function toggleSettings(value) {
 
     if(currentStatus == true && config.edit_mode == true) {
         myBlock.classList.remove("hide");
+        myBlock2.classList.remove("hide");
     } else {
         myBlock.classList.add("hide");
+        myBlock2.classList.add("hide");
     }
 }
 

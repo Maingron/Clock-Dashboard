@@ -213,17 +213,25 @@ function headbar_updateEditExpandSettings(which) {
 * @param append append this to the value
 */
 function headbar_saveEditExpandSettings(which, prepend = "", append = "") {
-    var myBlockId = which.parentElement.parentElement.parentElement.parentElement.parentElement.id;
+
+    var myBlockId = returnBlockElement(which);
     var myBlock = config.myWatchface[myBlockId];
     var attribute = which.getAttribute("issetting");
     var value = which.value;
-
-    // myBlock[mySettingName] = which.value;
 
     setBlockSetting(myBlockId, attribute, (prepend + value + append));
     renderBlockSetting(myBlockId, attribute);
 
     saveConfig();
+
+
+    function returnBlockElement(which) {
+        if(which?.parentElement?.classList && which.parentElement.classList.contains("block")) {
+            return which.parentElement.id;
+        } else {
+            return returnBlockElement(which.parentElement);
+        }
+    }
 }
 
 

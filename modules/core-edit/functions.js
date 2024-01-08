@@ -72,8 +72,8 @@ function dragBlock(which) {
     if(session.mouseDown) {
         document.body.classList.add("mousedown");
         if(session.mouseDownOn?.parentElement?.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
-            setBlockSetting(which, "x", (gridifyValue(((myMovingBlockOffsetX / config.gridCols) + (session.mouseX - session.mouseXinitial)), false)));
-            setBlockSetting(which, "y", (gridifyValue((myMovingBlockOffsetY / config.gridLines) + (session.mouseY - session.mouseYinitial), true)));
+            setBlockSetting(which, "x", (gridifyValue(((myMovingBlockOffsetX / config.gridCols) + (session.mouseX - session.mouseXinitial) - session.mouseDownOn?.parentElement?.parentElement.offsetWidth / 2), false)));
+            setBlockSetting(which, "y", (gridifyValue(((myMovingBlockOffsetY / config.gridLines) + (session.mouseY - session.mouseYinitial) - (10)), true)));
         }
     } else {
         document.body.classList.remove("mousedown");

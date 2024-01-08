@@ -44,16 +44,16 @@ function loadConfig() {
                 {
                     "x": -1,
                     "y": 0,
-                    "w": "auto",
-                    "h": "auto",
+                    "w": 2,
+                    "h": 1,
                     "type": "core-edit/top-right-menu",
                     "editable": false
                 },
                 {
                     "x": -1,
                     "y": 1,
-                    "w": "auto",
-                    "h": "auto",
+                    "w": 2,
+                    "h": 1,
                     "type": "core-edit/createblock",
                     "class": "hide display-edit",
                     "editable": false
@@ -61,8 +61,8 @@ function loadConfig() {
                 {
                     "x": 0,
                     "y": 1,
-                    "w": "100%",
-                    "h": "calc(100vh - 60px)",
+                    "w": 10,
+                    "h": 8,
                     "type": "core-settings/settings",
                     "class": "hide",
                     "editable": false
@@ -70,8 +70,8 @@ function loadConfig() {
                 {
                     "x": 0,
                     "y": 0,
-                    "w": "100%",
-                    "h": "100vh",
+                    "w": 10,
+                    "h": 1,
                     "type": "core-settings/settings-out",
                     "class": "hide",
                     "editable": false
@@ -79,8 +79,8 @@ function loadConfig() {
                 {
                     "x": 1,
                     "y": 1,
-                    "w": "auto",
-                    "h": "auto",
+                    "w": 1,
+                    "h": 1,
                     "type": "time-display/fullclock"
                 }
             ]

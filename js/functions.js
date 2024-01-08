@@ -113,6 +113,22 @@ function renderBlockSetting(which, property) {
                     whichHTML.style.bottom = "";
                 }
             }
+        } else if(property == "w" || property == "h") {
+            switch(value) {
+                case "auto":
+                case "100vw":
+                case "100vh":
+                case "100%":
+                    whichHTML.style[styleAttributes[property]] = value;
+                    break;
+                default:
+                    if(property == "w") {
+                        whichHTML.style.width = +value * (100 / config.gridCols) + "%";
+                    } else if(property == "h") {
+                        whichHTML.style.height = +value * (100 / config.gridLines) + "%";
+                    }
+                    break;
+            }
         } else {
             whichHTML.style[styleAttributes[property]] = value; // Update on screen
         }

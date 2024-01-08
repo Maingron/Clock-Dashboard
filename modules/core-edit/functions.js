@@ -35,8 +35,8 @@ function toggleEditMode(edittruefalse = !config.edit_mode) {
 function createNewBlock(type) {
     var myNewBlock = {
         "type": type,
-        "x": (config.gridX * (Math.floor((document.body.offsetWidth / config.gridX) / 2))) + "px",
-        "y": (config.gridX * (Math.floor((document.body.offsetHeight / config.gridX) / 2))) + "px",
+        "x": Math.floor(config.gridCols / 2),
+        "y": Math.floor(config.gridLines / 2),
         "w": "auto",
         "h": "auto",
         "id": config.myWatchface.length,
@@ -72,8 +72,8 @@ function dragBlock(which) {
     if(session.mouseDown) {
         document.body.classList.add("mousedown");
         if(session.mouseDownOn?.parentElement?.parentElement && isSelectedBlock(session.mouseDownOn.parentElement.parentElement)) {
-            setBlockSetting(which, "x", (gridifyValue(myMovingBlockOffsetX + (session.mouseX - session.mouseXinitial))) + "px");
-            setBlockSetting(which, "y", (gridifyValue(myMovingBlockOffsetY + (session.mouseY - session.mouseYinitial))) + "px");
+            setBlockSetting(which, "x", (gridifyValue(((myMovingBlockOffsetX / config.gridCols) + (session.mouseX - session.mouseXinitial)), false)));
+            setBlockSetting(which, "y", (gridifyValue((myMovingBlockOffsetY / config.gridLines) + (session.mouseY - session.mouseYinitial), true)));
         }
     } else {
         document.body.classList.remove("mousedown");
@@ -84,10 +84,14 @@ function dragBlock(which) {
 /**
 * Rounds a value to be within the grid system
 * @param {number} value desired value to be converted
+* @param {boolean} yinsteadofx - calculate y instead of default x
 * @returns {number} gridified value
 */
-function gridifyValue(value) {
-    return Math.round(value / config.gridX) * config.gridX;
+function gridifyValue(value, yinsteadofx = false) {
+    if(yinsteadofx) {
+        return (Math.round(+value / (+document.body.offsetHeight / +config.gridLines)));
+    }
+    return (Math.round(+value / (+document.body.offsetWidth / +config.gridCols)));
 }
 
 
@@ -100,20 +104,20 @@ function initEventListeners_edit() {
     }
 
     document.addEventListener("mousemove", function(event) {
-        session.mouseX = gridifyValue(event.clientX);
-        session.mouseY = gridifyValue(event.clientY);
+        session.mouseX = event.clientX;
+        session.mouseY = event.clientY;
         dragBlock(session.selectedBlock);
     });
 
     document.addEventListener("touchmove", function(event) {
-        session.mouseX = gridifyValue(event.changedTouches[0].clientX);
-        session.mouseY = gridifyValue(event.changedTouches[0].clientY);
+        session.mouseX = event.changedTouches[0].clientX;
+        session.mouseY = event.changedTouches[0].clientY;
         dragBlock(session.selectedBlock);
     });
 
     document.addEventListener("touchstart", function(event) {
-        session.mouseX = gridifyValue(event.changedTouches[0].clientX);
-        session.mouseY = gridifyValue(event.changedTouches[0].clientY);
+        session.mouseX = event.changedTouches[0].clientX;
+        session.mouseY = event.changedTouches[0].clientY;
         dragBlock(session.selectedBlock);
     });
 
@@ -157,8 +161,8 @@ function addEditBar(which) {
         session.mouseXinitial = gridifyValue(session.mouseX);
         session.mouseYinitial = gridifyValue(session.mouseY);
         session.mouseDownOn = event.srcElement;
-        myMovingBlockOffsetX = session.mouseDownOn.parentElement.parentElement.offsetLeft;
-        myMovingBlockOffsetY = session.mouseDownOn.parentElement.parentElement.offsetTop;
+        myMovingBlockOffsetX = session.mouseDownOn.parentElement.parentElement.offsetLeft + session.mouseDownOn.parentElement.parentElement.offsetWidth / 2;
+        myMovingBlockOffsetY = session.mouseDownOn.parentElement.parentElement.offsetTop + session.mouseDownOn.parentElement.parentElement.offsetHeight / 2;
         selectBlock(this);
         dragBlock(which);
         event.preventDefault();

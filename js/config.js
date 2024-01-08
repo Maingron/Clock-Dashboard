@@ -16,13 +16,14 @@ function loadConfig() {
     } else {
         // Generate Config
         config = { // Initial configuration
-            "tps": "20",
+            "tps": 20,
             "debug": true,
             "edit_mode": true,
             "bodyBackgroundImage": "url()",
             "bodyBackgroundImageEnable": false,
             "one_rem": "32px",
-            "gridX": "50",
+            "gridCols": 10,
+            "gridLines": 8,
             "themecolor": "#777777",
             "loadmodules": [
                 "modules/core-settings/module.js",
@@ -41,16 +42,16 @@ function loadConfig() {
             ],
             "myWatchface": [
                 {
-                    "x": "-0",
-                    "y": "0",
+                    "x": -1,
+                    "y": 0,
                     "w": "auto",
                     "h": "auto",
                     "type": "core-edit/top-right-menu",
                     "editable": false
                 },
                 {
-                    "x": "-0",
-                    "y": "60px",
+                    "x": -1,
+                    "y": 1,
                     "w": "auto",
                     "h": "auto",
                     "type": "core-edit/createblock",
@@ -58,8 +59,8 @@ function loadConfig() {
                     "editable": false
                 },
                 {
-                    "x": "0",
-                    "y": "60px",
+                    "x": 0,
+                    "y": 1,
                     "w": "100%",
                     "h": "calc(100vh - 60px)",
                     "type": "core-settings/settings",
@@ -67,8 +68,8 @@ function loadConfig() {
                     "editable": false
                 },
                 {
-                    "x": "0",
-                    "y": "0",
+                    "x": 0,
+                    "y": 0,
                     "w": "100%",
                     "h": "100vh",
                     "type": "core-settings/settings-out",
@@ -76,8 +77,8 @@ function loadConfig() {
                     "editable": false
                 },
                 {
-                    "x": "60px",
-                    "y": "60px",
+                    "x": 1,
+                    "y": 1,
                     "w": "auto",
                     "h": "auto",
                     "type": "time-display/fullclock"

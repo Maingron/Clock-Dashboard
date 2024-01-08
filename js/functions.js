@@ -97,19 +97,19 @@ function renderBlockSetting(which, property) {
         if(property == "x" || property == "y") {
             // Negative value means calculate from right:
             if(property == "x") {
-                if(value.charAt(0) == "-") {
+                if(value < 0) {
                     whichHTML.style.left = "";
-                    whichHTML.style.right = value.replace("-","");
+                    whichHTML.style.right = Math.abs((value + 1) * (100 / config.gridCols)) + "%";
                 } else {
-                    whichHTML.style.left = value;
+                    whichHTML.style.left = +value * (100 / config.gridCols) + "%";
                     whichHTML.style.right = "";
                 }
             } else if(property == "y") {
-                if(value.charAt(0) == "-") {
+                if(value < 0) {
                     whichHTML.style.top = "";
-                    whichHTML.style.bottom = value.replace("-","");
+                    whichHTML.style.bottom = Math.abs((value + 1) * (100 / config.gridLines)) + "%";
                 } else {
-                    whichHTML.style.top = value;
+                    whichHTML.style.top = +value * (100 / config.gridLines) + "%";
                     whichHTML.style.bottom = "";
                 }
             }

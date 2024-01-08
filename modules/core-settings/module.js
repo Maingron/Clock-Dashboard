@@ -25,7 +25,8 @@ function updateSettings() {
         document.getElementById("setting-debug").setAttribute("checked", "checked");
     }
     document.getElementById("setting-tps").setAttribute("value", getConfigEntry("tps"));
-    document.getElementById("setting-gridx").setAttribute("value", getConfigEntry("gridX"));
+    document.getElementById("setting-gridCols").setAttribute("value", getConfigEntry("gridCols"));
+    document.getElementById("setting-gridLines").setAttribute("value", getConfigEntry("gridLines"));
     document.getElementById("setting-enabled_modules").innerHTML = settings_loadModulesList();
     document.getElementById("setting-disabled_modules").innerHTML = settings_loadUnloadmodulesList();
     document.getElementById("setting-themecolor").setAttribute("value", getConfigEntry("themecolor"));

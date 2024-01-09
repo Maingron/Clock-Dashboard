@@ -50,7 +50,7 @@ function setBlockSetting(which, property, value) {
 * @returns value of desired property
 */
 function getBlockSetting(which, property) {
-    return getBlock(which, true)?.[property];
+    return getBlock(which, true)?.[property] ?? ""; // TODO: Improve error handling
 }
 
 

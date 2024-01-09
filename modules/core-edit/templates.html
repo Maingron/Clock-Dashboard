@@ -31,6 +31,25 @@
         <span>y</span>
         <input class="hb-y" issetting="y" type="number" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <hr>
+        <h4 class="d-block">Alignment</h4>
+        <div class="hb-align">
+            <div>
+                <input type="radio" issetting="align" name="hb-align" value="top left" onchange="headbar_saveEditExpandSettings(this)">
+                <input type="radio" issetting="align" name="hb-align" value="top center" onchange="headbar_saveEditExpandSettings(this)">
+                <input type="radio" issetting="align" name="hb-align" value="top right" onchange="headbar_saveEditExpandSettings(this)">
+            </div>
+            <div>
+                <input type="radio" issetting="align" name="hb-align" value="middle left" onchange="headbar_saveEditExpandSettings(this)">
+                <input type="radio" issetting="align" name="hb-align" value="middle center" onchange="headbar_saveEditExpandSettings(this)">
+                <input type="radio" issetting="align" name="hb-align" value="middle right" onchange="headbar_saveEditExpandSettings(this)">
+            </div>
+            <div>
+                <input type="radio" issetting="align" name="hb-align" value="bottom left" onchange="headbar_saveEditExpandSettings(this)">
+                <input type="radio" issetting="align" name="hb-align" value="bottom center" onchange="headbar_saveEditExpandSettings(this)">
+                <input type="radio" issetting="align" name="hb-align" value="bottom right" onchange="headbar_saveEditExpandSettings(this)">
+            </div>
+        </div>
+        <hr>
         <h4 class="d-block">Text</h4>
         <span>Color:</span>
         <input class="hb-f-c" issetting="f-c" type="color" onchange="headbar_saveEditExpandSettings(this)">

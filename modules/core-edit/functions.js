@@ -37,9 +37,10 @@ function createNewBlock(type) {
         "type": type,
         "x": Math.floor(config.gridCols / 2),
         "y": Math.floor(config.gridLines / 2),
-        "w": "auto",
-        "h": "auto",
+        "w": 1,
+        "h": 1,
         "id": config.myWatchface.length,
+        "align": "middle center",
         "f-s": "1em"
         // "f-c": ""
     }

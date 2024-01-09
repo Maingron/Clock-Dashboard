@@ -16,7 +16,7 @@ html {
         }
 
         .display-edit {
-            display: initial;
+            display: inline-flex;
         }
 
         .block {
@@ -53,6 +53,7 @@ html {
                 box-sizing: border-box;
                 user-select: none;
                 pointer-events: none;
+                text-align: left;
                 &.min-headbar {
                     background-color: transparent !important;
                     button {
@@ -141,15 +142,21 @@ html {
                     height: auto;
                     width: 300px;
                     left: 0;
-                    top: 100%;
+                    top: calc(100% - 5px);
                     max-width: 80vw;
-                    background: rgba(127,127,127,.4);
+                    background: rgba(100,100,100,.3);
+                    backdrop-filter: blur(6px);
                     position: absolute;
                     display: inline-block;
                     pointer-events: all;
                     padding: .2rem;
                     z-index: 1040;
                     font-size: 1rem;
+                    text-align: left;
+                    max-height: 40vh;
+                    overflow: auto;
+                    border-radius: 12px;
+
                     &,* {
                         box-sizing: border-box;
                     }

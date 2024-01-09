@@ -132,6 +132,26 @@ function renderBlockSetting(which, property) {
         } else {
             whichHTML.style[styleAttributes[property]] = value; // Update on screen
         }
+    } else if(property == "align") {
+        if(value.indexOf("left") > -1) {
+            whichHTML.style.justifyContent = "left";
+        }
+        if(value.indexOf("center") > -1) {
+            whichHTML.style.justifyContent = "center";
+        }
+        if(value.indexOf("right") > -1) {
+            whichHTML.style.justifyContent = "right";
+        }
+
+        if(value.indexOf("top") > -1) {
+            whichHTML.style.alignItems = "start";
+        }
+        if(value.indexOf("middle") > -1) {
+            whichHTML.style.alignItems = "center";
+        }
+        if(value.indexOf("bottom") > -1) {
+            whichHTML.style.alignItems = "end";
+        }
     } else {
         // Update on screen
         whichHTML[property] = value;
@@ -418,6 +438,7 @@ function initBlocks() {
         renderBlockSetting(mySpawnedBlock, "h");
         renderBlockSetting(mySpawnedBlock, "f-c");
         renderBlockSetting(mySpawnedBlock, "f-s");
+        renderBlockSetting(mySpawnedBlock, "align");
 
         e.blocks.push(mySpawnedBlock);
     }

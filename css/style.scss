@@ -63,12 +63,17 @@ html {
             line-height: 1;
             // font-size: 3em;
             position: absolute;
-            display: inline-block;
+            display: flex;
+
             error { // Hide blocks with error
                 display: none;
             }
+
             content {
                 display:inline-flex;
+                max-height: 100%;
+                max-width: 100%;
+                overflow: auto;
             }
             iframe {
                 border: 0;

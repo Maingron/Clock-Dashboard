@@ -17,7 +17,7 @@ if(config.edit_mode) {
     var myMovingBlockOffsetX;
     var myMovingBlockOffsetY;
 
-    loadCSSFile("modules/core-edit/style.css");
+    loadCSSFile("modules/core-edit/style.min.css");
 }
 
 

@@ -14,9 +14,11 @@
 
 .block[type="custom-text/custom_iframe"] {
     content {
-        display: inline !important;
         font-size: 0 !important;
         line-height: 0 !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: inline-block !important;
     }
 }
 

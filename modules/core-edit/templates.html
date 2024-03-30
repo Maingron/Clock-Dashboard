@@ -21,14 +21,14 @@
         <div class="hb-custom"></div>
         <hr>
         <h4 class="d-block">Positioning</h4>
-        <span>h</span>
+        <label>h</label>
         <input class="hb-h" issetting="h" type="number" size="5" onchange="headbar_saveEditExpandSettings(this)">
-        <span>w</span>
+        <label>w</label>
         <input class="hb-w" issetting="w" type="number" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <br>
-        <span>x</span>
+        <label>x</label>
         <input class="hb-x" issetting="x" type="number" size="5" onchange="headbar_saveEditExpandSettings(this)">
-        <span>y</span>
+        <label>y</label>
         <input class="hb-y" issetting="y" type="number" size="5" onchange="headbar_saveEditExpandSettings(this)">
         <hr>
         <h4 class="d-block">Alignment</h4>
@@ -51,9 +51,10 @@
         </div>
         <hr>
         <h4 class="d-block">Text</h4>
-        <span>Color:</span>
+        <label>Color:</label>
         <input class="hb-f-c" issetting="f-c" type="color" onchange="headbar_saveEditExpandSettings(this)">
         <br>
+        <label>Size:</label>
         <br>
         <label for="hb-f-lh">Line height:</label>
         <input class="hb-f-lh" issetting="f-lh" type="range" min="0" max="4" step="0.1" onchange="headbar_saveEditExpandSettings(this); this.setAttribute('title', this.value)">

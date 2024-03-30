@@ -10,4 +10,4 @@ meta["custom-text"] = {
 
 
 loadHTMLTemplate("modules/custom-text/templates.html");
-loadCSSFile("modules/custom-text/style.css");
+loadCSSFile("modules/custom-text/style.min.css");

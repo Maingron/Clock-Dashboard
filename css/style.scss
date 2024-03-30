@@ -74,6 +74,8 @@ html {
                 max-height: 100%;
                 max-width: 100%;
                 overflow: auto;
+                position: relative;
+                padding: .2rem 0;
             }
             iframe {
                 border: 0;

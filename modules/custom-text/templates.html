@@ -67,3 +67,14 @@
         <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'text')" alt="" tabindex="-1">
     </settings>
 </template>
+
+
+<template id="custom_html" class="custom-html">
+    <customcontent></customcontent>
+    <img src="../../img/transparent.png" onload="this.previousElementSibling.innerHTML = getBlockSetting(getBlockByChild(this), 'customhtml')" alt="">
+    <settings>
+        <span>html:</span>
+        <textarea onchange="setBlockSetting(getBlockByChild(this), 'customhtml', this.value); getBlockByChild(this).getElementsByTagName('customcontent')[0].innerHTML = this.value;"></textarea>
+        <img src="../../img/transparent.png" onload="this.previousElementSibling.value = getBlockSetting(getBlockByChild(this), 'customhtml')" alt="">
+    </settings>
+</template>

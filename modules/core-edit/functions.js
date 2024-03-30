@@ -41,7 +41,8 @@ function createNewBlock(type) {
         "h": 1,
         "id": config.myWatchface.length,
         "align": "middle center",
-        "f-s": "1em"
+        "f-s": "1em",
+        "f-lh": "1"
         // "f-c": ""
     }
     config.myWatchface.push(myNewBlock);
@@ -202,6 +203,8 @@ function headbar_updateEditExpandSettings(which) {
     which.getElementsByClassName("hb-f-s")[0].setAttribute("step", .25);
     which.getElementsByClassName("hb-f-s")[0].setAttribute("min", .25);
     which.getElementsByClassName("hb-f-s")[0].setAttribute("title", getBlockSetting(which, "f-s"));
+    which.getElementsByClassName("hb-f-lh")[0].value = +(getBlockSetting(which, "f-lh"));
+    which.getElementsByClassName("hb-f-lh")[0].setAttribute("title", getBlockSetting(which, "f-lh"));
 
     which.getElementsByClassName("hb-custom")[0].innerHTML = getTemplateSettings(which); // Custom settings defined in each templates <settings> section (optional)
 }

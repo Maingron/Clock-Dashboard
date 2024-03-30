@@ -89,6 +89,7 @@ function renderBlockSetting(which, property) {
         "w": "width",
         "y": "top",
         "x": "left",
+        "f-lh": "line-height",
         "f-c": "color",
         "f-s": "font-size"
     };
@@ -438,6 +439,7 @@ function initBlocks() {
         renderBlockSetting(mySpawnedBlock, "h");
         renderBlockSetting(mySpawnedBlock, "f-c");
         renderBlockSetting(mySpawnedBlock, "f-s");
+        renderBlockSetting(mySpawnedBlock, "f-lh");
         renderBlockSetting(mySpawnedBlock, "align");
 
         e.blocks.push(mySpawnedBlock);
